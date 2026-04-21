@@ -1,0 +1,18 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" rx="22" fill="#070709"/>
+  <!-- Bottom layer -->
+  <path d="M50 82 L76 68 L50 54 L24 68 Z" stroke="#4F7FFF" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Middle layer -->
+  <path d="M50 66 L76 52 L50 38 L24 52 Z" stroke="#4F7FFF" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Top layer -->
+  <path d="M50 50 L76 36 L50 22 L24 36 Z" stroke="white" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Data node 1 -->
+  <circle cx="37" cy="38" r="3.5" fill="white"/>
+  <!-- Data node 2 -->
+  <circle cx="51" cy="31" r="3.5" fill="none" stroke="white" stroke-width="3"/>
+  <!-- Trend line -->
+  <polyline points="37,38 51,31 64,21" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Arrow -->
+  <line x1="64" y1="21" x2="72" y2="13" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <polyline points="66,13 72,13 72,19" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
