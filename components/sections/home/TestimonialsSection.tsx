@@ -84,8 +84,8 @@ export function TestimonialsSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.1 }}
           >
-            Results that speak{" "}
-            <span className="text-gradient-accent">for themselves</span>
+            Real clients.{" "}
+            <span className="text-gradient-accent">Real revenue.</span>
           </motion.h2>
           <motion.p
             className="text-co-text-muted text-base md:text-lg max-w-md mx-auto leading-relaxed"
@@ -93,7 +93,8 @@ export function TestimonialsSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.2 }}
           >
-            Service business owners who went from invisible to fully booked.
+            Service business owners who stopped relying on referrals and built
+            a system that brings in leads every month — with numbers to prove it.
           </motion.p>
         </div>
 
@@ -198,7 +199,7 @@ export function TestimonialsSection() {
             href="/contact"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-co-accent hover:text-co-accent-light transition-colors duration-200"
           >
-            Ready to see results like these?
+            Want results like these? Book a free 30-minute strategy call.
             <ArrowUpRight size={14} />
           </Link>
         </motion.div>

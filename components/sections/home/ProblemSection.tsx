@@ -262,7 +262,7 @@ export function ProblemSection() {
               </SectionLabel>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-co-text">
-              Most service businesses are{" "}
+              Most service businesses are losing{" "}
               <span
                 style={{
                   background:
@@ -272,9 +272,8 @@ export function ProblemSection() {
                   backgroundClip: "text",
                 }}
               >
-                bleeding money
-              </span>{" "}
-              online
+                30–70% of their potential clients.
+              </span>
             </h2>
           </motion.div>
 
@@ -284,8 +283,8 @@ export function ProblemSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, ease: EASE_PREMIUM, delay: 0.12 }}
           >
-            Not because their service is bad — because their digital presence
-            was never built to win.{" "}
+            Not because their service is bad — because they don&apos;t have a
+            system to capture, follow up, and convert leads.{" "}
             <span className="text-co-text-secondary">
               Every problem below has a direct, measurable cost.
             </span>
@@ -314,7 +313,8 @@ export function ProblemSection() {
             }}
           >
             <p className="text-[15px] md:text-base font-medium text-co-text leading-relaxed">
-              Most service businesses lose{" "}
+              Every day you operate without a proper system, a competitor with
+              one is taking your clients.{" "}
               <span
                 className="font-bold"
                 style={{
@@ -325,10 +325,9 @@ export function ProblemSection() {
                   backgroundClip: "text",
                 }}
               >
-                thousands every month
+                30–70% of potential revenue
               </span>{" "}
-              without realising it. Right now, competitors are capturing the
-              customers you're leaving behind.
+              disappears before you ever know it existed.
             </p>
           </div>
         </motion.div>
@@ -342,10 +341,10 @@ export function ProblemSection() {
         >
           <div className="h-px w-12 bg-co-accent/40 mb-7" />
           <p className="text-xl md:text-2xl font-medium text-co-text leading-relaxed">
-            Every one of these is fixable.{" "}
+            Every one of these is fixable — fast.{" "}
             <span className="text-co-text">
-              The businesses that fix them first don't just catch up — they
-              pull ahead and make it hard for competitors to follow.
+              The businesses that fix them first don&apos;t just catch up. They
+              pull so far ahead that competitors can&apos;t follow.
             </span>
           </p>
         </motion.div>

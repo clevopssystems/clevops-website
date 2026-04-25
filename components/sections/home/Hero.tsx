@@ -388,14 +388,14 @@ export function Hero() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-co-accent" />
               </span>
               <span className="text-xs font-semibold tracking-widest uppercase text-co-text-secondary">
-                Premium Growth Systems · Service Businesses
+                For Cleaning · Detailing · HVAC · Home Services
               </span>
             </motion.div>
 
             {/* Headline — cinematic scale */}
             <h1
               className="font-black leading-[0.93] tracking-[-0.04em] mb-8 text-co-text"
-              style={{ fontSize: "clamp(4rem, 8.5vw, 7rem)" }}
+              style={{ fontSize: "clamp(3.5rem, 8.5vw, 7rem)" }}
             >
               {/* Line 1 */}
               <div className="overflow-hidden">
@@ -409,7 +409,7 @@ export function Hero() {
                   }}
                   className="block"
                 >
-                  Your Site Is
+                  You&apos;re losing clients
                 </motion.div>
               </div>
 
@@ -426,7 +426,7 @@ export function Hero() {
                   className="block"
                   style={{ color: "rgba(240,240,242,0.92)" }}
                 >
-                  Costing You
+                  every day to
                 </motion.div>
               </div>
 
@@ -443,7 +443,7 @@ export function Hero() {
                   className="block"
                 >
                   <span className="relative inline-block">
-                    <span className="text-gradient-accent">Jobs Every Day.</span>
+                    <span className="text-gradient-accent">better systems.</span>
 
                     {/* Draw-in underline */}
                     <motion.span
@@ -486,9 +486,9 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.78 }}
             >
-              Every hour without automated lead capture, instant responses, and
-              a conversion-first website is revenue going to a competitor.
-              ClevOps builds the complete system that fixes all of it — fast.
+              Most service businesses don&apos;t have a system to capture, follow
+              up, and convert leads. We fix that — and most clients see their
+              first new leads within 14 days of launch.
             </motion.p>
 
             {/* CTAs */}
@@ -524,20 +524,20 @@ export function Hero() {
                   icon={<ArrowUpRight size={16} />}
                   className="relative shadow-glow-md hover:shadow-glow-lg hover:-translate-y-0.5 transition-all duration-300 text-base px-8 py-4"
                 >
-                  Book a Free Consultation
+                  Get More Clients
                 </Button>
               </div>
 
-              <Button href="/work" size="lg" variant="outline">
-                See Our Work
+              <Button href="/contact" size="lg" variant="outline">
+                See How It Works
               </Button>
             </motion.div>
 
             {/* Stats row */}
             <div className="flex flex-wrap gap-3 relative z-20">
               {[
-                { value: "3×", label: "More Qualified Leads" },
-                { value: "92%", label: "Client Satisfaction" },
+                { value: "3×", label: "Average Lead Increase" },
+                { value: "28s", label: "Lead Response Time" },
                 { value: "14d", label: "Avg. Launch Time" },
               ].map((stat, i) => (
                 <StatCard

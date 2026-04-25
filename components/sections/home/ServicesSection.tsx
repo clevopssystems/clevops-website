@@ -113,16 +113,17 @@ export function ServicesSection() {
               variants={headerH2}
               className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-co-text"
             >
-              Five systems that work{" "}
-              <span className="text-gradient-accent">together</span>
+              Everything working together to{" "}
+              <span className="text-gradient-accent">bring you clients</span>
             </motion.h2>
           </div>
           <motion.p
             variants={headerP}
             className="text-co-text-muted text-base md:text-lg leading-relaxed"
           >
-            Each service is engineered around one outcome: more qualified
-            customers finding, trusting, and booking your business.
+            Each piece feeds the next. A website without a follow-up system
+            leaks clients. A follow-up system without SEO runs dry. This is
+            how you build something that compounds.
           </motion.p>
         </motion.div>
 

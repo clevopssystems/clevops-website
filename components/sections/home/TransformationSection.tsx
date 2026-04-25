@@ -465,8 +465,8 @@ export function TransformationSection() {
             transition={{ duration: 0.6, ease: EASE_PREMIUM }}
             className="flex justify-center mb-4"
           >
-            <div className="inline-flex items-center gap-2.5 rounded-full px-4 py-2 border border-white/12 bg-white/[0.05] text-[11px] font-semibold tracking-widest uppercase text-gray-400">
-              The Transformation
+            <div className="inline-flex items-center gap-2.5 rounded-full px-4 py-2 border border-red-500/20 bg-red-500/[0.05] text-[11px] font-semibold tracking-widest uppercase text-red-400/70">
+              Sound familiar?
             </div>
           </motion.div>
 
@@ -476,7 +476,7 @@ export function TransformationSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.1 }}
           >
-            You&apos;ll recognise{" "}
+            This is how most businesses{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #f87171 0%, #fb923c 100%)",
@@ -485,7 +485,7 @@ export function TransformationSection() {
                 backgroundClip: "text",
               }}
             >
-              the left side.
+              operate today.
             </span>
           </motion.h2>
 
@@ -495,8 +495,8 @@ export function TransformationSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.2 }}
           >
-            One generates calls around the clock. The other costs you jobs
-            every day — without you knowing it.
+            The left side costs you jobs every day. The right side books them
+            while you sleep. Drag to see the difference.
           </motion.p>
         </div>
 

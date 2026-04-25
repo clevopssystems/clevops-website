@@ -118,10 +118,9 @@ export function SmsVisualSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.1 }}
             >
-              Respond in{" "}
-              <span className="text-gradient-accent">28 seconds.</span>
+              <span className="text-gradient-accent">Speed = more clients.</span>
               <br />
-              Even when you&apos;re on a job.
+              Respond in 28 seconds — automatically.
             </motion.h2>
 
             <motion.p
@@ -130,9 +129,9 @@ export function SmsVisualSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.2 }}
             >
-              78% of customers book with whoever responds first — not the best
-              business, the fastest one. ClevOps builds instant auto-response
-              systems that capture every lead, around the clock.
+              78% of customers book the first business that responds — not the
+              best one. We make sure that&apos;s always you, even when you&apos;re on a
+              job.
             </motion.p>
 
             <motion.ul

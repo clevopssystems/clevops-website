@@ -102,15 +102,15 @@ export function ProcessSection() {
             variants={headerH2}
             className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-co-text mb-5"
           >
-            A process built for{" "}
-            <span className="text-gradient-accent">real outcomes</span>
+            How we actually{" "}
+            <span className="text-gradient-accent">get you clients</span>
           </motion.h2>
           <motion.p
             variants={headerP}
             className="text-co-text-muted text-base md:text-lg leading-relaxed"
           >
-            Five focused phases from discovery to ongoing growth. Each one reduces
-            risk and moves the needle in a specific direction.
+            Five steps. No templates, no guesswork. Every phase is built to
+            move the needle on one thing: clients in your calendar.
           </motion.p>
         </motion.div>
 

@@ -410,12 +410,8 @@ export function SystemFlowSection() {
             transition={{ duration: 0.6, ease: EASE_PREMIUM }}
             className="flex justify-center mb-5"
           >
-            <div className="inline-flex items-center gap-2.5 rounded-full px-4 py-2 border border-co-border bg-white/[0.03] text-[11px] font-semibold tracking-widest uppercase text-co-text-secondary backdrop-blur-sm">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-co-accent opacity-60" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-co-accent" />
-              </span>
-              The ClevOps System
+            <div className="inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 border border-co-accent/30 bg-co-accent/[0.06] text-sm font-bold tracking-wide text-co-accent backdrop-blur-sm">
+              We build → capture → follow up → convert
             </div>
           </motion.div>
 
@@ -425,8 +421,8 @@ export function SystemFlowSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.1 }}
           >
-            How the system{" "}
-            <span className="text-gradient-accent">works</span>
+            The simple system that{" "}
+            <span className="text-gradient-accent">gets you clients</span>
           </motion.h2>
 
           <motion.p
@@ -435,8 +431,8 @@ export function SystemFlowSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.2 }}
           >
-            From first click to booked job — a connected pipeline that runs
-            24/7, turning visitors into revenue automatically.
+            Six steps. Runs 24/7. Every visitor gets captured, every lead gets
+            followed up, every job gets booked — automatically.
           </motion.p>
         </div>
 
@@ -520,8 +516,8 @@ export function SystemFlowSection() {
             <p className="text-co-text-secondary text-sm md:text-[15px] leading-relaxed">
               The result:{" "}
               <span className="text-co-text font-semibold">
-                more qualified customers finding, trusting, and booking your
-                business — automatically, every day.
+                clients contact you, get followed up with instantly, and book —
+                while you&apos;re focused on doing the actual work.
               </span>
             </p>
           </div>

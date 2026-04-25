@@ -152,16 +152,17 @@ export function FeaturedWork() {
               variants={headerH2}
               className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-co-text"
             >
-              From invisible to{" "}
-              <span className="text-gradient-accent">undeniable</span>
+              Go from invisible on Google to{" "}
+              <span className="text-gradient-accent">consistent leads</span>
             </motion.h2>
           </div>
           <motion.p
             variants={headerP}
             className="text-co-text-muted text-base md:text-lg leading-relaxed"
           >
-            A residential cleaning service that had excellent reviews and zero
-            digital traction — rebuilt into a premium, lead-generating presence.
+            A cleaning business with great reviews and zero online leads.
+            We rebuilt their digital presence into a machine that books jobs
+            while they work — without chasing a single referral.
           </motion.p>
         </motion.div>
 

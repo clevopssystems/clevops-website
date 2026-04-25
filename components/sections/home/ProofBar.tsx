@@ -58,6 +58,14 @@ export function ProofBar() {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-violet/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8">
+        <motion.p
+          className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-co-text-muted pt-7 pb-0"
+          initial={{ opacity: 0, y: 10 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: EASE_PREMIUM }}
+        >
+          What happens when you have the right system
+        </motion.p>
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-co-border">
           {metrics.map((metric, i) => {
             const Icon = metric.icon;
