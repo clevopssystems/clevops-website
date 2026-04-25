@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
@@ -65,18 +66,21 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersList = await headers();
+  const isAdmin = headersList.get("x-is-admin") === "1";
+
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body className="min-h-screen bg-co-bg text-co-text antialiased" suppressHydrationWarning>
-        <Navigation />
+        {!isAdmin && <Navigation />}
         <main>{children}</main>
-        <Footer />
-        <MobileStickyCTA />
+        {!isAdmin && <Footer />}
+        {!isAdmin && <MobileStickyCTA />}
       </body>
     </html>
   );
