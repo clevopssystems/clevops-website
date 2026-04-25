@@ -1,7 +1,13 @@
 node_modules
 .next
-.env
-.env.local
 .vercel
 *.log
 tsconfig.tsbuildinfo
+
+# Environment files — never commit any of these
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+.env*.local

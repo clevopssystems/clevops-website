@@ -199,7 +199,7 @@ export default function ServicesPage() {
 function ServiceBlock({
   service,
   Icon,
-  index,
+  index: _index,
 }: {
   service: (typeof services)[0];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

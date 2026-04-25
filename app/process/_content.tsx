@@ -189,7 +189,7 @@ export default function ProcessPage() {
 
 function PhaseBlock({
   phase,
-  index,
+  index: _index,
 }: {
   phase: (typeof phases)[0];
   index: number;

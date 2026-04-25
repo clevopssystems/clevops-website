@@ -1,8 +1,16 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Send, Mail, Clock, CheckCircle2, AlertCircle, ArrowUpRight } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import Script from "next/script";
+import {
+  Send,
+  Mail,
+  Clock,
+  CheckCircle2,
+  AlertCircle,
+  ArrowUpRight,
+} from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
@@ -34,6 +42,9 @@ const contactDetails = [
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
+// Resolved at build time — undefined when env var not set (captcha disabled)
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
+
 export default function ContactPage() {
   const headerRef = useRef(null);
   const headerInView = useInView(headerRef, { once: true, amount: 0.3 });
@@ -45,8 +56,51 @@ export default function ContactPage() {
   const [errorMessage, setErrorMessage] = useState("");
   const [selectedService, setSelectedService] = useState<string>("");
 
+  // Bot-protection refs — not state (no re-renders needed)
+  const formStartTimeRef = useRef<number>(0);
+  const turnstileTokenRef = useRef<string>("");
+  const widgetIdRef = useRef<string>("");
+  const widgetContainerRef = useRef<HTMLDivElement>(null);
+  const turnstileRenderedRef = useRef(false);
+
+  useEffect(() => {
+    formStartTimeRef.current = Date.now();
+  }, []);
+
+  function renderTurnstileWidget() {
+    if (
+      !TURNSTILE_SITE_KEY ||
+      turnstileRenderedRef.current ||
+      !widgetContainerRef.current ||
+      !window.turnstile
+    )
+      return;
+
+    widgetIdRef.current = window.turnstile.render(widgetContainerRef.current, {
+      sitekey: TURNSTILE_SITE_KEY,
+      theme: "dark",
+      callback: (token: string) => {
+        turnstileTokenRef.current = token;
+      },
+      "expired-callback": () => {
+        turnstileTokenRef.current = "";
+      },
+    });
+    turnstileRenderedRef.current = true;
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Client-side captcha guard — prevents submit before widget loads
+    if (TURNSTILE_SITE_KEY && !turnstileTokenRef.current) {
+      setFormState("error");
+      setErrorMessage(
+        "Please wait for the bot verification to load, then try again."
+      );
+      return;
+    }
+
     setFormState("submitting");
     setErrorMessage("");
 
@@ -60,6 +114,10 @@ export default function ContactPage() {
         website: formData.get("website") as string,
         service: selectedService,
         message: formData.get("message") as string,
+        // Bot-protection fields
+        honeypot: formData.get("honeypot") as string,
+        formStartTime: formStartTimeRef.current,
+        turnstileToken: turnstileTokenRef.current || undefined,
       };
 
       const res = await fetch("/api/contact", {
@@ -71,12 +129,19 @@ export default function ContactPage() {
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.error || "Something went wrong. Please try again.");
+        throw new Error(
+          data.error || "Something went wrong. Please try again."
+        );
       }
 
       setFormState("success");
     } catch (err) {
       setFormState("error");
+      // Reset Turnstile so user can re-verify after a failed attempt
+      if (window.turnstile && widgetIdRef.current) {
+        window.turnstile.reset(widgetIdRef.current);
+        turnstileTokenRef.current = "";
+      }
       setErrorMessage(
         err instanceof Error
           ? err.message
@@ -96,7 +161,8 @@ export default function ContactPage() {
         <div
           className="orb w-[500px] h-[350px] top-0 left-1/2 -translate-x-1/2"
           style={{
-            background: "radial-gradient(ellipse, rgba(79,127,255,0.12) 0%, transparent 70%)",
+            background:
+              "radial-gradient(ellipse, rgba(79,127,255,0.12) 0%, transparent 70%)",
           }}
         />
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 text-center">
@@ -116,14 +182,20 @@ export default function ContactPage() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           >
             Let&apos;s build something{" "}
-            <span className="text-gradient-accent">your business can grow from</span>
+            <span className="text-gradient-accent">
+              your business can grow from
+            </span>
           </motion.h1>
 
           <motion.p
             className="text-co-text-secondary text-base md:text-lg max-w-xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 16 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
+            transition={{
+              duration: 0.7,
+              ease: [0.16, 1, 0.3, 1],
+              delay: 0.25,
+            }}
           >
             Book a free consultation. We will review your current presence,
             understand your goals, and show you exactly how we would build your
@@ -174,32 +246,79 @@ export default function ContactPage() {
                       Tell us about your project
                     </h2>
                     <p className="text-xs text-co-text-muted mt-1">
-                      Fields marked <span className="text-co-accent">*</span> are required
+                      Fields marked{" "}
+                      <span className="text-co-accent">*</span> are required
                     </p>
                   </div>
 
                   {/* Error banner */}
                   {formState === "error" && (
                     <div className="flex items-start gap-3 rounded-xl border border-red-500/20 bg-red-500/[0.06] px-4 py-3">
-                      <AlertCircle size={16} className="text-red-400 shrink-0 mt-0.5" />
+                      <AlertCircle
+                        size={16}
+                        className="text-red-400 shrink-0 mt-0.5"
+                      />
                       <p className="text-sm text-red-400">{errorMessage}</p>
                     </div>
                   )}
 
+                  {/* Honeypot — off-screen, aria-hidden, bots fill it, humans don't */}
+                  <input
+                    type="text"
+                    name="honeypot"
+                    defaultValue=""
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    style={{
+                      position: "absolute",
+                      left: "-9999px",
+                      width: 0,
+                      height: 0,
+                      opacity: 0,
+                      overflow: "hidden",
+                    }}
+                  />
+
                   {/* Name + Business */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <FormField label="Your Name" name="name" placeholder="John Smith" required />
-                    <FormField label="Business Name" name="business" placeholder="Smith Cleaning Co." required />
+                    <FormField
+                      label="Your Name"
+                      name="name"
+                      placeholder="John Smith"
+                      required
+                    />
+                    <FormField
+                      label="Business Name"
+                      name="business"
+                      placeholder="Smith Cleaning Co."
+                      required
+                    />
                   </div>
 
                   {/* Email + Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <FormField label="Email Address" name="email" type="email" placeholder="john@business.com" required />
-                    <FormField label="Phone Number" name="phone" type="tel" placeholder="(555) 123-4567" />
+                    <FormField
+                      label="Email Address"
+                      name="email"
+                      type="email"
+                      placeholder="john@business.com"
+                      required
+                    />
+                    <FormField
+                      label="Phone Number"
+                      name="phone"
+                      type="tel"
+                      placeholder="(555) 123-4567"
+                    />
                   </div>
 
                   {/* Website */}
-                  <FormField label="Current Website (if any)" name="website" placeholder="https://yourbusiness.com" />
+                  <FormField
+                    label="Current Website (if any)"
+                    name="website"
+                    placeholder="https://yourbusiness.com"
+                  />
 
                   {/* Service Selection */}
                   <div>
@@ -211,7 +330,11 @@ export default function ContactPage() {
                         <button
                           key={service}
                           type="button"
-                          onClick={() => setSelectedService(service === selectedService ? "" : service)}
+                          onClick={() =>
+                            setSelectedService(
+                              service === selectedService ? "" : service
+                            )
+                          }
                           className={cn(
                             "px-3.5 py-2.5 rounded-xl text-xs font-medium text-left",
                             "border transition-all duration-200",
@@ -249,6 +372,18 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  {/* Cloudflare Turnstile widget — only rendered when site key is configured */}
+                  {TURNSTILE_SITE_KEY && (
+                    <>
+                      <Script
+                        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                        strategy="afterInteractive"
+                        onLoad={renderTurnstileWidget}
+                      />
+                      <div ref={widgetContainerRef} />
+                    </>
+                  )}
+
                   <Button
                     type="submit"
                     size="lg"
@@ -277,7 +412,11 @@ export default function ContactPage() {
               className="lg:col-span-2 space-y-5"
               initial={{ opacity: 0, x: 24 }}
               animate={formInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.16, 1, 0.3, 1],
+                delay: 0.15,
+              }}
             >
               {/* Contact details */}
               <div className="rounded-2xl border border-co-border bg-co-card p-6 space-y-4">
@@ -327,8 +466,14 @@ export default function ContactPage() {
                     "Pricing and timeline overview",
                     "No pressure, no obligation",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-sm text-co-text-secondary">
-                      <CheckCircle2 size={13} className="text-co-accent shrink-0 mt-0.5" />
+                    <li
+                      key={i}
+                      className="flex items-start gap-2.5 text-sm text-co-text-secondary"
+                    >
+                      <CheckCircle2
+                        size={13}
+                        className="text-co-accent shrink-0 mt-0.5"
+                      />
                       {item}
                     </li>
                   ))}
@@ -338,7 +483,9 @@ export default function ContactPage() {
               {/* Social proof */}
               <div className="rounded-2xl border border-co-border bg-co-card p-5">
                 <div className="flex items-start gap-3">
-                  <div className="text-2xl mt-0.5 text-co-text-muted">&ldquo;</div>
+                  <div className="text-2xl mt-0.5 text-co-text-muted">
+                    &ldquo;
+                  </div>
                   <div>
                     <p className="text-sm text-co-text-secondary leading-relaxed italic">
                       The transformation was exactly what we needed. Our online
@@ -387,11 +534,15 @@ function FormField({
         placeholder={placeholder}
         required={required}
         autoComplete={
-          name === "email" ? "email" :
-          name === "name" ? "name" :
-          name === "phone" ? "tel" :
-          name === "website" ? "url" :
-          "off"
+          name === "email"
+            ? "email"
+            : name === "name"
+              ? "name"
+              : name === "phone"
+                ? "tel"
+                : name === "website"
+                  ? "url"
+                  : "off"
         }
         className={cn(
           "w-full h-11 rounded-xl px-4 text-sm",
