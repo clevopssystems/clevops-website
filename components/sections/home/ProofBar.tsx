@@ -13,6 +13,7 @@ const metrics = [
     color: "#4F7FFF",
     bg: "rgba(79,127,255,0.1)",
     border: "rgba(79,127,255,0.2)",
+    ringPercent: 84,
   },
   {
     icon: Clock,
@@ -21,6 +22,7 @@ const metrics = [
     color: "#38BDF8",
     bg: "rgba(56,189,248,0.08)",
     border: "rgba(56,189,248,0.18)",
+    ringPercent: 93,
   },
   {
     icon: Zap,
@@ -29,6 +31,7 @@ const metrics = [
     color: "#9B72FF",
     bg: "rgba(155,114,255,0.1)",
     border: "rgba(155,114,255,0.2)",
+    ringPercent: 76,
   },
   {
     icon: Bot,
@@ -37,8 +40,63 @@ const metrics = [
     color: "#4ade80",
     bg: "rgba(74,222,128,0.08)",
     border: "rgba(74,222,128,0.18)",
+    ringPercent: 100,
   },
 ];
+
+function AnimatedRing({
+  percent,
+  color,
+  delay,
+  inView,
+}: {
+  percent: number;
+  color: string;
+  delay: number;
+  inView: boolean;
+}) {
+  const r = 20;
+  const circ = 2 * Math.PI * r;
+  const filled = (percent / 100) * circ;
+  return (
+    <svg
+      width="52"
+      height="52"
+      viewBox="0 0 52 52"
+      className="absolute inset-0 m-auto"
+      style={{ transform: "rotate(-90deg)" }}
+    >
+      {/* Track */}
+      <circle
+        cx="26"
+        cy="26"
+        r={r}
+        fill="none"
+        stroke="rgba(255,255,255,0.05)"
+        strokeWidth="2.5"
+      />
+      {/* Fill arc */}
+      <motion.circle
+        cx="26"
+        cy="26"
+        r={r}
+        fill="none"
+        stroke={color}
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeDasharray={`${circ}`}
+        initial={{ strokeDashoffset: circ }}
+        animate={
+          inView
+            ? { strokeDashoffset: circ - filled }
+            : { strokeDashoffset: circ }
+        }
+        transition={{ duration: 1.4, ease: EASE_PREMIUM, delay: 0.2 + delay }}
+        style={{ opacity: 0.7 }}
+      />
+    </svg>
+  );
+}
 
 export function ProofBar() {
   const ref = useRef(null);
@@ -77,12 +135,20 @@ export function ProofBar() {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.1, duration: 0.65, ease: EASE_PREMIUM }}
               >
-                {/* Icon */}
-                <div
-                  className="w-9 h-9 rounded-xl flex items-center justify-center mb-0.5 transition-transform duration-300 group-hover:scale-110"
-                  style={{ background: metric.bg, border: `1px solid ${metric.border}` }}
-                >
-                  <Icon size={16} style={{ color: metric.color }} />
+                {/* Icon with animated ring */}
+                <div className="relative w-[52px] h-[52px] flex items-center justify-center mb-0.5 shrink-0">
+                  <AnimatedRing
+                    percent={metric.ringPercent}
+                    color={metric.color}
+                    delay={i * 0.12}
+                    inView={inView}
+                  />
+                  <div
+                    className="relative z-10 w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                    style={{ background: metric.bg, border: `1px solid ${metric.border}` }}
+                  >
+                    <Icon size={16} style={{ color: metric.color }} />
+                  </div>
                 </div>
 
                 {/* Value */}

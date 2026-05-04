@@ -11,188 +11,224 @@ import { useRef, useEffect, useState } from "react";
 import { ArrowUpRight, ChevronDown, TrendingUp, Star, Zap } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
-/* ── Floating dashboard visual ────────────────────────────── */
+/* ── Website preview content (shared) ────────────────────────── */
+function WebsitePreviewContent() {
+  return (
+    <>
+      {/* Browser chrome */}
+      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-co-border bg-co-surface shrink-0">
+        <div className="w-2 h-2 rounded-full bg-red-500/60" />
+        <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
+        <div className="w-2 h-2 rounded-full bg-green-500/60" />
+        <div className="flex-1 mx-2 h-4 rounded bg-co-bg flex items-center px-2">
+          <span className="text-[8px] text-co-text-muted tracking-wide">yourbusiness.com</span>
+        </div>
+        <TrendingUp size={10} className="text-green-400" />
+      </div>
+
+      {/* Hero area mock */}
+      <div className="p-3 bg-[#080808] border-b border-co-border">
+        <div className="flex items-center gap-1.5 mb-2">
+          <div className="h-5 w-5 rounded bg-co-accent/20 border border-co-accent/30 flex items-center justify-center">
+            <div className="w-2 h-2 rounded-full bg-co-accent" />
+          </div>
+          <div className="h-2 rounded w-20 bg-co-text/20" />
+        </div>
+        <div className="h-3 rounded w-3/4 bg-co-text/25 mb-1.5" />
+        <div className="h-3 rounded w-2/3 bg-co-text/15 mb-1.5" />
+        <div className="h-2.5 rounded w-1/2 bg-co-text/10 mb-3" />
+        <div className="flex gap-2">
+          <div className="h-6 rounded-lg w-20 bg-co-accent/70" />
+          <div className="h-6 rounded-lg w-16 bg-white/[0.06] border border-white/[0.10]" />
+        </div>
+      </div>
+
+      {/* Trust bar */}
+      <div className="grid grid-cols-3 gap-1.5 p-3 border-b border-co-border">
+        {[
+          { icon: Star, label: "4.9★ Rating", color: "text-yellow-400" },
+          { icon: TrendingUp, label: "200+ Jobs", color: "text-green-400" },
+          { icon: Zap, label: "Fast Response", color: "text-co-accent" },
+        ].map((item, i) => (
+          <div key={i} className="rounded-lg bg-co-surface p-2 flex flex-col items-center gap-0.5">
+            <item.icon size={10} className={item.color} />
+            <span className="text-[7px] text-co-text-muted text-center leading-tight">{item.label}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Services grid */}
+      <div className="grid grid-cols-2 gap-2 p-3">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="rounded-lg bg-co-surface h-9 border border-co-border flex items-center justify-between px-2">
+            <div className="h-1.5 rounded w-12 bg-co-text/15" />
+            <ArrowUpRight size={8} className="text-co-accent" />
+          </div>
+        ))}
+      </div>
+
+      {/* Score bar */}
+      <div className="flex items-center justify-between px-3 py-2 border-t border-co-border">
+        <div className="flex items-center gap-1.5">
+          <div className="w-1.5 h-1.5 rounded-full bg-co-accent animate-pulse" />
+          <span className="text-[9px] text-co-text-muted font-medium">ClevOps Conversion Score</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-16 h-1 rounded-full bg-co-surface overflow-hidden">
+            <motion.div
+              className="h-full rounded-full bg-co-accent"
+              initial={{ width: 0 }}
+              animate={{ width: "92%" }}
+              transition={{ delay: 1.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            />
+          </div>
+          <span className="text-[9px] font-bold text-co-accent">92/100</span>
+        </div>
+      </div>
+    </>
+  );
+}
+
+/* ── Laptop mockup frame ──────────────────────────────────────── */
 function DashboardVisual({ mouseX, mouseY }: { mouseX: number; mouseY: number }) {
-  const rotateX = (mouseY - 0.5) * -12;
-  const rotateY = (mouseX - 0.5) * 12;
+  const rotateX = (mouseY - 0.5) * -10;
+  const rotateY = (mouseX - 0.5) * 10;
 
   return (
     <motion.div
-      className="relative w-full max-w-[420px] mx-auto"
-      style={{
-        perspective: 800,
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
+      className="relative w-full max-w-[440px] mx-auto"
+      style={{ perspective: 900, transformStyle: "preserve-3d" }}
       animate={{ rotateX, rotateY }}
       transition={{ type: "spring", stiffness: 80, damping: 25 }}
     >
-      {/* Glow behind */}
+      {/* Ambient glow */}
       <div
-        className="absolute -inset-8 rounded-3xl blur-3xl"
+        className="absolute -inset-10 rounded-3xl blur-3xl pointer-events-none"
         style={{
-          background:
-            "radial-gradient(ellipse, rgba(79,127,255,0.22) 0%, rgba(155,114,255,0.1) 50%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(79,127,255,0.2) 0%, rgba(155,114,255,0.08) 50%, transparent 70%)",
           animation: "pulseGlow 5s ease-in-out infinite",
         }}
       />
 
-      {/* Lead notification – top right */}
+      {/* Floating notifications */}
       <motion.div
-        className="absolute -top-6 -right-4 z-20 rounded-2xl border border-co-border bg-co-card/90 backdrop-blur-xl px-3.5 py-2.5 shadow-card-md"
+        className="absolute -top-7 -right-2 z-20 rounded-2xl border border-co-border bg-co-card/90 backdrop-blur-xl px-3.5 py-2.5 shadow-card-md"
         initial={{ opacity: 0, x: 20, y: -10 }}
         animate={{ opacity: 1, x: 0, y: 0 }}
         transition={{ delay: 1.6, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        style={{ transform: "translateZ(20px)" }}
       >
         <div className="flex items-center gap-2.5">
           <div className="w-7 h-7 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center shrink-0">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
           </div>
           <div>
-            <div className="text-[10px] font-semibold text-co-text whitespace-nowrap">
-              New Lead Received
-            </div>
-            <div className="text-[9px] text-co-text-muted">
-              Sarah M. · Cleaning Service
-            </div>
+            <div className="text-[10px] font-semibold text-co-text whitespace-nowrap">New Lead Received</div>
+            <div className="text-[9px] text-co-text-muted">Sarah M. · Cleaning Service</div>
           </div>
           <div className="text-[10px] font-bold text-green-400 ml-1">+1</div>
         </div>
       </motion.div>
 
-      {/* Booking confirmed – bottom left */}
       <motion.div
-        className="absolute -bottom-5 -left-4 z-20 rounded-2xl border border-co-border bg-co-card/90 backdrop-blur-xl px-3.5 py-2.5 shadow-card-md"
+        className="absolute -bottom-4 -left-2 z-20 rounded-2xl border border-co-border bg-co-card/90 backdrop-blur-xl px-3.5 py-2.5 shadow-card-md"
         initial={{ opacity: 0, x: -20, y: 10 }}
         animate={{ opacity: 1, x: 0, y: 0 }}
         transition={{ delay: 2.0, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        style={{ transform: "translateZ(14px)" }}
       >
         <div className="flex items-center gap-2.5">
           <div className="w-7 h-7 rounded-full bg-co-accent/20 border border-co-accent/30 flex items-center justify-center shrink-0">
             <Zap size={12} className="text-co-accent" />
           </div>
           <div>
-            <div className="text-[10px] font-semibold text-co-text whitespace-nowrap">
-              Booking Confirmed
-            </div>
-            <div className="text-[9px] text-co-text-muted">
-              John D. · Roof Cleaning
-            </div>
+            <div className="text-[10px] font-semibold text-co-text whitespace-nowrap">Booking Confirmed</div>
+            <div className="text-[9px] text-co-text-muted">John D. · Roof Cleaning</div>
           </div>
         </div>
       </motion.div>
 
-      {/* Review card – right mid */}
       <motion.div
-        className="absolute -right-6 top-1/2 -translate-y-1/2 z-20 rounded-2xl border border-co-border bg-co-card/90 backdrop-blur-xl p-3 shadow-card-md"
+        className="absolute -right-5 top-1/2 -translate-y-1/2 z-20 rounded-2xl border border-co-border bg-co-card/90 backdrop-blur-xl p-3 shadow-card-md"
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 2.4, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        style={{ transform: "translateZ(10px)" }}
       >
         <div className="flex items-center gap-1 mb-1">
           {[...Array(5)].map((_, i) => (
             <Star key={i} size={10} className="text-yellow-400 fill-yellow-400" />
           ))}
         </div>
-        <div className="text-[9px] text-co-text-muted whitespace-nowrap">
-          &ldquo;Best investment we made&rdquo;
-        </div>
+        <div className="text-[9px] text-co-text-muted whitespace-nowrap">&ldquo;Best investment we made&rdquo;</div>
       </motion.div>
 
-      {/* Main card — website mock */}
+      {/* Laptop frame */}
       <motion.div
-        className="relative rounded-2xl border border-co-border bg-co-card overflow-hidden shadow-card-md"
-        initial={{ opacity: 0, y: 24, scale: 0.96 }}
+        initial={{ opacity: 0, y: 28, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: 1.1, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        style={{ transform: "translateZ(0px)" }}
+        transition={{ delay: 1.0, duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
       >
-        {/* Browser bar */}
-        <div className="flex items-center gap-1.5 px-3 py-2.5 border-b border-co-border bg-co-surface">
-          <div className="w-2 h-2 rounded-full bg-red-500/60" />
-          <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
-          <div className="w-2 h-2 rounded-full bg-green-500/60" />
-          <div className="flex-1 mx-2 h-4 rounded bg-co-bg flex items-center px-2">
-            <span className="text-[8px] text-co-text-muted tracking-wide">
-              yourbusiness.com
-            </span>
+        {/* Screen lid — bezel + screen */}
+        <div
+          className="rounded-t-[14px] p-[5px] pb-0"
+          style={{
+            background: "linear-gradient(160deg, #1e1e28 0%, #13131a 100%)",
+            border: "1px solid rgba(255,255,255,0.11)",
+            borderBottom: "none",
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07), 0 -2px 20px rgba(0,0,0,0.4)",
+          }}
+        >
+          {/* Camera notch */}
+          <div className="flex justify-center py-2">
+            <div className="w-2 h-2 rounded-full bg-white/15 border border-white/08" />
           </div>
-          <TrendingUp size={10} className="text-green-400" />
+
+          {/* Screen glass */}
+          <div
+            className="rounded-t-[8px] overflow-hidden flex flex-col"
+            style={{
+              background: "#070709",
+              border: "1px solid rgba(255,255,255,0.07)",
+              borderBottom: "none",
+              minHeight: "280px",
+            }}
+          >
+            <WebsitePreviewContent />
+          </div>
         </div>
 
-        {/* Hero area mock */}
-        <div className="p-3 bg-[#080808] border-b border-co-border">
-          <div className="flex items-center gap-1.5 mb-2">
-            <div className="h-5 w-5 rounded bg-co-accent/20 border border-co-accent/30 flex items-center justify-center">
-              <div className="w-2 h-2 rounded-full bg-co-accent" />
-            </div>
-            <div className="h-2 rounded w-20 bg-co-text/20" />
-          </div>
-          <div className="h-3 rounded w-3/4 bg-co-text/25 mb-1.5" />
-          <div className="h-3 rounded w-2/3 bg-co-text/15 mb-1.5" />
-          <div className="h-2.5 rounded w-1/2 bg-co-text/10 mb-3" />
-          <div className="flex gap-2">
-            <div className="h-6 rounded-lg w-20 bg-co-accent/70" />
-            <div className="h-6 rounded-lg w-16 bg-white/[0.06] border border-white/[0.10]" />
-          </div>
+        {/* Hinge strip */}
+        <div
+          style={{
+            height: "4px",
+            background: "linear-gradient(to right, #0e0e14, #1a1a24, #0e0e14)",
+            border: "1px solid rgba(255,255,255,0.06)",
+            borderTop: "none",
+            borderBottom: "none",
+          }}
+        />
+
+        {/* Keyboard base */}
+        <div
+          className="rounded-b-[14px]"
+          style={{
+            height: "22px",
+            background: "linear-gradient(to bottom, #18181f, #111118)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderTop: "none",
+            position: "relative",
+          }}
+        >
+          {/* Trackpad hint */}
+          <div
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded"
+            style={{ width: "60px", height: "10px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}
+          />
         </div>
 
-        {/* Trust bar mock */}
-        <div className="grid grid-cols-3 gap-1.5 p-3 border-b border-co-border">
-          {[
-            { icon: Star, label: "4.9★ Rating", color: "text-yellow-400" },
-            { icon: TrendingUp, label: "200+ Jobs", color: "text-green-400" },
-            { icon: Zap, label: "Fast Response", color: "text-co-accent" },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="rounded-lg bg-co-surface p-2 flex flex-col items-center gap-0.5"
-            >
-              <item.icon size={10} className={item.color} />
-              <span className="text-[7px] text-co-text-muted text-center leading-tight">
-                {item.label}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* Services grid mock */}
-        <div className="grid grid-cols-2 gap-2 p-3">
-          {[1, 2, 3, 4].map((i) => (
-            <div
-              key={i}
-              className="rounded-lg bg-co-surface h-10 border border-co-border flex items-center justify-between px-2"
-            >
-              <div className="h-1.5 rounded w-12 bg-co-text/15" />
-              <ArrowUpRight size={8} className="text-co-accent" />
-            </div>
-          ))}
-        </div>
-
-        {/* Score bar */}
-        <div className="flex items-center justify-between px-3 py-2.5 border-t border-co-border">
-          <div className="flex items-center gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full bg-co-accent animate-pulse" />
-            <span className="text-[9px] text-co-text-muted font-medium">
-              ClevOps Conversion Score
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="flex-1 w-16 h-1 rounded-full bg-co-surface overflow-hidden">
-              <motion.div
-                className="h-full rounded-full bg-co-accent"
-                initial={{ width: 0 }}
-                animate={{ width: "92%" }}
-                transition={{ delay: 1.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              />
-            </div>
-            <span className="text-[9px] font-bold text-co-accent">92/100</span>
-          </div>
-        </div>
+        {/* Surface shadow */}
+        <div
+          className="mx-6 rounded-full"
+          style={{ height: "6px", background: "radial-gradient(ellipse, rgba(0,0,0,0.6) 0%, transparent 70%)", marginTop: "2px" }}
+        />
       </motion.div>
     </motion.div>
   );

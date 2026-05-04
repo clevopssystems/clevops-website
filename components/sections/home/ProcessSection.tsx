@@ -150,18 +150,46 @@ export function ProcessSection() {
             ))}
           </motion.div>
 
-          {/* Animated gradient connector line */}
-          <div className="relative h-px mx-[5.5%] mb-10">
-            <div className="absolute inset-0 bg-co-border/40" />
+          {/* Step connector with SVG arrows */}
+          <div className="relative flex items-center justify-between mx-[5.5%] mb-10" style={{ height: "28px" }}>
+            {/* Background track */}
+            <div className="absolute inset-y-1/2 left-0 right-0 h-px bg-co-border/30" />
+            {/* Animated fill */}
             <motion.div
-              className="absolute inset-0 origin-left"
+              className="absolute inset-y-1/2 left-0 h-px origin-left"
               style={{
-                background: "linear-gradient(90deg, rgba(79,127,255,0.55), rgba(155,114,255,0.4), rgba(56,189,248,0.3))",
+                background: "linear-gradient(90deg, rgba(79,127,255,0.5), rgba(155,114,255,0.35), rgba(56,189,248,0.25))",
               }}
-              initial={{ scaleX: 0 }}
+              initial={{ scaleX: 0, width: "100%" }}
               animate={inView ? { scaleX: 1 } : {}}
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
             />
+            {/* Arrow chevrons between steps */}
+            {[0, 1, 2, 3].map((idx) => {
+              const colors = ["#4F7FFF", "#9B72FF", "#38BDF8", "#4F7FFF"]
+              return (
+                <motion.div
+                  key={idx}
+                  className="absolute"
+                  style={{ left: `${(idx + 1) * 20}%`, transform: "translateX(-50%)" }}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.55 + idx * 0.15 }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <circle cx="10" cy="10" r="9" fill="rgba(13,13,17,1)" stroke={`${colors[idx]}40`} strokeWidth="1" />
+                    <path
+                      d="M7.5 6.5L12.5 10L7.5 13.5"
+                      stroke={colors[idx]}
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      opacity="0.85"
+                    />
+                  </svg>
+                </motion.div>
+              )
+            })}
           </div>
 
           {/* Open text columns — staggered */}
