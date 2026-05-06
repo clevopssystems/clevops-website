@@ -1,10 +1,19 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, MapPin, TrendingUp, Zap } from "lucide-react"
 import { SectionLabel } from "@/components/ui/SectionLabel"
 import { Button } from "@/components/ui/Button"
 import { states } from "@/data/states"
 import { locations } from "@/data/locations"
+
+const featuredCities = [
+  { city: "Dallas", state: "Texas", slug: "/locations/texas/dallas", accent: "from-blue-500/20 to-blue-500/5", stat: "1.3M residents", industries: "HVAC · Cleaning · Roofing" },
+  { city: "Los Angeles", state: "California", slug: "/locations/california/los-angeles", accent: "from-violet-500/20 to-violet-500/5", stat: "3.9M residents", industries: "Cleaning · Detailing · Landscaping" },
+  { city: "Miami", state: "Florida", slug: "/locations/florida/miami", accent: "from-cyan-500/20 to-cyan-500/5", stat: "460K residents", industries: "Cleaning · Detailing · Contractors" },
+  { city: "Chicago", state: "Illinois", slug: "/locations/illinois/chicago", accent: "from-indigo-500/20 to-indigo-500/5", stat: "2.7M residents", industries: "HVAC · Plumbing · Cleaning" },
+  { city: "Phoenix", state: "Arizona", slug: "/locations/arizona/phoenix", accent: "from-orange-500/15 to-orange-500/5", stat: "1.6M residents", industries: "HVAC · Landscaping · Roofing" },
+  { city: "New York City", state: "New York", slug: "/locations/new-york/new-york-city", accent: "from-blue-400/20 to-blue-400/5", stat: "8.3M residents", industries: "Cleaning · Contractors · HVAC" },
+]
 
 export const metadata: Metadata = {
   title: "Website Design for Service Businesses — All US Locations",
@@ -52,6 +61,70 @@ export default function LocationsHubPage() {
             <span>{states.length} priority states</span>
             <span>{locations.length} cities covered</span>
             <span>14-day delivery</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Cities visual */}
+      <section className="py-20 md:py-28 border-b border-co-border">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="max-w-2xl mb-12">
+            <SectionLabel>Featured Markets</SectionLabel>
+            <h2 className="mt-5 text-3xl md:text-4xl font-bold tracking-tight">
+              Top Cities We Serve
+            </h2>
+            <p className="mt-4 text-co-text-secondary leading-relaxed">
+              From dense urban cores to fast-growing suburbs — each market has unique dynamics. Every city page is built with local context, not generic copy.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {featuredCities.map((fc) => (
+              <Link
+                key={fc.slug}
+                href={fc.slug}
+                className="group relative rounded-2xl border border-co-border bg-co-card overflow-hidden hover:border-co-border-hover transition-all duration-300"
+              >
+                {/* Gradient overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${fc.accent} pointer-events-none`} />
+
+                <div className="relative p-6">
+                  {/* City header */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <MapPin size={12} className="text-co-accent shrink-0" />
+                        <span className="text-[10px] font-semibold tracking-widest uppercase text-co-text-muted">
+                          {fc.state}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-bold text-co-text group-hover:text-co-accent transition-colors duration-200">
+                        {fc.city}
+                      </h3>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-co-text-muted group-hover:text-co-accent group-hover:translate-x-0.5 transition-all duration-200 shrink-0 mt-1" />
+                  </div>
+
+                  {/* Mini stats */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-xs text-co-text-secondary">
+                      <TrendingUp size={11} className="text-co-accent shrink-0" />
+                      {fc.stat}
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-co-text-secondary">
+                      <Zap size={11} className="text-co-accent shrink-0" />
+                      {fc.industries}
+                    </div>
+                  </div>
+
+                  {/* Bottom bar */}
+                  <div className="mt-4 pt-4 border-t border-co-border flex items-center gap-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                    <span className="text-[10px] text-co-text-muted">City page available · 14-day delivery</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

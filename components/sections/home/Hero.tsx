@@ -8,81 +8,97 @@ import {
   useSpring,
 } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { ArrowUpRight, ChevronDown, TrendingUp, Star, Zap } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Star, Zap } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
-/* ── Website preview content (shared) ────────────────────────── */
-function WebsitePreviewContent() {
+/* ── Growth dashboard content ─────────────────────────────────── */
+function DashboardContent() {
+  const bars = [2,3,4,3,5,6,5,7,6,8,7,9,8,10,9,11,10,12,11,13,12,14,13,15,14,16,15,17,16,19];
   return (
     <>
-      {/* Browser chrome */}
-      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-co-border bg-co-surface shrink-0">
-        <div className="w-2 h-2 rounded-full bg-red-500/60" />
-        <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
-        <div className="w-2 h-2 rounded-full bg-green-500/60" />
-        <div className="flex-1 mx-2 h-4 rounded bg-co-bg flex items-center px-2">
-          <span className="text-[8px] text-co-text-muted tracking-wide">yourbusiness.com</span>
+      {/* Header */}
+      <div className="flex items-center justify-between px-3 py-2 border-b border-co-border bg-co-surface shrink-0">
+        <div className="flex items-center gap-2">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400" />
+          </span>
+          <span className="text-[9px] font-semibold text-co-text-secondary tracking-wide">ClevOps Dashboard</span>
         </div>
-        <TrendingUp size={10} className="text-green-400" />
+        <span className="text-[7px] text-co-text-muted">Live · just now</span>
       </div>
 
-      {/* Hero area mock */}
-      <div className="p-3 bg-[#080808] border-b border-co-border">
-        <div className="flex items-center gap-1.5 mb-2">
-          <div className="h-5 w-5 rounded bg-co-accent/20 border border-co-accent/30 flex items-center justify-center">
-            <div className="w-2 h-2 rounded-full bg-co-accent" />
-          </div>
-          <div className="h-2 rounded w-20 bg-co-text/20" />
-        </div>
-        <div className="h-3 rounded w-3/4 bg-co-text/25 mb-1.5" />
-        <div className="h-3 rounded w-2/3 bg-co-text/15 mb-1.5" />
-        <div className="h-2.5 rounded w-1/2 bg-co-text/10 mb-3" />
-        <div className="flex gap-2">
-          <div className="h-6 rounded-lg w-20 bg-co-accent/70" />
-          <div className="h-6 rounded-lg w-16 bg-white/[0.06] border border-white/[0.10]" />
-        </div>
-      </div>
-
-      {/* Trust bar */}
-      <div className="grid grid-cols-3 gap-1.5 p-3 border-b border-co-border">
+      {/* KPI grid */}
+      <div className="grid grid-cols-2 gap-1.5 p-2.5 border-b border-co-border">
         {[
-          { icon: Star, label: "4.9★ Rating", color: "text-yellow-400" },
-          { icon: TrendingUp, label: "200+ Jobs", color: "text-green-400" },
-          { icon: Zap, label: "Fast Response", color: "text-co-accent" },
-        ].map((item, i) => (
-          <div key={i} className="rounded-lg bg-co-surface p-2 flex flex-col items-center gap-0.5">
-            <item.icon size={10} className={item.color} />
-            <span className="text-[7px] text-co-text-muted text-center leading-tight">{item.label}</span>
+          { label: "Leads", value: "47", trend: "+23% this month", color: "text-co-accent" },
+          { label: "Bookings", value: "31", trend: "+18% this month", color: "text-green-400" },
+          { label: "Response", value: "28s", trend: "avg reply time", color: "text-yellow-400" },
+          { label: "Conversion", value: "12.4%", trend: "+6.2% rate", color: "text-violet-400" },
+        ].map((kpi, i) => (
+          <div key={i} className="rounded-lg bg-co-bg/60 border border-co-border p-2">
+            <div className="text-[7px] text-co-text-muted uppercase tracking-wide mb-0.5">{kpi.label}</div>
+            <div className={`text-[13px] font-black leading-none ${kpi.color}`}>{kpi.value}</div>
+            <div className="text-[7px] text-co-text-muted mt-0.5">{kpi.trend}</div>
           </div>
         ))}
       </div>
 
-      {/* Services grid */}
-      <div className="grid grid-cols-2 gap-2 p-3">
-        {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="rounded-lg bg-co-surface h-9 border border-co-border flex items-center justify-between px-2">
-            <div className="h-1.5 rounded w-12 bg-co-text/15" />
-            <ArrowUpRight size={8} className="text-co-accent" />
+      {/* Lead volume chart */}
+      <div className="px-2.5 py-2 border-b border-co-border">
+        <div className="flex items-center justify-between mb-1.5">
+          <span className="text-[7px] text-co-text-muted uppercase tracking-wide">Lead volume · 30 days</span>
+          <span className="text-[7px] font-semibold text-green-400">↑ 23%</span>
+        </div>
+        <div className="flex items-end gap-px" style={{ height: "28px" }}>
+          {bars.map((h, i) => (
+            <motion.div
+              key={i}
+              className="flex-1 rounded-sm"
+              style={{
+                height: `${(h / 19) * 28}px`,
+                background: i >= 22 ? "rgba(79,127,255,0.75)" : "rgba(79,127,255,0.18)",
+                transformOrigin: "bottom",
+              }}
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ delay: 1.5 + i * 0.04, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Activity feed */}
+      <div className="p-2.5 space-y-1.5">
+        {[
+          { dot: "bg-co-accent", text: "Auto detailing inquiry captured", time: "2m" },
+          { dot: "bg-green-400", text: "Follow-up sent to Sarah M.", time: "8m" },
+          { dot: "bg-yellow-400", text: "Booking confirmed · Roof Clean", time: "1h" },
+        ].map((a, i) => (
+          <div key={i} className="flex items-center gap-2">
+            <div className={`w-1 h-1 rounded-full shrink-0 ${a.dot}`} />
+            <span className="text-[7.5px] text-co-text-secondary flex-1 truncate">{a.text}</span>
+            <span className="text-[7px] text-co-text-muted shrink-0">{a.time}</span>
           </div>
         ))}
       </div>
 
       {/* Score bar */}
-      <div className="flex items-center justify-between px-3 py-2 border-t border-co-border">
+      <div className="flex items-center justify-between px-2.5 py-1.5 border-t border-co-border">
         <div className="flex items-center gap-1.5">
           <div className="w-1.5 h-1.5 rounded-full bg-co-accent animate-pulse" />
-          <span className="text-[9px] text-co-text-muted font-medium">ClevOps Conversion Score</span>
+          <span className="text-[7px] text-co-text-muted font-medium">ClevOps Conversion Score</span>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="w-16 h-1 rounded-full bg-co-surface overflow-hidden">
+        <div className="flex items-center gap-1.5">
+          <div className="w-14 h-1 rounded-full bg-co-surface overflow-hidden">
             <motion.div
               className="h-full rounded-full bg-co-accent"
               initial={{ width: 0 }}
               animate={{ width: "92%" }}
-              transition={{ delay: 1.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: 2.2, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             />
           </div>
-          <span className="text-[9px] font-bold text-co-accent">92/100</span>
+          <span className="text-[8px] font-bold text-co-accent">92/100</span>
         </div>
       </div>
     </>
@@ -191,7 +207,7 @@ function DashboardVisual({ mouseX, mouseY }: { mouseX: number; mouseY: number })
               minHeight: "280px",
             }}
           >
-            <WebsitePreviewContent />
+            <DashboardContent />
           </div>
         </div>
 

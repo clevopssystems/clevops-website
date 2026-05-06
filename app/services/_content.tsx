@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
@@ -13,6 +14,190 @@ import {
 } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
+
+/* ── Per-service inline visual mockups ───────────────────────── */
+function WebsiteDesignVisual() {
+  return (
+    <div className="rounded-xl border border-co-border bg-[#070709] overflow-hidden text-left">
+      <div className="flex items-center gap-1.5 px-2.5 py-1.5 border-b border-co-border bg-co-surface">
+        <div className="flex gap-1">
+          <div className="w-2 h-2 rounded-full bg-red-500/50" />
+          <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
+          <div className="w-2 h-2 rounded-full bg-green-500/50" />
+        </div>
+        <div className="flex-1 h-3 rounded bg-co-bg mx-1.5 flex items-center px-1.5">
+          <div className="h-1 rounded w-14 bg-co-text/20" />
+        </div>
+      </div>
+      <div className="p-2.5 space-y-2">
+        <div className="flex items-center gap-2">
+          <div className="w-7 h-7 rounded bg-co-accent/20 border border-co-accent/30 shrink-0" />
+          <div className="space-y-1 flex-1">
+            <div className="h-1.5 rounded w-3/4 bg-co-text/20" />
+            <div className="h-1 rounded w-1/2 bg-co-text/10" />
+          </div>
+        </div>
+        <div className="h-px bg-co-border" />
+        <div className="space-y-1">
+          <div className="h-2 rounded w-full bg-co-text/15" />
+          <div className="h-1.5 rounded w-5/6 bg-co-text/10" />
+          <div className="h-1.5 rounded w-4/6 bg-co-text/08" />
+        </div>
+        <div className="flex gap-1.5">
+          <div className="h-5 rounded-lg flex-1 bg-co-accent/60 flex items-center justify-center">
+            <div className="h-1 rounded w-10 bg-white/40" />
+          </div>
+          <div className="h-5 rounded-lg w-14 bg-white/5 border border-white/10" />
+        </div>
+        <div className="grid grid-cols-3 gap-1">
+          {["4.9★", "200+", "14d"].map((s, i) => (
+            <div key={i} className="rounded bg-co-surface border border-co-border px-1.5 py-1 text-center">
+              <span className="text-[7px] font-semibold text-co-accent">{s}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LeadSystemVisual() {
+  return (
+    <div className="rounded-xl border border-co-border bg-[#070709] overflow-hidden p-2.5 space-y-2">
+      <div className="text-[7px] text-co-text-muted tracking-widest uppercase mb-1">Lead Pipeline</div>
+      {[
+        { stage: "New Inquiries", count: 8, pct: "100%", color: "bg-co-accent/60" },
+        { stage: "Contacted", count: 6, pct: "75%", color: "bg-violet-500/60" },
+        { stage: "Booked", count: 4, pct: "50%", color: "bg-green-500/60" },
+      ].map((s) => (
+        <div key={s.stage} className="flex items-center gap-2">
+          <span className="text-[7px] text-co-text-muted w-18 shrink-0">{s.stage}</span>
+          <div className="flex-1 h-1.5 rounded-full bg-co-surface overflow-hidden">
+            <div className={`h-full rounded-full ${s.color}`} style={{ width: s.pct }} />
+          </div>
+          <span className="text-[7px] font-bold text-co-text w-3">{s.count}</span>
+        </div>
+      ))}
+      <div className="flex items-center gap-2 pt-1 border-t border-co-border">
+        <span className="relative flex h-1.5 w-1.5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400" />
+        </span>
+        <span className="text-[7px] text-co-text-secondary">New lead from website form · just now</span>
+      </div>
+    </div>
+  );
+}
+
+function AutomationVisual() {
+  return (
+    <div className="rounded-xl border border-co-border bg-[#070709] overflow-hidden p-2.5">
+      <div className="text-[7px] text-co-text-muted tracking-widest uppercase mb-2">Automation Flow</div>
+      <div className="space-y-1.5">
+        {[
+          { label: "Lead submits form", dot: "bg-co-accent", border: "border-co-accent/30 bg-co-accent/8" },
+          { label: "Instant SMS + Email fired", dot: "bg-violet-400", border: "border-violet-500/30 bg-violet-500/8" },
+          { label: "3-step follow-up sequence", dot: "bg-yellow-400", border: "border-yellow-500/30 bg-yellow-500/8" },
+          { label: "Review request at day 7", dot: "bg-green-400", border: "border-green-500/30 bg-green-500/8" },
+        ].map((step, i) => (
+          <div key={i} className="flex items-center gap-2">
+            <div className="flex flex-col items-center">
+              <div className={`w-2 h-2 rounded-full shrink-0 ${step.dot}`} />
+              {i < 3 && <div className="w-px h-2 bg-co-border mt-0.5" />}
+            </div>
+            <div className={`flex-1 flex items-center rounded-lg border px-2 py-1 ${step.border}`}>
+              <span className="text-[7.5px] text-co-text-secondary">{step.label}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function LocalSeoVisual() {
+  return (
+    <div className="rounded-xl border border-co-border bg-[#070709] overflow-hidden p-2.5 space-y-2">
+      <div className="text-[7px] text-co-text-muted tracking-widest uppercase mb-1">Local Search Results</div>
+      <div className="rounded-lg border border-co-border bg-co-surface/50 p-2 space-y-1.5">
+        <div className="text-[7px] text-green-400 font-medium">📍 Map Pack · Top 3</div>
+        {[
+          { rank: "1", name: "Your Business ★", highlight: true },
+          { rank: "2", name: "Competitor A", highlight: false },
+          { rank: "3", name: "Competitor B", highlight: false },
+        ].map((r) => (
+          <div key={r.rank} className="flex items-center gap-2">
+            <span className={`text-[7px] font-bold w-3 shrink-0 ${r.highlight ? "text-co-accent" : "text-co-text-muted"}`}>
+              #{r.rank}
+            </span>
+            <span className={`text-[7.5px] flex-1 ${r.highlight ? "text-co-text font-semibold" : "text-co-text-muted"}`}>
+              {r.name}
+            </span>
+            {r.highlight && <div className="w-1.5 h-1.5 rounded-full bg-green-400" />}
+          </div>
+        ))}
+      </div>
+      <div className="grid grid-cols-2 gap-1.5">
+        <div className="rounded bg-co-surface/50 border border-co-border p-1.5 text-center">
+          <div className="text-[9px] font-black text-co-accent">+340%</div>
+          <div className="text-[6.5px] text-co-text-muted">Visibility</div>
+        </div>
+        <div className="rounded bg-co-surface/50 border border-co-border p-1.5 text-center">
+          <div className="text-[9px] font-black text-green-400">#1</div>
+          <div className="text-[6.5px] text-co-text-muted">Local Rank</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GrowthVisual() {
+  const bars = [3,4,4,5,6,6,7,8,9,10,11,13];
+  return (
+    <div className="rounded-xl border border-co-border bg-[#070709] overflow-hidden p-2.5">
+      <div className="text-[7px] text-co-text-muted tracking-widest uppercase mb-2">Monthly Growth</div>
+      <div className="flex items-end gap-0.5" style={{ height: "32px" }}>
+        {bars.map((h, i) => (
+          <div
+            key={i}
+            className="flex-1 rounded-sm"
+            style={{
+              height: `${(h / 13) * 32}px`,
+              background: i >= 9 ? "rgba(79,127,255,0.8)" : "rgba(79,127,255,0.22)",
+            }}
+          />
+        ))}
+      </div>
+      <div className="flex items-center justify-between mt-1.5">
+        <span className="text-[7px] text-co-text-muted">Last 12 months</span>
+        <span className="text-[7.5px] font-bold text-green-400">↑ 147% growth</span>
+      </div>
+      <div className="mt-2 pt-2 border-t border-co-border grid grid-cols-3 gap-1">
+        {[
+          { v: "3×", l: "Leads" },
+          { v: "28s", l: "Response" },
+          { v: "12%", l: "Conv. Rate" },
+        ].map((s, i) => (
+          <div key={i} className="text-center">
+            <div className="text-[9px] font-black text-co-accent">{s.v}</div>
+            <div className="text-[6.5px] text-co-text-muted">{s.l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ServiceVisual({ serviceId }: { serviceId: string }) {
+  const map: Record<string, React.ReactNode> = {
+    websites: <WebsiteDesignVisual />,
+    "lead-systems": <LeadSystemVisual />,
+    automation: <AutomationVisual />,
+    seo: <LocalSeoVisual />,
+    growth: <GrowthVisual />,
+  };
+  return map[serviceId] ? <div className="mt-5">{map[serviceId]}</div> : null;
+}
 
 const services = [
   {
@@ -250,11 +435,13 @@ function ServiceBlock({
           <h2 className="text-xl md:text-2xl font-bold text-co-text tracking-tight mb-4 leading-tight">
             {service.title}
           </h2>
-          <p className="text-sm text-co-text-secondary leading-relaxed mb-6">
+          <p className="text-sm text-co-text-secondary leading-relaxed mb-0">
             {service.description}
           </p>
 
-          <div className="rounded-xl border border-co-border bg-white/[0.02] px-4 py-3">
+          <ServiceVisual serviceId={service.id} />
+
+          <div className="rounded-xl border border-co-border bg-white/[0.02] px-4 py-3 mt-5">
             <div className="text-[10px] font-semibold tracking-widest uppercase text-co-text-muted mb-1.5">
               Ideal for
             </div>

@@ -2,9 +2,53 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowUpRight, Target, Heart, Lightbulb, TrendingUp } from "lucide-react";
+import { ArrowUpRight, Target, Heart, Lightbulb, TrendingUp, Globe, Filter, Bot, BarChart3 } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
+
+/* ── Growth system architecture visual ───────────────────────── */
+function GrowthSystemVisual() {
+  const nodes = [
+    { icon: Globe, label: "Website", sub: "Premium conversion site", color: "rgba(79,127,255,0.15)", border: "rgba(79,127,255,0.3)", iconColor: "text-co-accent" },
+    { icon: Filter, label: "Lead Capture", sub: "24/7 inquiry system", color: "rgba(155,114,255,0.15)", border: "rgba(155,114,255,0.3)", iconColor: "text-violet-400" },
+    { icon: Bot, label: "Automation", sub: "Instant follow-up", color: "rgba(79,200,255,0.12)", border: "rgba(79,200,255,0.25)", iconColor: "text-sky-400" },
+    { icon: BarChart3, label: "Growth", sub: "Compounding results", color: "rgba(79,127,255,0.1)", border: "rgba(79,127,255,0.2)", iconColor: "text-co-accent" },
+  ];
+  return (
+    <div className="mt-6 rounded-2xl border border-co-border bg-co-card p-4 space-y-3">
+      <div className="text-[9px] font-semibold tracking-widest uppercase text-co-text-muted">
+        The ClevOps Growth Stack
+      </div>
+      <div className="space-y-2">
+        {nodes.map((node, i) => {
+          const Icon = node.icon;
+          return (
+            <div key={i} className="flex items-center gap-3">
+              <div
+                className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0"
+                style={{ background: node.color, border: `1px solid ${node.border}` }}
+              >
+                <Icon size={14} className={node.iconColor} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-xs font-semibold text-co-text leading-none">{node.label}</div>
+                <div className="text-[9px] text-co-text-muted mt-0.5">{node.sub}</div>
+              </div>
+              {i < nodes.length - 1 && (
+                <div className="w-px h-4 bg-co-border absolute" style={{ left: "28px", marginTop: "24px" }} />
+              )}
+              <div className="text-[9px] text-co-accent font-bold">→</div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="pt-2 border-t border-co-border flex items-center justify-between">
+        <span className="text-[9px] text-co-text-muted">Result</span>
+        <span className="text-[9px] font-bold text-green-400">Compounding lead growth ↑</span>
+      </div>
+    </div>
+  );
+}
 
 const values = [
   {
@@ -182,6 +226,13 @@ function StorySection() {
                 </p>
               </motion.div>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
+            >
+              <GrowthSystemVisual />
+            </motion.div>
           </motion.div>
         </div>
       </div>

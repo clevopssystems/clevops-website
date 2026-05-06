@@ -2,9 +2,114 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { CheckCircle2, ArrowUpRight, Star } from "lucide-react";
+import { CheckCircle2, ArrowUpRight, Star, XCircle } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
+
+/* ── Before/After website visual mockups ─────────────────────── */
+function OldSiteVisual() {
+  return (
+    <div className="rounded-xl border border-red-500/20 bg-red-500/[0.03] overflow-hidden mb-6">
+      {/* Browser bar */}
+      <div className="flex items-center gap-2 px-3 py-2 border-b border-red-500/15 bg-red-500/[0.05]">
+        <div className="flex gap-1">
+          <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/30" />
+          <div className="w-2.5 h-2.5 rounded-full bg-green-500/20" />
+        </div>
+        <div className="flex-1 h-4 rounded bg-co-bg/60 flex items-center px-2 mx-2">
+          <span className="text-[8px] text-co-text-muted">oldsite.com — Load time: 4.8s ⚠️</span>
+        </div>
+      </div>
+      {/* Poorly structured site mockup */}
+      <div className="p-4 space-y-2">
+        {/* Jumbled header */}
+        <div className="flex items-center justify-between p-2 bg-white/[0.03] rounded border border-co-border/50">
+          <div className="h-2.5 rounded w-20 bg-co-text/15" />
+          <div className="flex gap-2">
+            {[1,2,3,4,5].map(i => <div key={i} className="h-1.5 rounded w-7 bg-co-text/10" />)}
+          </div>
+        </div>
+        {/* Generic hero — no value prop */}
+        <div className="p-3 bg-white/[0.02] rounded border border-co-border/30 space-y-1.5">
+          <div className="h-2 rounded w-1/2 bg-co-text/10" />
+          <div className="h-3 rounded w-3/4 bg-co-text/15" />
+          <div className="h-2 rounded w-full bg-co-text/08" />
+          <div className="h-2 rounded w-5/6 bg-co-text/08" />
+          <div className="mt-3 h-6 rounded w-24 bg-co-text/10 border border-co-border" />
+        </div>
+        {/* No trust signals strip */}
+        <div className="flex items-center gap-2 px-3 py-2 rounded border border-red-500/15 bg-red-500/[0.04]">
+          <XCircle size={10} className="text-red-400/60 shrink-0" />
+          <span className="text-[7.5px] text-red-400/70">No reviews, no trust signals, no social proof</span>
+        </div>
+        {/* No booking path */}
+        <div className="flex items-center gap-2 px-3 py-2 rounded border border-red-500/15 bg-red-500/[0.04]">
+          <XCircle size={10} className="text-red-400/60 shrink-0" />
+          <span className="text-[7.5px] text-red-400/70">No booking form · Contact page buried in footer</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function NewSiteVisual() {
+  return (
+    <div className="rounded-xl border border-co-accent/20 bg-co-accent/[0.03] overflow-hidden mb-6">
+      {/* Browser bar */}
+      <div className="flex items-center gap-2 px-3 py-2 border-b border-co-accent/15 bg-co-accent/[0.05]">
+        <div className="flex gap-1">
+          <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+          <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+        </div>
+        <div className="flex-1 h-4 rounded bg-co-bg/60 flex items-center px-2 mx-2">
+          <span className="text-[8px] text-co-text-muted">cleaningfromtheheart.com</span>
+          <div className="ml-auto flex items-center gap-1">
+            <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+            <span className="text-[7px] text-green-400">1.4s</span>
+          </div>
+        </div>
+      </div>
+      {/* Premium site mockup */}
+      <div className="p-4 space-y-2">
+        {/* Premium header */}
+        <div className="flex items-center justify-between p-2 rounded border border-co-accent/15 bg-co-accent/[0.05]">
+          <div className="flex items-center gap-1.5">
+            <div className="w-4 h-4 rounded bg-co-accent/30 border border-co-accent/40" />
+            <div className="h-2 rounded w-16 bg-co-text/25" />
+          </div>
+          <div className="h-5 rounded-lg px-2 bg-co-accent/70 flex items-center">
+            <div className="h-1 rounded w-10 bg-white/40" />
+          </div>
+        </div>
+        {/* Strong hero */}
+        <div className="p-3 bg-co-bg/60 rounded border border-co-accent/10 space-y-1.5">
+          <div className="h-2 rounded w-2/5 bg-co-accent/40" />
+          <div className="h-3 rounded w-3/4 bg-co-text/25" />
+          <div className="h-2 rounded w-full bg-co-text/15" />
+          <div className="mt-2 flex gap-2">
+            <div className="h-6 rounded-lg flex-1 bg-co-accent/70" />
+            <div className="h-6 rounded-lg w-20 bg-white/[0.06] border border-white/10" />
+          </div>
+        </div>
+        {/* Trust bar */}
+        <div className="grid grid-cols-3 gap-1.5">
+          {["4.9★ Rating", "200+ Jobs", "Fast Response"].map((s, i) => (
+            <div key={i} className="rounded-lg bg-co-surface border border-co-border p-1.5 text-center">
+              <div className="text-[7px] font-semibold text-co-accent">{s}</div>
+            </div>
+          ))}
+        </div>
+        {/* Booking form */}
+        <div className="flex items-center gap-2 px-3 py-2 rounded border border-co-accent/20 bg-co-accent/[0.05]">
+          <CheckCircle2 size={10} className="text-co-accent shrink-0" />
+          <span className="text-[7.5px] text-co-text-secondary">Online booking form · instant confirmation sent</span>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const beforeIssues = [
   "Generic template design with no brand identity",
@@ -229,6 +334,7 @@ function CaseStudyBlock() {
             </div>
           </div>
           <div className="p-6 md:p-8">
+            <OldSiteVisual />
             <h3 className="font-bold text-co-text mb-4 text-base">The Problems</h3>
             <ul className="space-y-3">
               {beforeIssues.map((issue, i) => (
@@ -257,6 +363,7 @@ function CaseStudyBlock() {
             </div>
           </div>
           <div className="p-6 md:p-8 space-y-6">
+            <NewSiteVisual />
             {afterDelivered.map((section, i) => (
               <div key={i}>
                 <h4 className="text-xs font-semibold tracking-widest uppercase text-co-text-muted mb-3">

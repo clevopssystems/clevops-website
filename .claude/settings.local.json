@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npx tsc *)",
       "Bash(npm run *)",
-      "Bash(npm audit *)"
+      "Bash(npm audit *)",
+      "PowerShell(Get-ChildItem \"C:\\\\dev\\\\Cleavops site\" -Force | Where-Object { $_.Name -ne \"node_modules\" } | Format-Table Name, Attributes -AutoSize)",
+      "Bash(Get-ChildItem -Path \"C:\\\\dev\\\\Cleavops site\" -Recurse -File -Name)",
+      "Bash(Select-String -Pattern \"\\(hero|process|stats|services|industries\\)\")"
     ]
   }
 }

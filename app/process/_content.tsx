@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
@@ -9,9 +10,121 @@ import {
   Rocket,
   TrendingUp,
   ArrowUpRight,
+  CheckCircle2,
 } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
+
+/* ── Phase visual diagrams ────────────────────────────────────── */
+function DiscoveryVisual() {
+  return (
+    <div className="mt-5 rounded-xl border border-co-border bg-co-bg/60 p-3 space-y-2">
+      <div className="text-[7px] text-co-text-muted tracking-widest uppercase">Audit Checklist</div>
+      {["Current website audit", "Competitor review", "Customer persona", "Gap analysis"].map((item, i) => (
+        <div key={i} className="flex items-center gap-2">
+          <CheckCircle2 size={10} className="text-co-accent shrink-0" />
+          <span className="text-[8px] text-co-text-secondary">{item}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function StrategyVisual() {
+  return (
+    <div className="mt-5 rounded-xl border border-co-border bg-co-bg/60 p-3 space-y-2">
+      <div className="text-[7px] text-co-text-muted tracking-widest uppercase">Site Architecture</div>
+      <div className="space-y-1.5">
+        <div className="h-4 rounded border border-co-border bg-co-surface flex items-center px-2">
+          <div className="h-1.5 rounded w-10 bg-co-accent/50" />
+          <div className="ml-auto text-[7px] text-co-text-muted">Home</div>
+        </div>
+        <div className="ml-4 space-y-1">
+          {["Services", "About", "Contact"].map((p, i) => (
+            <div key={i} className="h-3.5 rounded border border-co-border/50 bg-co-surface/60 flex items-center px-2">
+              <div className="h-1 rounded w-7 bg-co-text/15" />
+              <div className="ml-auto text-[6.5px] text-co-text-muted">{p}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BuildVisual() {
+  return (
+    <div className="mt-5 rounded-xl border border-co-border bg-co-bg/60 p-3 space-y-2">
+      <div className="text-[7px] text-co-text-muted tracking-widest uppercase">Build Progress</div>
+      {[
+        { label: "Design", pct: "100%", color: "bg-co-accent/70" },
+        { label: "Development", pct: "100%", color: "bg-violet-500/70" },
+        { label: "Lead Systems", pct: "100%", color: "bg-green-500/70" },
+        { label: "SEO Setup", pct: "100%", color: "bg-yellow-500/70" },
+      ].map((t) => (
+        <div key={t.label} className="flex items-center gap-2">
+          <span className="text-[7px] text-co-text-muted w-20 shrink-0">{t.label}</span>
+          <div className="flex-1 h-1.5 rounded-full bg-co-surface overflow-hidden">
+            <div className={`h-full rounded-full ${t.color}`} style={{ width: t.pct }} />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function LaunchVisual() {
+  return (
+    <div className="mt-5 rounded-xl border border-co-border bg-co-bg/60 p-3 space-y-2">
+      <div className="text-[7px] text-co-text-muted tracking-widest uppercase">Pre-launch Checklist</div>
+      {[
+        { label: "Mobile tested", ok: true },
+        { label: "Forms verified", ok: true },
+        { label: "Speed < 2s", ok: true },
+        { label: "Analytics live", ok: true },
+      ].map((item) => (
+        <div key={item.label} className="flex items-center gap-2">
+          <div className={`w-2 h-2 rounded-full shrink-0 ${item.ok ? "bg-green-400" : "bg-red-400"}`} />
+          <span className="text-[8px] text-co-text-secondary">{item.label}</span>
+          {item.ok && <span className="ml-auto text-[7px] text-green-400">✓</span>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function GrowthPhaseVisual() {
+  const bars = [4,5,6,6,7,8,9,11,12];
+  return (
+    <div className="mt-5 rounded-xl border border-co-border bg-co-bg/60 p-3">
+      <div className="text-[7px] text-co-text-muted tracking-widest uppercase mb-2">Monthly Performance</div>
+      <div className="flex items-end gap-0.5" style={{ height: "24px" }}>
+        {bars.map((h, i) => (
+          <div
+            key={i}
+            className="flex-1 rounded-sm"
+            style={{
+              height: `${(h / 12) * 24}px`,
+              background: i >= 6 ? "rgba(79,127,255,0.75)" : "rgba(79,127,255,0.2)",
+            }}
+          />
+        ))}
+      </div>
+      <div className="flex items-center justify-between mt-1.5">
+        <span className="text-[6.5px] text-co-text-muted">Month 1 → Month 9</span>
+        <span className="text-[7.5px] font-bold text-green-400">↑ Compounding</span>
+      </div>
+    </div>
+  );
+}
+
+const phaseVisuals: Record<string, React.ReactNode> = {
+  "01": <DiscoveryVisual />,
+  "02": <StrategyVisual />,
+  "03": <BuildVisual />,
+  "04": <LaunchVisual />,
+  "05": <GrowthPhaseVisual />,
+};
 
 const phases = [
   {
@@ -281,6 +394,7 @@ function PhaseBlock({
           <p className="text-sm text-co-text-secondary leading-relaxed">
             {phase.insight}
           </p>
+          {phaseVisuals[phase.number]}
         </div>
       </div>
     </motion.div>
