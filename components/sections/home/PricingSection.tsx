@@ -50,7 +50,7 @@ const plans: Plan[] = [
   {
     step: "02",
     name: "Care Plan",
-    price: "$199",
+    price: "$300",
     period: "/month",
     badge: "REQUIRED",
     tagline: "Without this, your website slows down, breaks, and stops ranking.",
@@ -75,7 +75,7 @@ const plans: Plan[] = [
   {
     step: "03",
     name: "Growth",
-    price: "$500",
+    price: "$600",
     period: "/month",
     badge: "MOST POPULAR",
     tagline: "Get consistent leads every month — without chasing referrals.",
@@ -220,7 +220,7 @@ function WebsiteCard({ inView }: { inView: boolean }) {
               className="font-black tracking-tight text-white leading-none mb-1.5"
               style={{ fontSize: "clamp(2.4rem, 5vw, 3rem)" }}
             >
-              $999
+              $999–1999
             </div>
             <p className="text-xs text-co-text-muted">
               No recurring fee for the site itself.
