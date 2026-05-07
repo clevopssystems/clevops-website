@@ -27,9 +27,9 @@ export const locations: CityData[] = [
     nearbyCities: ["Fort Worth", "Arlington", "Plano", "Irving"],
     localSearchTerm: "website design for service businesses in Dallas",
     faqAnswers: {
-      howLong: "Most Dallas clients are live within 14 days of signing. We build in parallel — design, copy, and systems — so nothing waits on anything else.",
+      howLong: "Most Dallas clients are live within 14 days of signing. We build in parallel (design, copy, and systems) so nothing waits on anything else.",
       howMuch: "Our websites range from $999–$1,999 depending on the number of pages, integrations, and automation required. Most Dallas businesses also choose our $300/month care plan or $600/month growth system. For businesses running $50K+ a year, that's recovered in a single new client.",
-      whyLocal: "Dallas service businesses operate in a dense, competitive market. A generic website doesn't cut through. You need clear positioning, fast load times, and a booking flow that converts mobile traffic — which is the majority of Dallas local searches."
+      whyLocal: "Dallas service businesses operate in a dense, competitive market. A generic website doesn't cut through. You need clear positioning, fast load times, and a booking flow that converts mobile traffic, which is the majority of Dallas local searches."
     }
   },
   {
@@ -44,8 +44,8 @@ export const locations: CityData[] = [
     localSearchTerm: "website design for service businesses in Houston",
     faqAnswers: {
       howLong: "Houston clients typically launch in 14 days. We run design, automation, and SEO setup simultaneously.",
-      howMuch: "Our websites typically range from $999–$1,999 depending on complexity, integrations, and SEO structure. Most Houston businesses pair this with our $300/month care plan or $600/month growth system — typically recovered in 1–2 booked jobs.",
-      whyLocal: "Houston is one of the largest service business markets in America. Visibility in your specific service area — not just 'Houston' broadly — is what drives real booked jobs."
+      howMuch: "Our websites typically range from $999–$1,999 depending on complexity, integrations, and SEO structure. Most Houston businesses pair this with our $300/month care plan or $600/month growth system, typically recovered in 1–2 booked jobs.",
+      whyLocal: "Houston is one of the largest service business markets in America. Visibility in your specific service area, not just 'Houston' broadly, is what drives real booked jobs."
     }
   },
   {
@@ -59,8 +59,8 @@ export const locations: CityData[] = [
     nearbyCities: ["Austin", "New Braunfels", "Schertz", "Converse"],
     localSearchTerm: "website design for service businesses in San Antonio",
     faqAnswers: {
-      howLong: "14 days from kickoff. San Antonio clients often have strong word-of-mouth — we turn that reputation into a digital asset.",
-      howMuch: "Websites start at $999–$1,999 depending on what's included — pages, automations, and SEO structure. San Antonio businesses typically add our $300/month care plan or $600/month growth system, and the volume-friendly market means bookings cover it quickly.",
+      howLong: "14 days from kickoff. San Antonio clients often have strong word-of-mouth, and we turn that reputation into a digital asset.",
+      howMuch: "Websites start at $999–$1,999 depending on what's included: pages, automations, and SEO structure. San Antonio businesses typically add our $300/month care plan or $600/month growth system, and the volume-friendly market means bookings cover it quickly.",
       whyLocal: "San Antonio's service market is driven by trust and reputation. A professional website makes sure your online presence matches the quality of your work."
     }
   },
@@ -75,7 +75,7 @@ export const locations: CityData[] = [
     nearbyCities: ["Round Rock", "Cedar Park", "Georgetown", "San Marcos"],
     localSearchTerm: "website design for service businesses in Austin",
     faqAnswers: {
-      howLong: "14 days. Austin's competitive market means speed to launch matters — every week without a proper site is captured by a competitor.",
+      howLong: "14 days. Austin's competitive market means speed to launch matters. Every week without a proper site is captured by a competitor.",
       howMuch: "Our websites range from $999–$1,999 depending on scope. Most Austin businesses choose our $300/month care plan or $600/month growth system for ongoing optimization. Austin's premium market rates mean one new client typically covers the build cost immediately.",
       whyLocal: "Austin customers are savvy and fast. They compare options in under 60 seconds. If your site doesn't immediately communicate trust and quality, they move on."
     }
@@ -91,8 +91,8 @@ export const locations: CityData[] = [
     nearbyCities: ["Arlington", "Keller", "Mansfield", "Euless"],
     localSearchTerm: "website design for service businesses in Fort Worth",
     faqAnswers: {
-      howLong: "14 days. Fort Worth clients often have strong relationships in specific neighborhoods — a proper website helps them grow beyond those networks.",
-      howMuch: "Websites range from $999–$1,999 depending on number of pages and integrations. Most Fort Worth businesses add our $300/month care plan or $600/month growth system — and the growing search volume means new customers come in consistently to cover it.",
+      howLong: "14 days. Fort Worth clients often have strong relationships in specific neighborhoods. A proper website helps them grow beyond those networks.",
+      howMuch: "Websites range from $999–$1,999 depending on number of pages and integrations. Most Fort Worth businesses add our $300/month care plan or $600/month growth system, and the growing search volume means new customers come in consistently to cover it.",
       whyLocal: "Fort Worth has a reputation for quality and reliability. Your website needs to communicate those same values from the first second a potential customer lands on it."
     }
   },

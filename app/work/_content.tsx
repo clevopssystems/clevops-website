@@ -114,9 +114,9 @@ function NewSiteVisual() {
 const beforeIssues = [
   "Generic template design with no brand identity",
   "No clear headline or value proposition above fold",
-  "Missing trust signals — no reviews, no certifications",
+  "Missing trust signals: no reviews, no certifications",
   "Weak call-to-action buried below the fold",
-  "Not mobile-friendly — poor experience on phones",
+  "Not mobile-friendly, poor experience on phones",
   "Zero local SEO optimization",
   "Slow page load (4.8s average)",
   "No online booking or inquiry path",

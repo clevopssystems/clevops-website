@@ -21,7 +21,7 @@ const smsMessages = [
   },
   {
     from: "system" as const,
-    text: "Hi! Thanks for reaching out to Premier Cleaning Co. 🙌 We'd love to help — here's a quick booking link to lock in your spot!",
+    text: "Hi! Thanks for reaching out to Premier Cleaning Co. 🙌 We'd love to help! Here's a quick booking link to lock in your spot!",
     time: "2:14 PM",
     auto: true,
   },
@@ -73,7 +73,7 @@ const crmItems = [
 /* ── Feature bullets ──────────────────────────────────── */
 const features = [
   "Instant SMS auto-response on every inquiry",
-  "Missed call text-back — never lose a lead",
+  "Missed call text-back: never lose a lead",
   "Automated booking confirmation & reminders",
   "Follow-up sequences that run until they book",
 ];
@@ -120,7 +120,7 @@ export function SmsVisualSection() {
             >
               <span className="text-gradient-accent">Speed = more clients.</span>
               <br />
-              Respond in 28 seconds — automatically.
+              Respond in 28 seconds. Automatically.
             </motion.h2>
 
             <motion.p
@@ -129,7 +129,7 @@ export function SmsVisualSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.2 }}
             >
-              78% of customers book the first business that responds — not the
+              78% of customers book the first business that responds, not the
               best one. We make sure that&apos;s always you, even when you&apos;re on a
               job.
             </motion.p>

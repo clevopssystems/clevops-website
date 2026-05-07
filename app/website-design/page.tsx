@@ -28,7 +28,7 @@ export default function WebsiteDesignHubPage() {
           </h1>
 
           <p className="mt-6 text-lg md:text-xl text-co-text-secondary leading-relaxed max-w-2xl">
-            Every service business has different conversion challenges. We build websites specifically for the way customers in each niche search, compare, and decide — not generic templates dressed up with your logo.
+            Every service business has different conversion challenges. We build websites specifically for the way customers in each niche search, compare, and decide. Not generic templates dressed up with your logo.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 items-start">
@@ -94,10 +94,10 @@ export default function WebsiteDesignHubPage() {
                 Why Generic Websites Lose to Niche-Built Ones
               </h2>
               <p className="mt-5 text-co-text-secondary leading-relaxed">
-                A cleaning company&apos;s website needs to communicate trust differently than an HVAC company&apos;s. A roofing site has different credibility requirements than a barbershop. The copy, the layout, the CTAs, the social proof — all of it changes based on what the customer is actually afraid of when they search.
+                A cleaning company&apos;s website needs to communicate trust differently than an HVAC company&apos;s. A roofing site has different credibility requirements than a barbershop. The copy, the layout, the CTAs, the social proof: all of it changes based on what the customer is actually afraid of when they search.
               </p>
               <p className="mt-4 text-co-text-secondary leading-relaxed">
-                We build each website around the specific psychology of that niche&apos;s buyer. That&apos;s why our sites convert — not because they look good, but because they&apos;re engineered for the decision being made.
+                We build each website around the specific psychology of that niche&apos;s buyer. That&apos;s why our sites convert, not because they look good, but because they&apos;re engineered for the decision being made.
               </p>
               <div className="mt-8">
                 <Button href="/contact" variant="primary" size="md">
@@ -110,17 +110,17 @@ export default function WebsiteDesignHubPage() {
               {[
                 {
                   label: "Cleaning & Home Services",
-                  note: "Trust-first — customers hand over keys",
+                  note: "Trust-first: customers hand over keys",
                   niches: ["Cleaning Companies", "HVAC Companies", "Plumbers"],
                 },
                 {
                   label: "Visual Services",
-                  note: "Proof-first — customers buy what they can see",
+                  note: "Proof-first: customers buy what they can see",
                   niches: ["Auto Detailing", "Landscaping", "Contractors"],
                 },
                 {
                   label: "High-Trust Purchases",
-                  note: "Credibility-first — customers are scared of being taken",
+                  note: "Credibility-first: customers are scared of being taken",
                   niches: ["Roofing Companies", "Barbershops"],
                 },
               ].map((group) => (
@@ -161,7 +161,7 @@ export default function WebsiteDesignHubPage() {
             </h2>
 
             <p className="mt-5 text-co-text-secondary leading-relaxed max-w-xl mx-auto">
-              We&apos;ll build a live demo of your new website — built for your specific service type and market — so you can see exactly what it looks like before committing to anything.
+              We&apos;ll build a live demo of your new website, built for your specific service type and market, so you can see exactly what it looks like before committing to anything.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">

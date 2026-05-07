@@ -210,7 +210,7 @@ const insightCards: InsightCard[] = [
   {
     Icon: Smartphone,
     title: "Mobile is where local search starts",
-    body: "Most local service searches begin on a phone — often while customers are at home comparing options. A fast, mobile-optimized website is what separates businesses that get found from those that don't.",
+    body: "Most local service searches begin on a phone, often while customers are at home comparing options. A fast, mobile-optimized website is what separates businesses that get found from those that don't.",
     accent: "#7BA3FF",
     bg: "rgba(79,127,255,0.08)",
     border: "rgba(79,127,255,0.16)",
@@ -220,7 +220,7 @@ const insightCards: InsightCard[] = [
   {
     Icon: Zap,
     title: "Site speed signals business quality",
-    body: "A slow website creates a negative quality signal before a customer reads a single word. Load time directly affects how trustworthy a business appears on first visit — and whether the visitor stays.",
+    body: "A slow website creates a negative quality signal before a customer reads a single word. Load time directly affects how trustworthy a business appears on first visit, and whether the visitor stays.",
     accent: "#B87FFF",
     bg: "rgba(155,114,255,0.08)",
     border: "rgba(155,114,255,0.16)",
@@ -281,8 +281,8 @@ export function LocalSearchFunnelSection({ city, state, topIndustries }: LocalSe
   const primaryIndustry = topIndustries[0] ?? "service businesses"
 
   const supportingText = city
-    ? `${city} customers searching for ${primaryIndustry} compare options before committing. The businesses capturing that demand have optimized every step of this journey — from how they appear in local search to how fast their site loads on a phone.`
-    : `Service businesses across ${state} compete for the same local searches every day. The ones consistently winning new clients have structured their digital presence around each stage of this journey — from map pack visibility to a frictionless booking experience.`
+    ? `${city} customers searching for ${primaryIndustry} compare options before committing. The businesses capturing that demand have optimized every step of this journey, from how they appear in local search to how fast their site loads on a phone.`
+    : `Service businesses across ${state} compete for the same local searches every day. The ones consistently winning new clients have structured their digital presence around each stage of this journey, from map pack visibility to a frictionless booking experience.`
 
   return (
     <section ref={sectionRef} className="relative py-16 md:py-24 overflow-hidden">

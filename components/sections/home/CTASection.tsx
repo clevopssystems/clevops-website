@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 
 const trustItems = [
   "Free 30-minute call",
-  "No pitch — just a plan",
+  "No pitch, just a plan",
   "Response within 4 hours",
   "Zero obligation",
 ];

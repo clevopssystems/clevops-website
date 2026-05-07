@@ -16,9 +16,9 @@ const featuredCities = [
 ]
 
 export const metadata: Metadata = {
-  title: "Website Design for Service Businesses — All US Locations | ClevOps",
+  title: "Website Design for Service Businesses | All US Locations | ClevOps",
   description:
-    "ClevOps builds conversion-focused websites for local service businesses across the USA. Browse by state and city — local SEO, lead capture, mobile-first. From $999.",
+    "ClevOps builds conversion-focused websites for local service businesses across the USA. Browse by state and city: local SEO, lead capture, mobile-first. From $999.",
 }
 
 export default function LocationsHubPage() {
@@ -74,7 +74,7 @@ export default function LocationsHubPage() {
               Top Cities We Serve
             </h2>
             <p className="mt-4 text-co-text-secondary leading-relaxed">
-              From dense urban cores to fast-growing suburbs — each market has unique dynamics. Every city page is built with local context, not generic copy.
+              From dense urban cores to fast-growing suburbs: each market has unique dynamics. Every city page is built with local context, not generic copy.
             </p>
           </div>
 
@@ -214,7 +214,7 @@ export default function LocationsHubPage() {
             </h2>
 
             <p className="mt-5 text-co-text-secondary leading-relaxed max-w-xl mx-auto">
-              Tell us your city and what you do — we&apos;ll build a live demo of your new website so you can see exactly what it looks like before committing to anything.
+              Tell us your city and what you do. We&apos;ll build a live demo of your new website so you can see exactly what it looks like before committing to anything.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">

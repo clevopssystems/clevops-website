@@ -213,7 +213,7 @@ const services = [
       "Custom design built around your brand and goals",
       "Mobile-first, fully responsive across all devices",
       "Conversion-optimised layout and UX structure",
-      "Fast load times — sub-2 second performance target",
+      "Fast load times: sub-2 second performance target",
       "Clear trust signals: testimonials, badges, and proof",
       "Prominent, strategic CTAs throughout every page",
       "SEO-ready semantic HTML structure",
@@ -232,7 +232,7 @@ const services = [
     title: "Lead Capture Systems",
     tagline: "Never miss a potential customer again",
     description:
-      "Traffic without capture is wasted opportunity. We build integrated lead systems that convert website visitors into inquiries 24/7 — even when you are on a job, asleep, or off for the weekend.",
+      "Traffic without capture is wasted opportunity. We build integrated lead systems that convert website visitors into inquiries 24/7, even when you are on a job, asleep, or off for the weekend.",
     includes: [
       "Custom inquiry and contact forms",
       "Online booking system integration",
@@ -254,7 +254,7 @@ const services = [
     title: "Automation & Follow-Up",
     tagline: "The first to respond wins. Always.",
     description:
-      "Speed is a competitive advantage in service businesses. We build automated systems that respond instantly to every inquiry, send follow-up sequences, request reviews, and keep your business front-of-mind — all without manual effort.",
+      "Speed is a competitive advantage in service businesses. We build automated systems that respond instantly to every inquiry, send follow-up sequences, request reviews, and keep your business front-of-mind, all without manual effort.",
     includes: [
       "Instant auto-response email and SMS setup",
       "Multi-step follow-up email sequences",
@@ -276,7 +276,7 @@ const services = [
     title: "Local SEO Foundations",
     tagline: "Be found in your city before your competitors",
     description:
-      "Ranking locally is not magic — it is structure, consistency, and signals done correctly. We build the technical and content foundations that help your business appear in Google Maps, local search results, and your service area for the right searches.",
+      "Ranking locally is not magic. It is structure, consistency, and signals done correctly. We build the technical and content foundations that help your business appear in Google Maps, local search results, and your service area for the right searches.",
     includes: [
       "Google Business Profile optimization",
       "Local citation building and cleanup",
@@ -298,7 +298,7 @@ const services = [
     title: "Ongoing Growth Support",
     tagline: "Your digital presence should compound over time",
     description:
-      "A launch is a beginning, not a destination. Our ongoing support includes monitoring, optimization, strategic updates, and monthly reviews that keep your digital presence performing, improving, and growing — month after month.",
+      "A launch is a beginning, not a destination. Our ongoing support includes monitoring, optimization, strategic updates, and monthly reviews that keep your digital presence performing, improving, and growing month after month.",
     includes: [
       "Monthly performance review and reporting",
       "Continuous UX and conversion optimizations",
@@ -511,7 +511,7 @@ function BottomCTA() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
         >
           Book a free consultation and we will assess where your biggest
-          opportunities are — no commitment, no pressure, just clarity on what
+          opportunities are, with no commitment, no pressure, just clarity on what
           would actually move the needle for your business.
         </motion.p>
         <motion.div

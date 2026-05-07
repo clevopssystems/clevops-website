@@ -18,7 +18,7 @@ const insightCards: InsightCard[] = [
   {
     num: "01",
     title: "Speed creates trust before anything else",
-    body: "Most local customers decide within seconds whether a business feels credible. A slow or visually dated website signals low quality before a single word is read — and most visitors leave without coming back.",
+    body: "Most local customers decide within seconds whether a business feels credible. A slow or visually dated website signals low quality before a single word is read, and most visitors leave without coming back.",
     accentColor: "#7BA3FF",
     accentBorder: "rgba(79,127,255,0.28)",
     accentGlow: "rgba(79,127,255,0.08)",
@@ -34,7 +34,7 @@ const insightCards: InsightCard[] = [
   {
     num: "03",
     title: "The first clear response wins the job",
-    body: "Customers searching for local services typically contact two or three businesses. The one with the clearest contact path — or an automated response system — usually wins, regardless of price.",
+    body: "Customers searching for local services typically contact two or three businesses. The one with the clearest contact path (or an automated response system) usually wins, regardless of price.",
     accentColor: "#4FC8FF",
     accentBorder: "rgba(79,200,255,0.28)",
     accentGlow: "rgba(79,200,255,0.08)",
@@ -58,7 +58,7 @@ const insightCards: InsightCard[] = [
   {
     num: "06",
     title: "Local search visibility compounds over time",
-    body: "Search authority builds incrementally. A properly structured website earns ranking strength month over month — widening the gap between you and local competitors who haven't invested in the foundations.",
+    body: "Search authority builds incrementally. A properly structured website earns ranking strength month over month, widening the gap between you and local competitors who haven't invested in the foundations.",
     accentColor: "#4FC8FF",
     accentBorder: "rgba(79,200,255,0.28)",
     accentGlow: "rgba(79,200,255,0.08)",
@@ -101,7 +101,7 @@ export function LocalInsightsSection({ city }: LocalInsightsSectionProps) {
             </h2>
           </div>
           <p className="text-co-text-muted text-base md:text-lg leading-relaxed">
-            Service businesses in {city} don&apos;t lose on price — they lose on the first impression. These are the factors that determine who gets the call and who gets scrolled past.
+            Service businesses in {city} don&apos;t lose on price. They lose on the first impression. These are the factors that determine who gets the call and who gets scrolled past.
           </p>
         </motion.div>
 

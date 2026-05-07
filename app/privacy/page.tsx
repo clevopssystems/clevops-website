@@ -30,7 +30,7 @@ export default function PrivacyPage() {
             <h2 className="text-base font-semibold text-co-text mb-3">1. Information We Collect</h2>
             <p>
               When you contact us through our website, we collect the information you
-              provide — including your name, business name, email address, phone number,
+              provide, including your name, business name, email address, phone number,
               website URL, and project details. We use this information solely to respond
               to your inquiry and provide our services.
             </p>

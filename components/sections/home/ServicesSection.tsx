@@ -23,7 +23,7 @@ const services = [
     title: "High-Converting Websites",
     tagline: "Revenue architecture, not just design",
     description:
-      "Most websites look decent and do nothing. We engineer every element around one goal: getting a visitor to book. Structure, copy, trust signals, and speed — all working together.",
+      "Most websites look decent and do nothing. We engineer every element around one goal: getting a visitor to book. Structure, copy, trust signals, and speed all working together.",
     features: ["Mobile-first responsive build", "Speed-optimized <2s load", "Trust-driven layout", "SEO-ready structure"],
     accentColor: "rgba(79,127,255,0.15)",
     borderAccent: "rgba(79,127,255,0.3)",
@@ -36,7 +36,7 @@ const services = [
     title: "Lead Capture Systems",
     tagline: "Your site should work while you work",
     description:
-      "While you are on a job, your site should be closing the next one. Smart forms, booking integrations, and conversion paths that capture leads around the clock — no manual effort required.",
+      "While you are on a job, your site should be closing the next one. Smart forms, booking integrations, and conversion paths that capture leads around the clock with no manual effort required.",
     features: ["Smart inquiry forms", "Booking system integration", "Lead routing setup", "CRM connection"],
     accentColor: "rgba(155,114,255,0.15)",
     borderAccent: "rgba(155,114,255,0.3)",
@@ -49,7 +49,7 @@ const services = [
     title: "Automation & Follow-Up",
     tagline: "Speed wins. 78% of customers choose who responds first.",
     description:
-      "Instant auto-response, email follow-up sequences, and missed-call text-back so you always respond first — even when you are in the middle of a job.",
+      "Instant auto-response, email follow-up sequences, and missed-call text-back so you always respond first, even when you are in the middle of a job.",
     features: ["Instant auto-response", "Email follow-up sequences", "Missed call text-back", "Review automation"],
     accentColor: "rgba(79,200,255,0.12)",
     borderAccent: "rgba(79,200,255,0.25)",
@@ -62,7 +62,7 @@ const services = [
     title: "Local SEO Foundations",
     tagline: "Be found before your competitors",
     description:
-      "46% of all Google searches are local. We build the digital foundation that puts you in Maps, local results, and your service area searches — where customers are actively looking to book.",
+      "46% of all Google searches are local. We build the digital foundation that puts you in Maps, local results, and your service area searches, where customers are actively looking to book.",
     features: ["Google Business optimization", "Local citation building", "On-page SEO setup", "Schema markup"],
     accentColor: "rgba(155,114,255,0.12)",
     borderAccent: "rgba(155,114,255,0.22)",

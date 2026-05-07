@@ -43,13 +43,13 @@ function getCompetitiveInsight(data: CityData): string {
   const topIndustry = data.topIndustries[0] ?? "service businesses"
 
   if (pop >= 2_000_000) {
-    return `${data.city} is one of the most competitive local service markets in the US. Most ${topIndustry} here still run on referrals and outdated templates — the performance gap between the top-ranked business and everyone else is enormous and growing.`
+    return `${data.city} is one of the most competitive local service markets in the US. Most ${topIndustry} here still run on referrals and outdated templates, and the performance gap between the top-ranked business and everyone else is enormous and growing.`
   }
   if (pop >= 1_000_000) {
-    return `Large markets like ${data.city} reward businesses that invest in digital presence early. The ${topIndustry} ranking on the first page of local search locked in those positions months ago. The window to compete is still open — but not indefinitely.`
+    return `Large markets like ${data.city} reward businesses that invest in digital presence early. The ${topIndustry} ranking on the first page of local search locked in those positions months ago. The window to compete is still open, but not indefinitely.`
   }
   if (pop >= 500_000) {
-    return `${data.city}'s digital competition is real but still beatable. A properly structured website with local SEO foundations can move into top local search positions within a few months — faster than most business owners expect.`
+    return `${data.city}'s digital competition is real but still beatable. A properly structured website with local SEO foundations can move into top local search positions within a few months, faster than most business owners expect.`
   }
   return `Smaller markets like ${data.city} move quickly once one ${topIndustry} builds a proper digital foundation. Local search competition is still limited here, which means the window to establish ranking dominance is open right now.`
 }
@@ -92,7 +92,7 @@ export function LocalProofSection({ data, nearbyLocations }: LocalProofSectionPr
             <span className="text-gradient-accent">{data.city}</span>
           </h2>
           <p className="mt-4 text-co-text-muted text-base md:text-lg leading-relaxed">
-            The service niches {data.city} customers search for most — and the surrounding areas that determine your digital footprint.
+            The service niches {data.city} customers search for most, and the surrounding areas that determine your digital footprint.
           </p>
         </motion.div>
 
@@ -221,7 +221,7 @@ export function LocalProofSection({ data, nearbyLocations }: LocalProofSectionPr
               )}
 
               <p className="mt-4 text-[11px] text-co-text-muted leading-relaxed">
-                We build service-area targeting into every site. Customers in neighboring cities who search for {data.topIndustries[0] ?? "your service"} can find you — not just {data.city} residents.
+                We build service-area targeting into every site. Customers in neighboring cities who search for {data.topIndustries[0] ?? "your service"} can find you, not just {data.city} residents.
               </p>
             </motion.div>
 

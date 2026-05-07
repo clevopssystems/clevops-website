@@ -22,7 +22,7 @@ const steps = [
     title: "Discovery",
     subtitle: "Understand before we build",
     description:
-      "Deep-dive into your business, your customers, and your competitors. We learn what makes you the obvious choice — and build everything around that. No templates, no assumptions.",
+      "Deep-dive into your business, your customers, and your competitors. We learn what makes you the obvious choice and build everything around that. No templates, no assumptions.",
     duration: "Week 1",
     accentColor: "rgba(79,127,255,0.15)",
     borderColor: "rgba(79,127,255,0.25)",
@@ -34,7 +34,7 @@ const steps = [
     title: "Strategy",
     subtitle: "Map the growth architecture",
     description:
-      "Every conversion path, trust signal, and automation flow is mapped before a single line of code is written. We build the blueprint — then we build to it.",
+      "Every conversion path, trust signal, and automation flow is mapped before a single line of code is written. We build the blueprint, then we build to it.",
     duration: "Week 1–2",
     accentColor: "rgba(155,114,255,0.15)",
     borderColor: "rgba(155,114,255,0.25)",
@@ -44,7 +44,7 @@ const steps = [
     icon: Code2,
     number: "03",
     title: "Build",
-    subtitle: "Website, systems, and automation — in parallel",
+    subtitle: "Website, systems, and automation, all in parallel",
     description:
       "Most agencies build in sequence. We build in parallel: website, lead systems, automation, and SEO foundations all move at once. That is why our average launch time is 14 days, not 8 weeks.",
     duration: "Week 2–3",
@@ -58,7 +58,7 @@ const steps = [
     title: "Launch",
     subtitle: "A quality gate, not a finish line",
     description:
-      "Speed testing, mobile verification, form testing, analytics — we do not go live until every system is confirmed working. Launch day is a checkpoint, not a celebration.",
+      "Speed testing, mobile verification, form testing, analytics: we do not go live until every system is confirmed working. Launch day is a checkpoint, not a celebration.",
     duration: "Week 3–4",
     accentColor: "rgba(79,127,255,0.12)",
     borderColor: "rgba(79,127,255,0.22)",
@@ -70,7 +70,7 @@ const steps = [
     title: "Growth",
     subtitle: "Your site gets better every month",
     description:
-      "Most agencies launch and disappear. We review monthly — conversion rates, lead volume, search rankings — and optimize. The system is intentionally designed to compound over time.",
+      "Most agencies launch and disappear. We review monthly (conversion rates, lead volume, search rankings) and optimize. The system is intentionally designed to compound over time.",
     duration: "Ongoing",
     accentColor: "rgba(155,114,255,0.12)",
     borderColor: "rgba(155,114,255,0.22)",

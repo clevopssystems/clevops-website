@@ -539,7 +539,7 @@ export function Hero() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.78 }}
             >
               Most service businesses don&apos;t have a system to capture, follow
-              up, and convert leads. We fix that — and most clients see their
+              up, and convert leads. We fix that, and most clients see their
               first new leads within 14 days of launch.
             </motion.p>
 

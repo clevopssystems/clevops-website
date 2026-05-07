@@ -309,7 +309,7 @@ export function StatePageLayout({ data, cities }: StatePageLayoutProps) {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-co-accent" />
               </span>
               <span className="text-xs font-semibold tracking-widest uppercase text-co-text-secondary">
-                {data.abbreviation} — {data.name}
+                {data.abbreviation} · {data.name}
               </span>
             </motion.div>
 
@@ -557,17 +557,17 @@ export function StatePageLayout({ data, cities }: StatePageLayoutProps) {
               </h2>
             </div>
             <p className="text-co-text-muted text-base md:text-lg leading-relaxed">
-              Every site we build is structured for local search visibility from day one — not bolted on after. {data.name}&apos;s top markets are competitive. We build the infrastructure to capture that demand.
+              Every site we build is structured for local search visibility from day one, not bolted on after. {data.name}&apos;s top markets are competitive. We build the infrastructure to capture that demand.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {([
               { Icon: Globe,       title: "City Landing Pages",    body: `Dedicated pages for every major ${data.name} market, built to rank for high-intent local searches specific to your city and niche.` },
-              { Icon: Search,      title: "Service-Area Keywords", body: "Every page targets specific service + city combinations your customers actually search — not generic terms that bring in unqualified traffic." },
-              { Icon: ShieldCheck, title: "GBP Alignment",         body: "Your website and Google Business Profile reinforce each other across all your service areas — stronger map pack rankings, more calls." },
+              { Icon: Search,      title: "Service-Area Keywords", body: "Every page targets specific service + city combinations your customers actually search, not generic terms that bring in unqualified traffic." },
+              { Icon: ShieldCheck, title: "GBP Alignment",         body: "Your website and Google Business Profile reinforce each other across all your service areas for stronger map pack rankings and more calls." },
               { Icon: Star,        title: "Review Trust Signals",  body: "Reviews and social proof are built into the site structure so new visitors see your credibility before they decide whether to contact you." },
-              { Icon: Smartphone,  title: "Mobile-First Speed",    body: "Built for Core Web Vitals and sub-2s mobile load across all devices — the performance factors that determine who ranks and who doesn't." },
+              { Icon: Smartphone,  title: "Mobile-First Speed",    body: "Built for Core Web Vitals and sub-2s mobile load across all devices, the performance factors that determine who ranks and who doesn't." },
               { Icon: MapPin,      title: "Multi-City Coverage",   body: `Strategic internal linking across ${data.name} city pages builds topical authority and expands search visibility across the full state.` },
             ] as const).map((item, i) => (
               <motion.div
@@ -622,11 +622,11 @@ export function StatePageLayout({ data, cities }: StatePageLayoutProps) {
                 },
                 {
                   question: `Do you build websites for all cities in ${data.name}?`,
-                  answer: `We have dedicated pages and local market expertise for ${cities.slice(0, 3).map((c) => c.city).join(", ")} and more. If your city isn't listed, contact us — we serve businesses across the full state of ${data.name}.`,
+                  answer: `We have dedicated pages and local market expertise for ${cities.slice(0, 3).map((c) => c.city).join(", ")} and more. If your city isn't listed, contact us. We serve businesses across the full state of ${data.name}.`,
                 },
                 {
                   question: `Can ClevOps help ${data.name} service businesses rank on Google?`,
-                  answer: `Yes. Every site we build includes local SEO foundations: city-specific landing pages, service-area keyword structure, GBP alignment, and technical SEO. ${data.name}'s top markets are competitive — we build for rankings, not just looks.`,
+                  answer: `Yes. Every site we build includes local SEO foundations: city-specific landing pages, service-area keyword structure, GBP alignment, and technical SEO. ${data.name}'s top markets are competitive. We build for rankings, not just looks.`,
                 },
                 {
                   question: `What types of service businesses do you work with in ${data.name}?`,
@@ -687,7 +687,7 @@ export function StatePageLayout({ data, cities }: StatePageLayoutProps) {
             animate={ctaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.22 }}
           >
-            We&apos;ll build a live demo of your new website — no templates, no filler — so you can see exactly what it looks like before committing to anything.
+            We&apos;ll build a live demo of your new website (no templates, no filler) so you can see exactly what it looks like before committing to anything.
           </motion.p>
 
           <motion.div

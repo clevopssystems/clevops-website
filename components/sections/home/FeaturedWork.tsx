@@ -16,12 +16,12 @@ import {
 } from "@/lib/animations";
 
 const improvements = [
-  "Full visual rebrand — from forgettable template to premium identity",
+  "Full visual rebrand: from forgettable template to premium identity",
   "Mobile-first architecture rebuilt from scratch, not retrofitted",
   "Conversion-focused layout with trust signals placed strategically",
   "Online booking integration with automated confirmation and follow-up",
   "Google Business profile fully optimized for local map rankings",
-  "Page speed cut to sub-1.4s — from 6.8s at baseline",
+  "Page speed cut to sub-1.4s (down from 6.8s at baseline)",
 ];
 
 /* ── Stylized before/after website mockup ── */
@@ -162,7 +162,7 @@ export function FeaturedWork() {
           >
             A cleaning business with great reviews and zero online leads.
             We rebuilt their digital presence into a machine that books jobs
-            while they work — without chasing a single referral.
+            while they work, without chasing a single referral.
           </motion.p>
         </motion.div>
 
@@ -211,7 +211,7 @@ export function FeaturedWork() {
                 </h3>
                 <p className="text-sm text-co-text-secondary leading-relaxed">
                   A quality cleaning business with strong word-of-mouth and
-                  4.9-star reviews — but a website that undermined every
+                  4.9-star reviews, with a website that undermined every
                   recommendation the moment a potential customer landed on it.
                 </p>
               </div>

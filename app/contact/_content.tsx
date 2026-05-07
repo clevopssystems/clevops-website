@@ -22,7 +22,7 @@ const services = [
   "Automation & Follow-Up",
   "Local SEO Foundations",
   "Full Growth Package",
-  "Not Sure Yet — Need Guidance",
+  "Not Sure Yet, Need Guidance",
 ];
 
 const contactDetails = [

@@ -78,7 +78,7 @@ const plans: Plan[] = [
     price: "$600",
     period: "/month",
     badge: "MOST POPULAR",
-    tagline: "Get consistent leads every month — without chasing referrals.",
+    tagline: "Get consistent leads every month, without chasing referrals.",
     roiLine: "Most clients recover this in 1–2 deals.",
     forWho: "If your website isn't bringing you leads, this is why. Best for service businesses ready to scale.",
     mandatoryNote: null,
@@ -106,9 +106,9 @@ const plans: Plan[] = [
     period: "/month",
     badge: "ELITE",
     tagline:
-      "We run your ads, SEO, and automation — so you dominate your local market.",
+      "We run your ads, SEO, and automation so you dominate your local market.",
     roiLine: null,
-    forWho: "For businesses serious about dominating their city — when you're ready to scale aggressively.",
+    forWho: "For businesses serious about dominating their city. Best for those ready to scale aggressively.",
     mandatoryNote: null,
     accentColor: "#06B6D4",
     borderColor: "rgba(6,182,212,0.2)",
@@ -178,7 +178,7 @@ function WebsiteCard({ inView }: { inView: boolean }) {
           </div>
 
           <p className="text-base font-semibold text-co-text leading-snug mb-1.5">
-            Your website should bring you clients — not just sit there.
+            Your website should bring you clients, not just sit there.
           </p>
           <p className="text-sm text-co-text-muted leading-relaxed mb-6">
             This is where everything starts. Without a conversion-ready website,
@@ -540,7 +540,7 @@ export function PricingSection() {
             Start with your website.
           </h3>
           <p className="text-sm text-co-text-muted mt-1 max-w-lg">
-            Your website should bring you clients — not just sit there.
+            Your website should bring you clients, not just sit there.
           </p>
           <p className="text-xs mt-1 max-w-lg font-semibold" style={{ color: "rgba(79,127,255,0.65)" }}>
             This is where everything starts. Without this, nothing else works.
@@ -565,7 +565,7 @@ export function PricingSection() {
           </h3>
           <p className="text-sm text-co-text-muted mt-1.5 max-w-2xl">
             Your website alone won&apos;t bring clients. Growth comes from systems, SEO,
-            and automation that run 24/7 — even when you&apos;re on the job.
+            and automation that run 24/7, even when you&apos;re on the job.
           </p>
         </motion.div>
 
@@ -586,7 +586,7 @@ export function PricingSection() {
           <Lock size={11} className="text-amber-400/60 shrink-0" />
           <p className="text-xs text-center text-co-text-muted">
             <span className="text-amber-400/80">Care Plan is required</span>{" "}
-            with every website — it&apos;s what keeps your site live, secure, and
+            with every website. It&apos;s what keeps your site live, secure, and
             indexed by Google.
           </p>
         </motion.div>
@@ -649,7 +649,7 @@ export function PricingSection() {
             >
               Book a free 30-min audit
             </a>{" "}
-            — we&apos;ll tell you exactly what your business needs.
+            and we&apos;ll tell you exactly what your business needs.
           </p>
         </motion.div>
       </div>

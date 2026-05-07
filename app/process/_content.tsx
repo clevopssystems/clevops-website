@@ -136,7 +136,7 @@ const phases = [
     duration: "Week 1",
     tagline: "Understand before we build",
     description:
-      "We begin with a comprehensive discovery session. We learn your business, your customers, your competitors, and your goals. This is where we identify exactly what is missing from your current presence — and what your ideal customer needs to see before they trust you enough to book.",
+      "We begin with a comprehensive discovery session. We learn your business, your customers, your competitors, and your goals. This is where we identify exactly what is missing from your current presence, and what your ideal customer needs to see before they trust you enough to book.",
     deliverables: [
       "Business and goals intake",
       "Current presence audit",
@@ -146,7 +146,7 @@ const phases = [
       "Project scope definition",
     ],
     insight:
-      "Most agencies skip this phase. They use your logo and move straight to templates. We consider discovery the most important phase — because a beautiful site built on the wrong strategy is just an expensive mistake.",
+      "Most agencies skip this phase. They use your logo and move straight to templates. We consider discovery the most important phase, because a beautiful site built on the wrong strategy is just an expensive mistake.",
   },
   {
     icon: Lightbulb,
@@ -157,7 +157,7 @@ const phases = [
     duration: "Week 1–2",
     tagline: "Map the growth architecture",
     description:
-      "Strategy turns discovery into a blueprint. We define your site structure, conversion flow, content architecture, and system connections. We plan every page with intent — knowing what it needs to do, who it is speaking to, and what action it should drive.",
+      "Strategy turns discovery into a blueprint. We define your site structure, conversion flow, content architecture, and system connections. We plan every page with intent: knowing what it needs to do, who it is speaking to, and what action it should drive.",
     deliverables: [
       "Site map and page architecture",
       "Content strategy and messaging framework",
@@ -188,7 +188,7 @@ const phases = [
       "Local SEO technical implementation",
     ],
     insight:
-      "We do not hand off between designers and developers. It is a unified build — meaning design decisions are always technically aware and technical choices are always design-informed.",
+      "We do not hand off between designers and developers. It is a unified build, meaning design decisions are always technically aware and technical choices are always design-informed.",
   },
   {
     icon: Rocket,
@@ -209,7 +209,7 @@ const phases = [
       "Post-launch monitoring period",
     ],
     insight:
-      "A broken form on launch day is not just a technical problem — it is lost leads. We treat launch as a quality gate, not a finish line.",
+      "A broken form on launch day is not just a technical problem. It is lost leads. We treat launch as a quality gate, not a finish line.",
   },
   {
     icon: TrendingUp,
@@ -220,7 +220,7 @@ const phases = [
     duration: "Ongoing",
     tagline: "Optimize, improve, expand",
     description:
-      "After launch, we enter the growth phase. Monthly performance reviews, conversion optimizations, SEO progress monitoring, content updates, and new capability additions. Your digital presence should compound — not sit still. We remain your partner in making that happen.",
+      "After launch, we enter the growth phase. Monthly performance reviews, conversion optimizations, SEO progress monitoring, content updates, and new capability additions. Your digital presence should compound, not sit still. We remain your partner in making that happen.",
     deliverables: [
       "Monthly performance reports",
       "Conversion rate analysis and improvements",
@@ -278,7 +278,7 @@ export default function ProcessPage() {
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
           >
-            Every project follows the same disciplined process — not because it
+            Every project follows the same disciplined process, not because it
             is easy, but because it is what produces real, lasting results for
             service businesses.
           </motion.p>

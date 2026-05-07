@@ -432,7 +432,7 @@ export function SystemFlowSection() {
             transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.2 }}
           >
             Six steps. Runs 24/7. Every visitor gets captured, every lead gets
-            followed up, every job gets booked — automatically.
+            followed up, every job gets booked. Automatically.
           </motion.p>
         </div>
 
@@ -516,7 +516,7 @@ export function SystemFlowSection() {
             <p className="text-co-text-secondary text-sm md:text-[15px] leading-relaxed">
               The result:{" "}
               <span className="text-co-text font-semibold">
-                clients contact you, get followed up with instantly, and book —
+                clients contact you, get followed up with instantly, and book
                 while you&apos;re focused on doing the actual work.
               </span>
             </p>

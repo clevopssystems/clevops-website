@@ -36,7 +36,7 @@ const differentiators = [
     icon: Target,
     title: "Business psychology is our foundation",
     description:
-      "We study how service customers make buying decisions — the trust signals they need, the objections they carry, the specific words that make them book. Your site is engineered around that research.",
+      "We study how service customers make buying decisions: the trust signals they need, the objections they carry, the specific words that make them book. Your site is engineered around that research.",
     spotlightColor: "rgba(155,114,255,0.12)",
     featured: true,
   },
@@ -44,13 +44,13 @@ const differentiators = [
     icon: Users,
     title: "Built exclusively for service businesses",
     description:
-      "Cleaning, detailing, HVAC, landscaping — we only work with businesses that live by local reputation and booked jobs. That narrow focus means our systems are already proven in your market.",
+      "Cleaning, detailing, HVAC, landscaping. We only work with businesses that live by local reputation and booked jobs. That narrow focus means our systems are already proven in your market.",
     spotlightColor: "rgba(79,127,255,0.12)",
     featured: false,
   },
   {
     icon: Zap,
-    title: "Speed and quality — not one or the other",
+    title: "Speed and quality, not one or the other",
     description:
       "Premium design does not mean slow. We build fast-loading, optimized sites that feel luxurious and load in under 1.5 seconds.",
     spotlightColor: "rgba(79,200,255,0.1)",
@@ -60,7 +60,7 @@ const differentiators = [
     icon: Rocket,
     title: "You need a sales machine, not a website",
     description:
-      "Lead capture, automation, CRM, SEO — all connected and running while you work jobs. Not separate tools. Not a brochure. A system.",
+      "Lead capture, automation, CRM, SEO: all connected and running while you work jobs. Not separate tools. Not a brochure. A system.",
     spotlightColor: "rgba(155,114,255,0.12)",
     featured: false,
   },
@@ -114,8 +114,8 @@ export function WhyDifferent() {
             variants={headerP}
             className="text-co-text-muted text-base md:text-lg leading-relaxed"
           >
-            Most agencies deliver a website and invoice. We deliver a system —
-            one that generates leads, earns trust, and makes your business the
+            Most agencies deliver a website and invoice. We deliver a system
+            that generates leads, earns trust, and makes your business the
             obvious choice in your area.
           </motion.p>
         </motion.div>
@@ -219,7 +219,7 @@ export function WhyDifferent() {
               &ldquo;
             </div>
             <blockquote className="text-lg md:text-xl font-medium text-co-text leading-relaxed tracking-tight mb-5 max-w-3xl">
-              A mediocre website does not just look bad — it actively costs you
+              A mediocre website does not just look bad. It actively costs you
               money every day. Every missed lead, every lost trust signal, every
               slow response is revenue walking out the door. ClevOps exists to
               close that door permanently.

@@ -4,7 +4,7 @@ import { DallasPageContent } from "./_dallas_content"
 export const metadata: Metadata = {
   title: "Website Design for Dallas Service Businesses | ClevOps",
   description:
-    "ClevOps builds high-converting websites for Dallas service businesses — HVAC, cleaning companies, roofers, contractors, plumbers, and more. Local SEO built in. 14-day delivery from $999.",
+    "ClevOps builds high-converting websites for Dallas service businesses: HVAC, cleaning companies, roofers, contractors, plumbers, and more. Local SEO built in. 14-day delivery from $999.",
   keywords: [
     "website design dallas",
     "web design dallas tx",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Website Design for Dallas Service Businesses | ClevOps",
     description:
-      "ClevOps builds high-converting websites for Dallas service businesses — HVAC, cleaning companies, roofers, contractors, plumbers, and more. Local SEO built in. 14-day delivery from $999.",
+      "ClevOps builds high-converting websites for Dallas service businesses: HVAC, cleaning companies, roofers, contractors, plumbers, and more. Local SEO built in. 14-day delivery from $999.",
     type: "website",
     url: "https://clevops.co/locations/texas/dallas",
   },

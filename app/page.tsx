@@ -14,7 +14,7 @@ import { WhyDifferent } from "@/components/sections/home/WhyDifferent";
 import { CTASection } from "@/components/sections/home/CTASection";
 
 export const metadata: Metadata = {
-  title: "ClevOps — Get More Clients From Your Website | Service Business Growth",
+  title: "ClevOps | Get More Clients From Your Website | Service Business Growth",
   description:
     "ClevOps builds conversion-first websites, 24/7 lead capture systems, and automated follow-up for cleaning, detailing, HVAC, and home service businesses. First leads in 14 days.",
 };

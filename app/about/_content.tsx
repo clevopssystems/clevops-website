@@ -59,17 +59,17 @@ const values = [
   {
     icon: Heart,
     title: "Deep care for service businesses",
-    body: "The service business owners we work with are operators — people who get up early, work hard, and deliver real value. They deserve a digital presence that reflects that quality.",
+    body: "The service business owners we work with are operators: people who get up early, work hard, and deliver real value. They deserve a digital presence that reflects that quality.",
   },
   {
     icon: Lightbulb,
     title: "Systems thinking, not project thinking",
-    body: "We do not hand you a website and move on. We build the infrastructure around it — lead capture, automation, visibility — so the whole system works together.",
+    body: "We do not hand you a website and move on. We build the infrastructure around it (lead capture, automation, visibility) so the whole system works together.",
   },
   {
     icon: TrendingUp,
     title: "Long-term growth, not quick wins",
-    body: "The best digital assets compound over time. We build foundations that become more valuable with every passing month — and we stay with you to make sure they do.",
+    body: "The best digital assets compound over time. We build foundations that become more valuable with every passing month, and we stay with you to make sure they do.",
   },
 ];
 
@@ -169,19 +169,19 @@ function StorySection() {
               <p>
                 ClevOps was built around a simple observation: most service
                 business websites are quietly costing their owners money every
-                single day. Not through any direct charge — but through missed
+                single day. Not through any direct charge, but through missed
                 leads, lost trust, and slower-responding competitors.
               </p>
               <p>
                 We exist to fix that. Not with generic templates or surface-level
-                redesigns — but with a proper understanding of your market, your
+                redesigns, but with a proper understanding of your market, your
                 customer psychology, your competitive landscape, and the digital
                 infrastructure you need to win.
               </p>
               <p>
                 We focus exclusively on service businesses. Cleaning companies,
                 detailing businesses, home services, professional services.
-                Because when you specialize, you get better at it — and our
+                Because when you specialize, you get better at it, and our
                 clients feel that difference.
               </p>
             </div>
@@ -204,7 +204,7 @@ function StorySection() {
               },
               {
                 title: "We believe in partnership",
-                body: "We are not transactional. We want to understand your business deeply and remain a partner in your growth — not just a vendor who delivers and disappears.",
+                body: "We are not transactional. We want to understand your business deeply and remain a partner in your growth, not just a vendor who delivers and disappears.",
               },
             ].map((belief, i) => (
               <motion.div

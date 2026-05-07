@@ -275,7 +275,7 @@ export function NichePageLayout({ data, featuredCities = [] }: NichePageLayoutPr
                 <span className="text-gradient-accent">needs to compete</span>
               </motion.h2>
               <motion.p variants={headerP} className="text-co-text-muted text-base md:text-lg leading-relaxed mb-8">
-                No packages. No upsells. Every {data.name.toLowerCase()} website ships complete — with every system needed to rank, convert, and grow.
+                No packages. No upsells. Every {data.name.toLowerCase()} website ships complete, with every system needed to rank, convert, and grow.
               </motion.p>
               <motion.div variants={headerP}>
                 <Button href="/contact" variant="primary" size="md" icon={<ArrowUpRight size={15} />}>
@@ -410,7 +410,7 @@ export function NichePageLayout({ data, featuredCities = [] }: NichePageLayoutPr
             animate={ctaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.22 }}
           >
-            We&apos;ll build a live demo of your new website — no templates, no filler — so you can see exactly what it looks like before you commit to anything.
+            We&apos;ll build a live demo of your new website (no templates, no filler) so you can see exactly what it looks like before you commit to anything.
           </motion.p>
 
           <motion.div

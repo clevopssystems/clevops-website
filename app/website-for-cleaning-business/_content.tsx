@@ -48,7 +48,7 @@ const failureReasons = [
 
 const whatYouGet = [
   "Custom-designed website built around your cleaning business",
-  "Mobile-first, fast-loading — optimised for local search",
+  "Mobile-first, fast-loading, optimised for local search",
   "Conversion-focused layout with prominent booking CTAs",
   "Trust section: reviews, credentials, and service guarantees",
   "Before-and-after or portfolio section tailored to your niche",
@@ -73,7 +73,7 @@ const outcomes = [
   {
     icon: Users,
     stat: "Better-fit clients",
-    detail: "Targeted messaging attracts the type of work you actually want — residential, commercial, recurring.",
+    detail: "Targeted messaging attracts the type of work you actually want: residential, commercial, recurring.",
   },
   {
     icon: Star,
@@ -125,7 +125,7 @@ export default function CleaningBusinessPage() {
 
             <p className="mt-6 text-lg md:text-xl text-co-text-secondary leading-relaxed max-w-2xl">
               Most cleaning company websites look fine and produce nothing. Yours will be engineered to
-              convert visitors into enquiries — built specifically for service businesses that compete on trust,
+              convert visitors into enquiries, built specifically for service businesses that compete on trust,
               speed, and professionalism.
             </p>
 
@@ -162,7 +162,7 @@ export default function CleaningBusinessPage() {
               Why Most Cleaning Business Websites Fail
             </h2>
             <p className="mt-4 text-co-text-secondary leading-relaxed">
-              A cleaning service website that does not generate enquiries is not a website — it is a cost.
+              A cleaning service website that does not generate enquiries is not a website. It is a cost.
               These are the five reasons most cleaning companies never see a single lead from their site.
             </p>
           </motion.div>
@@ -202,12 +202,12 @@ export default function CleaningBusinessPage() {
                 How We Help Cleaning Businesses Get More Clients
               </h2>
               <p className="mt-5 text-co-text-secondary leading-relaxed">
-                We do not build websites for aesthetics. We build conversion systems dressed as websites —
+                We do not build websites for aesthetics. We build conversion systems dressed as websites,
                 designed specifically for cleaning company owners who need a consistent pipeline of new clients.
               </p>
               <p className="mt-4 text-co-text-secondary leading-relaxed">
                 Every element on your cleaning service website is placed with intent: to build trust, remove
-                friction, and drive the visitor toward a single action — contacting you.
+                friction, and drive the visitor toward a single action: contacting you.
               </p>
               <p className="mt-4 text-co-text-secondary leading-relaxed">
                 We combine premium visual design with local SEO structure, fast performance, and proven
@@ -231,7 +231,7 @@ export default function CleaningBusinessPage() {
                 {
                   icon: LayoutTemplate,
                   title: "Conversion-first design",
-                  body: "Built around a clear customer journey — from first impression to booked appointment.",
+                  body: "Built around a clear customer journey: from first impression to booked appointment.",
                 },
                 {
                   icon: ShieldCheck,
@@ -288,7 +288,7 @@ export default function CleaningBusinessPage() {
               </h2>
               <p className="mt-5 text-co-text-secondary leading-relaxed">
                 No packages. No upsells. Every cleaning service website design we deliver includes the full
-                stack — because a half-built site is no better than no site at all.
+                stack, because a half-built site is no better than no site at all.
               </p>
             </motion.div>
 
@@ -332,7 +332,7 @@ export default function CleaningBusinessPage() {
               What Changes When Your Website Actually Works
             </h2>
             <p className="mt-4 text-co-text-secondary leading-relaxed">
-              A well-built website for a cleaning business is not a one-time expense — it is a compounding
+              A well-built website for a cleaning business is not a one-time expense. It is a compounding
               asset. Here is what that looks like in practice.
             </p>
           </motion.div>
@@ -381,7 +381,7 @@ export default function CleaningBusinessPage() {
             </h2>
 
             <p className="mt-5 text-co-text-secondary leading-relaxed max-w-xl mx-auto">
-              We will build a live demo of your new website — no templates, no filler — so you can see
+              We will build a live demo of your new website (no templates, no filler) so you can see
               exactly what your cleaning company website will look like before you commit to anything.
             </p>
 

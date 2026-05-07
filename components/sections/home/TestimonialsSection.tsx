@@ -10,7 +10,7 @@ import { EASE_PREMIUM } from "@/lib/animations";
 const testimonials = [
   {
     quote:
-      "Our leads doubled in the first 30 days. We used to miss customers while on jobs — now the system responds instantly before we even know someone called.",
+      "Our leads doubled in the first 30 days. We used to miss customers while on jobs. Now the system responds instantly before we even know someone called.",
     name: "Mark T.",
     business: "Roof Cleaning Co.",
     result: "+2× leads in 30 days",
@@ -19,7 +19,7 @@ const testimonials = [
   },
   {
     quote:
-      "The before/after difference was shocking. Our old site looked like it was built in 2009. Now customers comment on how professional we look — and our calendar stays full.",
+      "The before/after difference was shocking. Our old site looked like it was built in 2009. Now customers comment on how professional we look, and our calendar stays full.",
     name: "Lisa R.",
     business: "Premium Auto Detailing",
     result: "Calendar fully booked",
@@ -28,7 +28,7 @@ const testimonials = [
   },
   {
     quote:
-      "I was skeptical about the investment but within 3 months we added over $8,000 a month in new revenue. ClevOps doesn't build websites — they build growth machines.",
+      "I was skeptical about the investment but within 3 months we added over $8,000 a month in new revenue. ClevOps doesn't build websites. They build growth machines.",
     name: "Carlos M.",
     business: "Home Services",
     result: "+$8K/month revenue",
@@ -94,7 +94,7 @@ export function TestimonialsSection() {
             transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.2 }}
           >
             Service business owners who stopped relying on referrals and built
-            a system that brings in leads every month — with numbers to prove it.
+            a system that brings in leads every month, with numbers to prove it.
           </motion.p>
         </div>
 

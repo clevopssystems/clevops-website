@@ -154,15 +154,15 @@ function IndustryIcon({ industry }: { industry: string }) {
 
 const industryDescriptions: Record<string, string> = {
   "cleaning companies": "Customers hand over keys. Trust signals and a fast booking path are everything.",
-  "auto detailers": "Visual, premium service — website quality signals the quality of the work.",
+  "auto detailers": "Visual, premium service where website quality signals the quality of the work.",
   "HVAC companies": "Emergency demand means urgent buyers who decide in seconds. Speed wins.",
   "landscapers": "Before/after proof-driven service where visual galleries convert browsers.",
   "roofing contractors": "High-ticket purchase. Credibility signals must do the work before any call.",
   "contractors": "Portfolio galleries and licensing display win quote requests before competitors.",
-  "plumbers": "Emergency search behavior — fast trust signals and instant contact path are critical.",
-  "med spas": "Premium aesthetics — online presentation directly reflects treatment quality.",
-  "barbershops": "Vibe-driven loyalty business — website needs to feel like the shop, immediately.",
-  "electricians": "Licensing trust matters most — customers are choosing reliability over price.",
+  "plumbers": "Emergency search behavior: fast trust signals and an instant contact path are critical.",
+  "med spas": "Premium aesthetics where online presentation directly reflects treatment quality.",
+  "barbershops": "Vibe-driven loyalty business. The website needs to feel like the shop, immediately.",
+  "electricians": "Licensing trust matters most. Customers are choosing reliability over price.",
 }
 
 const industryToNicheSlug: Record<string, string> = {
@@ -212,7 +212,7 @@ const failureReasons = [
     num: "03",
     accent: "red" as const,
     heading: "No trust signals above the fold",
-    body: "No reviews, no credentials, no proof of work. Service customers need reassurance before they pick up the phone — or they don't.",
+    body: "No reviews, no credentials, no proof of work. Service customers need reassurance before they pick up the phone, or they don't.",
     impact: "97%",
     impactLabel: "never return",
     cost: "Lost Leads",
@@ -264,7 +264,7 @@ const PROBLEM_ACCENT = {
 
 const deliverables = [
   "Custom-designed website built around your local service business",
-  "Mobile-first, fast-loading — optimized for local search rankings",
+  "Mobile-first and fast-loading, optimized for local search rankings",
   "Conversion-focused layout with prominent booking and contact CTAs",
   "Trust section: reviews, credentials, and service guarantees",
   "Lead capture form connected to email and CRM notification",
@@ -272,17 +272,17 @@ const deliverables = [
   "Google Analytics and conversion tracking integrated from day one",
   "SEO-ready semantic structure with proper heading hierarchy",
   "Written copy positioned to convert your specific local market",
-  "14-day build timeline — nothing drags out for months",
+  "14-day build timeline with no multi-month delays",
 ]
 
 // ── Local SEO strategy items ──────────────────────────────────────────────────
 
 const localSeoItems = [
-  { Icon: Globe,       title: "City Landing Pages",      body: "Dedicated pages for your city built to rank for high-intent local searches — not generic service descriptions that nobody searches for." },
+  { Icon: Globe,       title: "City Landing Pages",      body: "Dedicated pages for your city built to rank for high-intent local searches, not generic service descriptions that nobody searches for." },
   { Icon: Search,      title: "Service-Area Keywords",   body: "Every page targets specific service + city combinations your customers actually type. Built in from day one, not bolted on later." },
-  { Icon: ShieldCheck, title: "GBP Alignment",           body: "Your website and Google Business Profile reinforce each other — consistent signals that strengthen map pack rankings across your full service area." },
+  { Icon: ShieldCheck, title: "GBP Alignment",           body: "Your website and Google Business Profile reinforce each other with consistent signals that strengthen map pack rankings across your full service area." },
   { Icon: Star,        title: "Review Trust Signals",    body: "Reviews and social proof are structurally embedded in your layout, visible before a visitor ever decides whether to contact you." },
-  { Icon: Smartphone,  title: "Mobile-First Speed",      body: "Built for Core Web Vitals and sub-2s mobile load — the performance factors that separate page-one rankings from invisible competitors." },
+  { Icon: Smartphone,  title: "Mobile-First Speed",      body: "Built for Core Web Vitals and sub-2s mobile load, the performance factors that separate page-one rankings from invisible competitors." },
   { Icon: MapPin,      title: "Nearby City Links",       body: "Strategic internal links across your city and service-area pages build topical authority and expand search visibility across the full metro." },
 ]
 
@@ -871,7 +871,7 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
           >
             <div className="h-px w-12 bg-co-accent/40 mb-7" />
             <p className="text-xl md:text-2xl font-medium text-co-text leading-relaxed">
-              Every one of these is fixable — fast.{" "}
+              Every one of these is fixable. Fast.{" "}
               <span className="text-co-text-secondary">
                 The {data.city} businesses that fix them first don&apos;t just catch up. They pull far enough ahead that competitors can&apos;t follow.
               </span>
@@ -1059,7 +1059,7 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
                 <span className="text-gradient-accent">to compete online</span>
               </motion.h2>
               <motion.p variants={headerP} className="text-co-text-muted text-base md:text-lg leading-relaxed mb-8">
-                No packages. No upsells. Every website ships complete — because a half-built site performs no better than no site at all.
+                No packages. No upsells. Every website ships complete, because a half-built site performs no better than no site at all.
               </motion.p>
               <motion.div variants={headerP}>
                 <Button href="/contact" variant="primary" size="md" icon={<ArrowUpRight size={15} />}>
@@ -1227,7 +1227,7 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
             animate={ctaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.22 }}
           >
-            We&apos;ll build a live demo of your new website — no templates, no filler — so you can see exactly what it looks like before committing to anything.
+            We&apos;ll build a live demo of your new website (no templates, no filler) so you can see exactly what it looks like before committing to anything.
           </motion.p>
 
           <motion.div

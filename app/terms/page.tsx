@@ -59,7 +59,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-base font-semibold text-co-text mb-3">4. Intellectual Property</h2>
             <p>
-              All content on this website — including text, design, graphics, and code — is
+              All content on this website (including text, design, graphics, and code) is
               the property of ClevOps and is protected by applicable intellectual property
               laws. You may not reproduce, distribute, or create derivative works without
               express written permission.

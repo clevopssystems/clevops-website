@@ -72,15 +72,15 @@ const DALLAS_INDUSTRIES: DallasIndustry[] = [
     icon: "HVAC companies",
     nicheSlug: "hvac",
     headline: "When it's 104°F in Dallas, customers call first and compare second.",
-    body: "Texas summers create urgent, high-ticket HVAC demand across the DFW metro. When AC fails in Frisco or Plano, homeowners search fast and pick the first company that looks trustworthy. Emergency CTAs above the fold, a click-to-call visible on every screen, and trust signals that communicate 'licensed, local, and available' are not optional — they're the reason one HVAC company gets the call and another doesn't.",
+    body: "Texas summers create urgent, high-ticket HVAC demand across the DFW metro. When AC fails in Frisco or Plano, homeowners search fast and pick the first company that looks trustworthy. Emergency CTAs above the fold, a click-to-call visible on every screen, and trust signals that communicate 'licensed, local, and available' are not optional. They're the reason one HVAC company gets the call and another doesn't.",
     accent: { accentColor: "rgba(79,127,255,0.15)", accentBorder: "rgba(79,127,255,0.3)", spotlightColor: "rgba(79,127,255,0.12)" },
   },
   {
     name: "Cleaning Companies",
     icon: "cleaning companies",
     nicheSlug: "cleaning-business",
-    headline: "Dallas cleaning businesses compete on trust — and trust is won online.",
-    body: "The cleaning companies growing fastest in Uptown, Preston Hollow, and Frisco aren't winning on price. They're winning because their websites look professional, show real customer reviews, and make booking feel simple and safe. Customers hand you keys to their home. Your website needs to establish that level of trust before any phone call happens — or they're calling your competitor instead.",
+    headline: "Dallas cleaning businesses compete on trust, and trust is won online.",
+    body: "The cleaning companies growing fastest in Uptown, Preston Hollow, and Frisco aren't winning on price. They're winning because their websites look professional, show real customer reviews, and make booking feel simple and safe. Customers hand you keys to their home. Your website needs to establish that level of trust before any phone call happens, or they're calling your competitor instead.",
     accent: { accentColor: "rgba(155,114,255,0.15)", accentBorder: "rgba(155,114,255,0.3)", spotlightColor: "rgba(155,114,255,0.12)" },
   },
   {
@@ -88,7 +88,7 @@ const DALLAS_INDUSTRIES: DallasIndustry[] = [
     icon: "roofing contractors",
     nicheSlug: "roofing",
     headline: "Dallas hail season creates a narrow window where the right website wins everything.",
-    body: "North Texas averages more hail events per year than almost anywhere in the US. When a storm hits, homeowners search immediately and call the first roofing company that looks legitimate. A free inspection CTA, insurance claim guidance, and visible licensing information do more to close those calls than any sales pitch. Your website is the pitch — and it runs 24/7.",
+    body: "North Texas averages more hail events per year than almost anywhere in the US. When a storm hits, homeowners search immediately and call the first roofing company that looks legitimate. A free inspection CTA, insurance claim guidance, and visible licensing information do more to close those calls than any sales pitch. Your website is the pitch, and it runs 24/7.",
     accent: { accentColor: "rgba(79,200,255,0.12)", accentBorder: "rgba(79,200,255,0.25)", spotlightColor: "rgba(79,200,255,0.10)" },
   },
   {
@@ -96,7 +96,7 @@ const DALLAS_INDUSTRIES: DallasIndustry[] = [
     icon: "contractors",
     nicheSlug: "contractors",
     headline: "DFW's construction boom means more competition for every project bid.",
-    body: "Dallas-Fort Worth is one of the fastest-growing metro areas in the US. Demand for contractors has never been higher — but so has competition. Customers making major financial decisions compare websites before making any contact. Project portfolios, license and insurance display, and a professional online presence pre-qualify you before the estimate conversation even begins.",
+    body: "Dallas-Fort Worth is one of the fastest-growing metro areas in the US. Demand for contractors has never been higher, but so has competition. Customers making major financial decisions compare websites before making any contact. Project portfolios, license and insurance display, and a professional online presence pre-qualify you before the estimate conversation even begins.",
     accent: { accentColor: "rgba(79,127,255,0.12)", accentBorder: "rgba(79,127,255,0.22)", spotlightColor: "rgba(79,127,255,0.10)" },
   },
   {
@@ -112,7 +112,7 @@ const DALLAS_INDUSTRIES: DallasIndustry[] = [
     icon: "landscapers",
     nicheSlug: "landscaping",
     headline: "Dallas's year-round growing season means year-round search volume.",
-    body: "Unlike northern markets, Dallas landscaping demand doesn't slow in winter — it shifts to cleanup, seasonal planting, and hardscape projects. Customers booking landscaping services want visual proof: before/after galleries, completed project showcases, evidence you understand Texas soil, heat, and plant varieties. A website built around that proof converts faster than any generic portfolio.",
+    body: "Unlike northern markets, Dallas landscaping demand doesn't slow in winter. It shifts to cleanup, seasonal planting, and hardscape projects. Customers booking landscaping services want visual proof: before/after galleries, completed project showcases, evidence you understand Texas soil, heat, and plant varieties. A website built around that proof converts faster than any generic portfolio.",
     accent: { accentColor: "rgba(79,127,255,0.15)", accentBorder: "rgba(79,127,255,0.3)", spotlightColor: "rgba(79,127,255,0.12)" },
   },
   {
@@ -120,15 +120,15 @@ const DALLAS_INDUSTRIES: DallasIndustry[] = [
     icon: "plumbers",
     nicheSlug: "plumbing",
     headline: "Emergency plumbing in Dallas is a first-click, first-call market.",
-    body: "Dallas homeowners with a burst pipe or failed water heater aren't comparison shopping — they're calling the first plumber whose website loads fast and has a visible phone number. A site that takes 5 seconds to load instead of 1 costs you real jobs. Emergency CTAs, 24/7 availability signals, and above-the-fold contact paths are the difference between winning and losing the call.",
+    body: "Dallas homeowners with a burst pipe or failed water heater aren't comparison shopping. They're calling the first plumber whose website loads fast and has a visible phone number. A site that takes 5 seconds to load instead of 1 costs you real jobs. Emergency CTAs, 24/7 availability signals, and above-the-fold contact paths are the difference between winning and losing the call.",
     accent: { accentColor: "rgba(155,114,255,0.15)", accentBorder: "rgba(155,114,255,0.3)", spotlightColor: "rgba(155,114,255,0.12)" },
   },
   {
     name: "Med Spas",
     icon: "med spas",
     nicheSlug: undefined,
-    headline: "North Dallas's affluent demographics support premium med spa services — with high research expectations.",
-    body: "Customers considering Botox or body sculpting in North Dallas, Frisco, or Southlake research extensively before booking. They compare clinic websites the same way they compare restaurants — by feel, credibility, and presentation. A med spa website that communicates clinical expertise, showcases treatment results, and makes consultation booking effortless consistently outbooks competitors who rely on Instagram alone.",
+    headline: "North Dallas's affluent demographics support premium med spa services, with high research expectations.",
+    body: "Customers considering Botox or body sculpting in North Dallas, Frisco, or Southlake research extensively before booking. They compare clinic websites the same way they compare restaurants: by feel, credibility, and presentation. A med spa website that communicates clinical expertise, showcases treatment results, and makes consultation booking effortless consistently outbooks competitors who rely on Instagram alone.",
     accent: { accentColor: "rgba(79,200,255,0.12)", accentBorder: "rgba(79,200,255,0.25)", spotlightColor: "rgba(79,200,255,0.10)" },
   },
   {
@@ -136,7 +136,7 @@ const DALLAS_INDUSTRIES: DallasIndustry[] = [
     icon: "electricians",
     nicheSlug: undefined,
     headline: "Dallas homeowners choose electricians on trust signals, not lowest price.",
-    body: "Electrical work carries real safety implications, and Dallas homeowners know it. They're looking for licensing proof, insurance disclosure, and a professional presentation that signals legitimate, accountable service — before any contact. The electricians winning the most quote requests in DFW have websites that establish those credentials immediately and make scheduling feel safe and straightforward.",
+    body: "Electrical work carries real safety implications, and Dallas homeowners know it. They're looking for licensing proof, insurance disclosure, and a professional presentation that signals legitimate, accountable service, all before any contact. The electricians winning the most quote requests in DFW have websites that establish those credentials immediately and make scheduling feel safe and straightforward.",
     accent: { accentColor: "rgba(79,127,255,0.12)", accentBorder: "rgba(79,127,255,0.22)", spotlightColor: "rgba(79,127,255,0.10)" },
   },
 ]
@@ -147,22 +147,22 @@ const DALLAS_FAQ_ITEMS: FAQItem[] = [
   {
     question: "How much does website design cost for a Dallas service business?",
     answer:
-      "Most Dallas service businesses invest between $999 and $2,499 depending on scope. That covers a fully custom-designed, mobile-optimized, locally SEO-structured website — not a template with your logo swapped in. There's also a $199/month care plan covering hosting, updates, performance monitoring, and ongoing SEO work. For businesses running $50K+ annually, the cost is typically recovered from a single new client within the first 30 days of launch.",
+      "Most Dallas service businesses invest between $999 and $2,499 depending on scope. That covers a fully custom-designed, mobile-optimized, locally SEO-structured website, not a template with your logo swapped in. There's also a $199/month care plan covering hosting, updates, performance monitoring, and ongoing SEO work. For businesses running $50K+ annually, the cost is typically recovered from a single new client within the first 30 days of launch.",
   },
   {
     question: "How long does it take to launch a website for a Dallas service business?",
     answer:
-      "Most Dallas clients are live within 14 days of signing. We run design, copywriting, and technical setup simultaneously — so nothing waits on sequential approvals. Clients with multiple service areas or specific DFW neighborhoods get that scoped into the plan on day one, so it's built into the structure rather than added after launch.",
+      "Most Dallas clients are live within 14 days of signing. We run design, copywriting, and technical setup simultaneously so nothing waits on sequential approvals. Clients with multiple service areas or specific DFW neighborhoods get that scoped into the plan on day one, so it's built into the structure rather than added after launch.",
   },
   {
     question: "Why do Dallas cleaning companies lose leads to competitors with better websites?",
     answer:
-      "Dallas's cleaning market is driven by trust — established online before any call happens. When a homeowner in Plano or Uptown searches for a cleaning service, they open three or four results and pick the business that looks most professional. A slow, generic website signals low quality. A fast, polished site with reviews, a clear booking flow, and visible credentials wins that comparison every time. Most cleaning businesses lose on first impression, not price.",
+      "Dallas's cleaning market is driven by trust, established online before any call happens. When a homeowner in Plano or Uptown searches for a cleaning service, they open three or four results and pick the business that looks most professional. A slow, generic website signals low quality. A fast, polished site with reviews, a clear booking flow, and visible credentials wins that comparison every time. Most cleaning businesses lose on first impression, not price.",
   },
   {
     question: "Can ClevOps help Dallas service businesses rank higher on Google Maps?",
     answer:
-      "Yes. Every website we build includes local SEO foundations designed to support map pack rankings: city-specific landing pages, service-area keyword architecture, semantic heading structure, schema markup, Google Business Profile alignment, and internal linking across DFW cities. We also build for Google's mobile-first indexing requirements, which directly affects map pack visibility. We don't just design — we build the ranking infrastructure.",
+      "Yes. Every website we build includes local SEO foundations designed to support map pack rankings: city-specific landing pages, service-area keyword architecture, semantic heading structure, schema markup, Google Business Profile alignment, and internal linking across DFW cities. We also build for Google's mobile-first indexing requirements, which directly affects map pack visibility. We don't just design. We build the ranking infrastructure.",
   },
   {
     question: "Do Dallas businesses actually need local SEO, or is a professional website enough?",
@@ -172,27 +172,27 @@ const DALLAS_FAQ_ITEMS: FAQItem[] = [
   {
     question: "What industries do you build websites for in Dallas?",
     answer:
-      "We build websites for cleaning companies, HVAC contractors, roofers, general contractors, auto detailers, landscapers, plumbers, electricians, med spas, and other local service businesses across the Dallas-Fort Worth metro. Each website is built around how customers in that specific niche search, compare, and decide — not a generic template applied across categories.",
+      "We build websites for cleaning companies, HVAC contractors, roofers, general contractors, auto detailers, landscapers, plumbers, electricians, med spas, and other local service businesses across the Dallas-Fort Worth metro. Each website is built around how customers in that specific niche search, compare, and decide, not a generic template applied across categories.",
   },
   {
     question: "How long does SEO take to work for a Dallas service business?",
     answer:
-      "For a properly structured website in a competitive DFW market, local SEO typically produces visible results within 60 to 90 days. Map pack movement can happen faster — some Dallas clients see ranking improvements within 30 days. Long-tail keyword traffic builds over 3 to 6 months as topical authority accumulates. The key is starting with the right structural foundation: a site Google can correctly interpret, index, and associate with your specific service areas.",
+      "For a properly structured website in a competitive DFW market, local SEO typically produces visible results within 60 to 90 days. Map pack movement can happen faster, and some Dallas clients see ranking improvements within 30 days. Long-tail keyword traffic builds over 3 to 6 months as topical authority accumulates. The key is starting with the right structural foundation: a site Google can correctly interpret, index, and associate with your specific service areas.",
   },
   {
     question: "Why is mobile optimization so important for Dallas local businesses?",
     answer:
-      "Over 74% of local service searches in Dallas happen on mobile devices — often from someone at home comparing options in real time. A website that loads slowly, has small tap targets, or breaks on smaller screens loses those visitors immediately. Google's mobile-first indexing means your mobile performance directly affects rankings. Fast, mobile-perfect websites rank better and convert more — it's not optional for any serious Dallas service business.",
+      "Over 74% of local service searches in Dallas happen on mobile devices, often from someone at home comparing options in real time. A website that loads slowly, has small tap targets, or breaks on smaller screens loses those visitors immediately. Google's mobile-first indexing means your mobile performance directly affects rankings. Fast, mobile-perfect websites rank better and convert more. It's not optional for any serious Dallas service business.",
   },
   {
     question: "Can you redesign an existing website that's outdated?",
     answer:
-      "Yes — many Dallas clients come to us with an existing site that underperforms, looks dated, or was built on a platform they can't update. We rebuild from scratch on a performance-focused, SEO-structured stack. The existing domain is preserved to maintain search equity. If the old site has ranking assets worth protecting, we map those carefully in the migration so nothing valuable is lost in the transition.",
+      "Yes. Many Dallas clients come to us with an existing site that underperforms, looks dated, or was built on a platform they can't update. We rebuild from scratch on a performance-focused, SEO-structured stack. The existing domain is preserved to maintain search equity. If the old site has ranking assets worth protecting, we map those carefully in the migration so nothing valuable is lost in the transition.",
   },
   {
     question: "What makes a website actually convert visitors into leads for a Dallas service business?",
     answer:
-      "Conversion comes down to five factors: trust (reviews, credentials, and proof visible immediately), speed (sub-2 second load on mobile), clarity (visitors know in 3 seconds what you do and where), CTA hierarchy (one clear action — call or book — more prominent than everything else), and service area specificity (customers in Frisco, Irving, or Arlington need immediate confirmation you serve them). Most Dallas service sites fail on three or more of these simultaneously.",
+      "Conversion comes down to five factors: trust (reviews, credentials, and proof visible immediately), speed (sub-2 second load on mobile), clarity (visitors know in 3 seconds what you do and where), CTA hierarchy (one clear action, call or book, more prominent than everything else), and service area specificity (customers in Frisco, Irving, or Arlington need immediate confirmation you serve them). Most Dallas service sites fail on three or more of these simultaneously.",
   },
   {
     question: "What is local SEO and how does it apply to Dallas service businesses?",
@@ -202,12 +202,12 @@ const DALLAS_FAQ_ITEMS: FAQItem[] = [
   {
     question: "How do Dallas service businesses generate consistent leads online?",
     answer:
-      "Consistent lead generation comes from three things operating together: visibility (appearing in Google search and the map pack for the right queries), credibility (a professional website that establishes trust on arrival), and capture (a clear conversion path — form, phone, or booking — that reduces friction to action). Businesses with all three generate leads predictably, month after month, without depending on referrals or paid ads to fill their calendar.",
+      "Consistent lead generation comes from three things operating together: visibility (appearing in Google search and the map pack for the right queries), credibility (a professional website that establishes trust on arrival), and capture (a clear conversion path, whether form, phone, or booking, that reduces friction to action). Businesses with all three generate leads predictably, month after month, without depending on referrals or paid ads to fill their calendar.",
   },
   {
     question: "Is ClevOps a Dallas-based agency?",
     answer:
-      "ClevOps is a digital agency building websites and growth systems for local service businesses across the United States, with deep experience in the Dallas-Fort Worth market. We understand the DFW competitive landscape, the specific neighborhoods Dallas businesses target, and how local customers search and decide. Every Dallas website we build is informed by real knowledge of this market — not generic templates applied to any city.",
+      "ClevOps is a digital agency building websites and growth systems for local service businesses across the United States, with deep experience in the Dallas-Fort Worth market. We understand the DFW competitive landscape, the specific neighborhoods Dallas businesses target, and how local customers search and decide. Every Dallas website we build is informed by real knowledge of this market, not generic templates applied to any city.",
   },
   {
     question: "What's different about a ClevOps website versus a template or DIY builder?",
@@ -220,15 +220,15 @@ const DALLAS_FAQ_ITEMS: FAQItem[] = [
 
 const DALLAS_DELIVERABLES = [
   "Custom-designed website built around your specific Dallas service business and target neighborhoods",
-  "Mobile-first architecture — sub-2 second load on any device, any connection speed",
+  "Mobile-first architecture: sub-2 second load on any device, any connection speed",
   "Local SEO structure targeting Dallas, DFW neighborhoods, and surrounding suburbs",
   "Conversion-focused layout with prominent CTAs, booking paths, and contact forms",
   "Trust architecture: reviews, credentials, and service guarantees visible above the fold",
   "Google Analytics 4 and conversion tracking configured and verified from day one",
-  "Schema markup — LocalBusiness, FAQPage, and BreadcrumbList for AI and search readability",
+  "Schema markup: LocalBusiness, FAQPage, and BreadcrumbList for AI and search readability",
   "Service area pages targeting the specific DFW neighborhoods and suburbs you serve",
   "Lead capture system connected to email notifications and optional CRM integration",
-  "14-day build timeline — most Dallas clients are live within two weeks of signing",
+  "14-day build timeline: most Dallas clients are live within two weeks of signing",
 ]
 
 // ── Local SEO items ───────────────────────────────────────────────────────────
@@ -237,27 +237,27 @@ const DALLAS_LOCAL_SEO_ITEMS = [
   {
     Icon: Globe,
     title: "Dallas City & Neighborhood Pages",
-    body: "Dedicated pages targeting high-intent Dallas searches — Frisco, Plano, Uptown, North Dallas, Irving — not generic service descriptions nobody searches for.",
+    body: "Dedicated pages targeting high-intent Dallas searches (Frisco, Plano, Uptown, North Dallas, Irving), not generic service descriptions nobody searches for.",
   },
   {
     Icon: Search,
     title: "DFW Service-Area Keywords",
-    body: "Every page targets specific service + location combinations your customers actually type: 'cleaning service Plano', 'HVAC repair Frisco', 'roofer North Dallas' — built in from day one.",
+    body: "Every page targets specific service + location combinations your customers actually type: 'cleaning service Plano', 'HVAC repair Frisco', 'roofer North Dallas', built in from day one.",
   },
   {
     Icon: ShieldCheck,
     title: "Google Business Profile Alignment",
-    body: "Your website and GBP reinforce each other — consistent NAP data, category alignment, and cross-linking that strengthens map pack rankings across the DFW metro.",
+    body: "Your website and GBP reinforce each other through consistent NAP data, category alignment, and cross-linking that strengthens map pack rankings across the DFW metro.",
   },
   {
     Icon: Star,
     title: "Review Trust Architecture",
-    body: "Reviews and social proof structurally embedded in your layout — visible before a Dallas visitor decides whether to contact you, not buried at the bottom.",
+    body: "Reviews and social proof structurally embedded in your layout, visible before a Dallas visitor decides whether to contact you, not buried at the bottom.",
   },
   {
     Icon: Smartphone,
     title: "Mobile-First Performance",
-    body: "Built for Core Web Vitals and sub-2 second mobile load — the performance factors separating page-one Dallas rankings from invisible competitors in the same niche.",
+    body: "Built for Core Web Vitals and sub-2 second mobile load, the performance factors separating page-one Dallas rankings from invisible competitors in the same niche.",
   },
   {
     Icon: MapPin,
@@ -274,7 +274,7 @@ const DALLAS_FAILURE_REASONS = [
     num: "01",
     accent: "red" as const,
     heading: "Looks like every other local site in DFW",
-    body: "The DFW market is saturated with generic Wix and Squarespace sites. Customers comparing 3-4 options in one tab choose the business that looks distinctly more credible — not just slightly better.",
+    body: "The DFW market is saturated with generic Wix and Squarespace sites. Customers comparing 3-4 options in one tab choose the business that looks distinctly more credible, not just slightly better.",
     impact: "3s",
     impactLabel: "to lose trust",
     cost: "Lost Credibility",
@@ -284,7 +284,7 @@ const DALLAS_FAILURE_REASONS = [
     num: "02",
     accent: "orange" as const,
     heading: "Slow and broken on mobile in Dallas",
-    body: "74% of Dallas local service searches happen on phones. A site loading in 6 seconds on mobile is effectively invisible. Google also ranks mobile performance — slow sites don't just convert less, they rank lower.",
+    body: "74% of Dallas local service searches happen on phones. A site loading in 6 seconds on mobile is effectively invisible. Google also ranks mobile performance, and slow sites don't just convert less, they rank lower.",
     impact: "74%",
     impactLabel: "search on mobile",
     cost: "Lost Traffic",
@@ -294,7 +294,7 @@ const DALLAS_FAILURE_REASONS = [
     num: "03",
     accent: "red" as const,
     heading: "No trust signals above the fold",
-    body: "Dallas customers are skeptical of service businesses they haven't heard of. No reviews, no credentials, no proof of work visible immediately — and they click back to Google within seconds.",
+    body: "Dallas customers are skeptical of service businesses they haven't heard of. No reviews, no credentials, no proof of work visible immediately, and they click back to Google within seconds.",
     impact: "97%",
     impactLabel: "never return",
     cost: "Lost Leads",
@@ -303,7 +303,7 @@ const DALLAS_FAILURE_REASONS = [
     Icon: TrendingUp,
     num: "04",
     accent: "orange" as const,
-    heading: "No booking path — just a contact page",
+    heading: "No booking path, just a contact page",
     body: "A 'Contact Us' page with a form and phone number is not a conversion system. Dallas competitors with clear booking flows, instant quote options, and SMS automation win the job before you see the inquiry.",
     impact: "$0",
     impactLabel: "ROI without a system",
@@ -720,13 +720,13 @@ function DallasMarketSection() {
             </h2>
             <div className="space-y-4 text-co-text-muted text-base md:text-[17px] leading-relaxed">
               <p>
-                The Dallas-Fort Worth Metroplex is the fourth largest metro area in the United States — and one of the fastest growing. Over 100,000 people relocated to DFW in 2023 alone. That inflow means relentless demand for home services, but it also means a constant supply of new service businesses entering the market.
+                The Dallas-Fort Worth Metroplex is the fourth largest metro area in the United States and one of the fastest growing. Over 100,000 people relocated to DFW in 2023 alone. That inflow means relentless demand for home services, but it also means a constant supply of new service businesses entering the market.
               </p>
               <p>
                 Dallas proper has 1.3 million residents, but the real competitive battleground spans a much larger geography: Plano, Frisco, McKinney, Allen, Garland, Irving, Arlington, and the Mid-Cities between Dallas and Fort Worth each represent distinct local search markets. A cleaning company in Uptown Dallas isn&apos;t just competing with Uptown businesses — they&apos;re potentially competing with operations in Richardson or Addison that have built strong enough online presences to capture searches across the metro.
               </p>
               <p>
-                Most Dallas service businesses are still running on referrals and outdated digital infrastructure. That gap between where the market is and where most businesses&apos; online presence sits is the opportunity — and it closes faster than most owners expect once a competitor decides to close it first.
+                Most Dallas service businesses are still running on referrals and outdated digital infrastructure. That gap between where the market is and where most businesses&apos; online presence sits is the opportunity, and it closes faster than most owners expect once a competitor decides to close it first.
               </p>
             </div>
           </motion.div>
@@ -768,7 +768,7 @@ function DallasMarketSection() {
               transition={{ duration: 0.6, ease: EASE_PREMIUM, delay: 0.5 }}
             >
               <p className="text-[12.5px] text-co-text-muted leading-relaxed">
-                <span className="text-co-text font-semibold">The DFW advantage:</span> High search volume, above-average household income, and a service business market where digital competition hasn&apos;t yet caught up to the demand. That window is open — but not indefinitely.
+                <span className="text-co-text font-semibold">The DFW advantage:</span> High search volume, above-average household income, and a service business market where digital competition hasn&apos;t yet caught up to the demand. That window is open, but not indefinitely.
               </p>
             </motion.div>
           </div>
@@ -790,7 +790,7 @@ function DallasAISearchSection() {
     {
       Icon: Layers,
       title: "Clear entity identification",
-      body: "Every page signals who you are, what you do, and where you serve — structured so AI engines can extract and cite that information accurately in response to local queries.",
+      body: "Every page signals who you are, what you do, and where you serve, structured so AI engines can extract and cite that information accurately in response to local queries.",
     },
     {
       Icon: Search,
@@ -800,22 +800,22 @@ function DallasAISearchSection() {
     {
       Icon: BarChart3,
       title: "Semantic heading hierarchy",
-      body: "H1 → H2 → H3 structure that maps to topical relationships — helping both Google and AI systems understand the authoritative scope of your content.",
+      body: "H1 → H2 → H3 structure that maps to topical relationships, helping both Google and AI systems understand the authoritative scope of your content.",
     },
     {
       Icon: ShieldCheck,
       title: "Schema markup",
-      body: "LocalBusiness, FAQPage, Service, and BreadcrumbList schema built into every page — the structured data that AI engines use to identify and trust your business.",
+      body: "LocalBusiness, FAQPage, Service, and BreadcrumbList schema built into every page, the structured data that AI engines use to identify and trust your business.",
     },
     {
       Icon: Brain,
       title: "Topical authority architecture",
-      body: "Internal linking across related service and city pages builds topical depth — the signal that tells AI engines you are the authoritative source on web design for Dallas businesses.",
+      body: "Internal linking across related service and city pages builds topical depth, the signal that tells AI engines you are the authoritative source on web design for Dallas businesses.",
     },
     {
       Icon: Activity,
       title: "Natural language content",
-      body: "Every page is written in the conversational register that answer engines prefer — not keyword-stuffed copy that reads well to no one, human or machine.",
+      body: "Every page is written in the conversational register that answer engines prefer, not keyword-stuffed copy that reads well to no one, human or machine.",
     },
   ]
 
@@ -842,13 +842,13 @@ function DallasAISearchSection() {
               <SectionLabel>GEO + AEO Optimization</SectionLabel>
             </motion.div>
             <motion.h2 variants={headerH2} className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-co-text">
-              Built for Google —{" "}
+              Built for Google{" "}
               <span className="text-gradient-accent">and AI search</span>
             </motion.h2>
           </div>
           <motion.div variants={headerP} className="space-y-4">
             <p className="text-co-text-muted text-base md:text-[17px] leading-relaxed">
-              When someone asks ChatGPT, Perplexity, or Google&apos;s AI Overview to recommend the best web design agency in Dallas, or the best HVAC company in Frisco — AI engines pull those answers from websites they can read, understand, and trust.
+              When someone asks ChatGPT, Perplexity, or Google&apos;s AI Overview to recommend the best web design agency in Dallas, or the best HVAC company in Frisco, AI engines pull those answers from websites they can read, understand, and trust.
             </p>
             <p className="text-co-text-muted text-base leading-relaxed">
               The Dallas businesses that get cited by AI search will be the ones with structured, semantically rich, clearly identified content. ClevOps builds that architecture into every website we deliver.
@@ -939,7 +939,7 @@ function DallasConversionSection() {
     {
       num: "01",
       title: "Sub-2 second mobile load",
-      body: "Every additional second of load time reduces conversion by 7–20%. In Dallas's mobile-first search environment, speed is not a nice-to-have — it's the first gate visitors pass through.",
+      body: "Every additional second of load time reduces conversion by 7–20%. In Dallas's mobile-first search environment, speed is not a nice-to-have. It's the first gate visitors pass through.",
       color: "#7BA3FF",
       border: "rgba(79,127,255,0.22)",
     },
@@ -953,21 +953,21 @@ function DallasConversionSection() {
     {
       num: "03",
       title: "Positioning clarity in 3 seconds",
-      body: "Visitors decide within 3 seconds whether they're in the right place. What you do, where you serve, and why you're different must be immediately legible — no detective work required.",
+      body: "Visitors decide within 3 seconds whether they're in the right place. What you do, where you serve, and why you're different must be immediately legible, no detective work required.",
       color: "#4FC8FF",
       border: "rgba(79,200,255,0.22)",
     },
     {
       num: "04",
       title: "Single dominant CTA",
-      body: "One clear action — call or book — must be more prominent than everything else on the page. Competing CTAs dilute attention. The businesses converting best in Dallas have ruthless hierarchy.",
+      body: "One clear action (call or book) must be more prominent than everything else on the page. Competing CTAs dilute attention. The businesses converting best in Dallas have ruthless hierarchy.",
       color: "#7BA3FF",
       border: "rgba(79,127,255,0.22)",
     },
     {
       num: "05",
       title: "Service area specificity",
-      body: "A customer in Frisco needs immediate confirmation you serve Frisco — not a vague 'Dallas area' claim buried in fine print. Service area clarity is a conversion factor, not just an SEO element.",
+      body: "A customer in Frisco needs immediate confirmation you serve Frisco, not a vague 'Dallas area' claim buried in fine print. Service area clarity is a conversion factor, not just an SEO element.",
       color: "#B87FFF",
       border: "rgba(155,114,255,0.22)",
     },
@@ -993,7 +993,7 @@ function DallasConversionSection() {
             <span className="text-gradient-accent">actually convert</span>
           </h2>
           <p className="text-co-text-muted text-base md:text-[17px] leading-relaxed">
-            Most Dallas service websites look acceptable and produce nothing. These five factors determine whether a visitor becomes a lead — and most local sites fail on three or more simultaneously.
+            Most Dallas service websites look acceptable and produce nothing. These five factors determine whether a visitor becomes a lead, and most local sites fail on three or more simultaneously.
           </p>
         </motion.div>
 
@@ -1038,7 +1038,7 @@ function DallasConversionSection() {
           >
             <div>
               <p className="font-bold text-co-text text-sm mb-3">
-                ClevOps builds all five into every website we deliver — not as optional add-ons, but as core architecture.
+                ClevOps builds all five into every website we deliver, not as optional add-ons, but as core architecture.
               </p>
               <p className="text-[12.5px] text-co-text-muted leading-relaxed">
                 Dallas businesses that fix all five conversion factors simultaneously see meaningful improvement in lead volume within 30 days of launch.
@@ -1166,7 +1166,7 @@ export function DallasPageContent() {
                 animate={heroInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, ease: EASE_PREMIUM, delay: 0.55 }}
               >
-                Dallas has one of the fastest-growing home services markets in the US — with cleaning, roofing, HVAC, and detailing businesses competing hard for the same local searches. The ones winning that competition have websites built to rank, convert, and capture leads around the clock.
+                Dallas has one of the fastest-growing home services markets in the US, with cleaning, roofing, HVAC, and detailing businesses competing hard for the same local searches. The ones winning that competition have websites built to rank, convert, and capture leads around the clock.
               </motion.p>
 
               <motion.div
@@ -1255,7 +1255,7 @@ export function DallasPageContent() {
             </div>
             <motion.p variants={headerP} className="text-co-text-muted text-base md:text-lg leading-relaxed">
               Most local service sites in Dallas look acceptable on the surface and produce nothing.{" "}
-              <span className="text-co-text-secondary">These are the four patterns we fix — every time.</span>
+              <span className="text-co-text-secondary">These are the four patterns we fix, every time.</span>
             </motion.p>
           </motion.div>
 
@@ -1316,7 +1316,7 @@ export function DallasPageContent() {
             <p className="text-sm md:text-base font-medium text-co-text leading-relaxed">
               Every day a Dallas competitor with a proper digital system is taking inquiries that could be yours.{" "}
               <span className="font-bold" style={{ background: "linear-gradient(135deg, #f87171 0%, #fb923c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                We fix all four — in 14 days.
+                We fix all four, in 14 days.
               </span>
             </p>
           </motion.div>
@@ -1329,7 +1329,7 @@ export function DallasPageContent() {
           >
             <div className="h-px w-12 bg-co-accent/40 mb-7" />
             <p className="text-xl md:text-2xl font-medium text-co-text leading-relaxed">
-              Every one of these is fixable — fast.{" "}
+              Every one of these is fixable. Fast.{" "}
               <span className="text-co-text-secondary">
                 The Dallas businesses that fix them first don&apos;t just catch up. They establish a digital position their competitors will spend months trying to close.
               </span>
@@ -1422,7 +1422,7 @@ export function DallasPageContent() {
               </motion.h2>
             </div>
             <motion.p variants={headerP} className="text-co-text-muted text-base md:text-lg leading-relaxed">
-              Every service niche in Dallas has different conversion challenges, different customer psychology, and different search behavior. We build specifically for each — not a generic template applied across the board.
+              Every service niche in Dallas has different conversion challenges, different customer psychology, and different search behavior. We build specifically for each, not a generic template applied across the board.
             </motion.p>
           </motion.div>
 
@@ -1513,7 +1513,7 @@ export function DallasPageContent() {
                 <span className="text-gradient-accent">to compete online</span>
               </motion.h2>
               <motion.p variants={headerP} className="text-co-text-muted text-base md:text-lg leading-relaxed mb-8">
-                No packages. No upsells. No surprises. Every website ships complete — because a half-built site performs no better than no site at all.
+                No packages. No upsells. No surprises. Every website ships complete, because a half-built site performs no better than no site at all.
               </motion.p>
               <motion.div variants={headerP}>
                 <Button href="/contact" variant="primary" size="md" icon={<ArrowUpRight size={15} />}>
@@ -1566,7 +1566,7 @@ export function DallasPageContent() {
               </h2>
             </div>
             <p className="text-co-text-muted text-base md:text-lg leading-relaxed">
-              Every site we build is structured for local search visibility across Dallas and the surrounding DFW suburbs — not just a design handoff. Dallas customers are searching for your service right now. We build the infrastructure that captures them.
+              Every site we build is structured for local search visibility across Dallas and the surrounding DFW suburbs, not just a design handoff. Dallas customers are searching for your service right now. We build the infrastructure that captures them.
             </p>
           </motion.div>
 
@@ -1690,7 +1690,7 @@ export function DallasPageContent() {
             animate={ctaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 0.22 }}
           >
-            We&apos;ll build a live demo of your new website — custom to your Dallas business, no templates, no filler — so you can see exactly what it looks like before committing to anything.
+            We&apos;ll build a live demo of your new website, custom to your Dallas business (no templates, no filler) so you can see exactly what it looks like before committing to anything.
           </motion.p>
 
           <motion.div
@@ -1736,7 +1736,7 @@ export function DallasPageContent() {
         state="Texas"
         stateSlug="texas"
         slug="dallas"
-        description="ClevOps builds high-converting websites for Dallas service businesses — HVAC, cleaning companies, roofers, contractors, auto detailers, landscapers, plumbers, electricians, and med spas. Local SEO built in. 14-day delivery from $999."
+        description="ClevOps builds high-converting websites for Dallas service businesses: HVAC, cleaning companies, roofers, contractors, auto detailers, landscapers, plumbers, electricians, and med spas. Local SEO built in. 14-day delivery from $999."
       />
       <SchemaMarkup type="FAQPage" items={DALLAS_FAQ_ITEMS} />
       <SchemaMarkup

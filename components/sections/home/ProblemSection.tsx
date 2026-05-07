@@ -19,7 +19,7 @@ const problems = [
     icon: Eye,
     num: "01",
     title: "Your website looks behind",
-    desc: "Visitors judge your business in under 3 seconds — before reading a single word. An outdated site signals an outdated business.",
+    desc: "Visitors judge your business in under 3 seconds, before reading a single word. An outdated site signals an outdated business.",
     impact: "< 3s",
     impactLabel: "to lose trust",
     cost: "Lost credibility",
@@ -49,7 +49,7 @@ const problems = [
     icon: Clock,
     num: "04",
     title: "Slow follow-up loses jobs",
-    desc: "78% of customers choose the first business to respond — not the best one. Without automation, you're losing while you sleep.",
+    desc: "78% of customers choose the first business to respond, not the best one. Without automation, you're losing while you sleep.",
     impact: "78%",
     impactLabel: "book first responder",
     cost: "Lost deals",
@@ -58,7 +58,7 @@ const problems = [
   {
     icon: AlertTriangle,
     num: "05",
-    title: "No systems — just a page",
+    title: "No systems, just a page",
     desc: "A site without automation, CRM, or lead capture is a cost centre. It runs 24/7 and earns nothing when you're not watching.",
     impact: "$0",
     impactLabel: "ROI with no system",
@@ -283,7 +283,7 @@ export function ProblemSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, ease: EASE_PREMIUM, delay: 0.12 }}
           >
-            Not because their service is bad — because they don&apos;t have a
+            Not because their service is bad. Because they don&apos;t have a
             system to capture, follow up, and convert leads.{" "}
             <span className="text-co-text-secondary">
               Every problem below has a direct, measurable cost.
@@ -341,7 +341,7 @@ export function ProblemSection() {
         >
           <div className="h-px w-12 bg-co-accent/40 mb-7" />
           <p className="text-xl md:text-2xl font-medium text-co-text leading-relaxed">
-            Every one of these is fixable — fast.{" "}
+            Every one of these is fixable. Fast.{" "}
             <span className="text-co-text">
               The businesses that fix them first don&apos;t just catch up. They
               pull so far ahead that competitors can&apos;t follow.
