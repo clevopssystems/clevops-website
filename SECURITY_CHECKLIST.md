@@ -72,6 +72,12 @@ New scripts:
 
 | Variable | Required | Where to get it | Notes |
 |---|---|---|---|
+| `DATABASE_URL` | Required | Neon connection string | Required for saving contact form leads before email delivery. |
+| `RESEND_API_KEY` | Required | Resend Dashboard -> API Keys | Required for admin notifications and auto-replies. |
+| `CONTACT_TO_EMAIL` | Required | Destination inbox | Admin lead notification recipient. Legacy fallback: `LEADS_NOTIFY_EMAIL`. |
+| `CONTACT_FROM_EMAIL` | Required | Verified Resend sender on `clevops.co` | Sender for admin notifications and fallback sender for auto-replies. Legacy fallback: `LEADS_FROM_EMAIL`. |
+| `AUTO_REPLY_FROM_EMAIL` | Optional | Verified Resend sender on `clevops.co` | Auto-reply sender. Falls back to `CONTACT_FROM_EMAIL` or `LEADS_FROM_EMAIL`. |
+| `NEXT_PUBLIC_APP_URL` | Required | Production site URL | Used in auto-reply emails and production diagnostics. |
 | `CONTACT_WEBHOOK_URL` | Recommended | Zapier / Make / n8n webhook URL | Leads are POSTed here. Without it, submissions log to console only. |
 | `TURNSTILE_SECRET_KEY` | Optional (but recommended for production) | [Cloudflare Turnstile](https://dash.cloudflare.com/?to=/:account/turnstile) → site → Secret Key | Server-side only. Never expose to client. |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Optional (pair with above) | Cloudflare Turnstile → site → Site Key | Safe to expose — designed to be public. |
