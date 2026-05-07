@@ -29,6 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/website-design-dallas`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
   ]
 
   const statePages: MetadataRoute.Sitemap = states.map((state) => ({

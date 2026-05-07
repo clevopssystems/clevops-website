@@ -1080,6 +1080,7 @@ export function DallasPageContent() {
 
   const exploreLinks: InternalLink[] = [
     { label: "All Texas cities", href: "/locations/texas" },
+    { label: "Dallas web design", href: "/website-design-dallas" },
     { label: "Fort Worth", href: "/locations/texas/fort-worth" },
     { label: "Houston", href: "/locations/texas/houston" },
     { label: "Austin", href: "/locations/texas/austin" },
