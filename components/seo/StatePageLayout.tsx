@@ -2,13 +2,16 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { ArrowUpRight, ArrowRight } from "lucide-react"
+import { ArrowUpRight, ArrowRight, Globe, Search, ShieldCheck, Smartphone, MapPin, Star, TrendingUp, Zap } from "lucide-react"
 import Link from "next/link"
 import { SectionLabel } from "@/components/ui/SectionLabel"
 import { Button } from "@/components/ui/Button"
 import { SpotlightCard } from "@/components/ui/SpotlightCard"
 import { BreadcrumbNav } from "@/components/seo/BreadcrumbNav"
+import { LocalFAQ, type FAQItem } from "@/components/seo/LocalFAQ"
 import { InternalLinks, type InternalLink } from "@/components/seo/InternalLinks"
+import { SchemaMarkup } from "@/components/seo/SchemaMarkup"
+import { LocalSearchFunnelSection } from "@/components/seo/LocalSearchFunnelSection"
 import {
   EASE_PREMIUM,
   headerBlock,
@@ -29,6 +32,210 @@ const cityAccents = [
   { accentColor: "rgba(79,127,255,0.12)", borderAccent: "rgba(79,127,255,0.22)", spotlightColor: "rgba(79,127,255,0.10)" },
   { accentColor: "rgba(155,114,255,0.12)", borderAccent: "rgba(155,114,255,0.22)", spotlightColor: "rgba(155,114,255,0.10)" },
 ]
+
+// ── State Hero Dashboard visual ───────────────────────────────────────────────
+
+function StateHeroDashboard({ inView, data, citiesCount }: { inView: boolean; data: StateData; citiesCount: number }) {
+  const monthlySearches = `${Math.round(citiesCount * 5.2)}K+/mo`
+  const industryBars = [88, 74, 68, 58, 44]
+
+  return (
+    <div className="relative hidden lg:block h-[500px] xl:h-[520px]">
+      {/* Ambient glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px]"
+          style={{ background: "radial-gradient(ellipse, rgba(79,127,255,0.07) 0%, transparent 70%)" }}
+        />
+      </div>
+
+      {/* === Main State Coverage Card === */}
+      <motion.div
+        className="absolute left-6 right-6 top-14 bottom-12 rounded-2xl flex flex-col overflow-hidden"
+        style={{
+          background: "rgba(9,9,14,0.88)",
+          border: "1px solid rgba(79,127,255,0.18)",
+          backdropFilter: "blur(20px)",
+          boxShadow: "0 24px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(79,127,255,0.06), inset 0 1px 0 rgba(255,255,255,0.04)",
+        }}
+        initial={{ opacity: 0, y: 28, scale: 0.97 }}
+        animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+        transition={{ duration: 0.9, ease: EASE_PREMIUM, delay: 0.35 }}
+      >
+        <div className="h-[2px] flex-shrink-0" style={{ background: "linear-gradient(90deg, #4F7FFF, #9B72FF)" }} />
+
+        <div className="flex items-start justify-between px-5 pt-4 pb-3 border-b border-white/[0.05]">
+          <div>
+            <div className="text-[10px] font-semibold tracking-[0.14em] uppercase text-co-text-muted mb-1">
+              State Coverage · {data.name}
+            </div>
+            <div className="flex items-baseline gap-2">
+              <span className="text-[1.55rem] font-black tracking-tighter text-co-text">{monthlySearches}</span>
+              <div className="flex items-center gap-1 px-2 py-0.5 rounded-lg" style={{ background: "rgba(74,222,128,0.1)", border: "1px solid rgba(74,222,128,0.2)" }}>
+                <TrendingUp size={9} style={{ color: "#4ADE80" }} />
+                <span className="text-[10px] font-bold" style={{ color: "#4ADE80" }}>+28%</span>
+              </div>
+            </div>
+          </div>
+          <div className="flex gap-1.5 mt-1.5">
+            <div className="w-2 h-2 rounded-full bg-red-500/35" />
+            <div className="w-2 h-2 rounded-full bg-yellow-500/35" />
+            <div className="w-2 h-2 rounded-full bg-green-500/35" />
+          </div>
+        </div>
+
+        {/* Industry demand bars */}
+        <div className="px-5 pt-4 pb-2 flex-1 min-h-0">
+          <div className="text-[9px] uppercase tracking-[0.12em] font-medium text-co-text-muted mb-3">Top Industry Demand</div>
+          <div className="flex items-end gap-2 h-[68px]">
+            {data.topIndustries.slice(0, 5).map((industry, i) => (
+              <div key={industry} className="flex-1 flex flex-col items-center gap-1">
+                <div
+                  className="w-full rounded-t-sm"
+                  style={{
+                    height: `${industryBars[i]}%`,
+                    background: i === 0
+                      ? "linear-gradient(180deg, #4F7FFF, rgba(79,127,255,0.35))"
+                      : i === 1
+                        ? "linear-gradient(180deg, #9B72FF, rgba(155,114,255,0.25))"
+                        : `rgba(79,127,255,${0.22 - i * 0.03})`,
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+          <div className="flex gap-2 mt-1.5">
+            {data.topIndustries.slice(0, 5).map((industry) => (
+              <div key={industry} className="flex-1 text-center text-co-text-muted capitalize truncate" style={{ fontSize: "7px" }}>
+                {industry.split(" ")[0]}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2 px-5 py-3.5 border-t border-white/[0.05]">
+          {[
+            { label: "Cities Active", value: String(citiesCount), color: "#7BA3FF" },
+            { label: "Mobile Traffic", value: "73%", color: "#B87FFF" },
+            { label: "Market", value: data.abbreviation, color: "#4FC8FF" },
+          ].map((m) => (
+            <div key={m.label} className="flex flex-col gap-0.5">
+              <div className="font-black tracking-tighter leading-none" style={{ color: m.color, fontSize: "1.05rem" }}>
+                {m.value}
+              </div>
+              <div className="text-[8px] uppercase tracking-[0.1em] font-medium text-co-text-muted leading-tight">{m.label}</div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* === Lead Notification (top-right, floating) === */}
+      <motion.div
+        className="absolute top-1 right-0 z-10 w-[186px]"
+        initial={{ opacity: 0, y: -14, x: 8 }}
+        animate={inView ? { opacity: 1, y: 0, x: 0 } : {}}
+        transition={{ duration: 0.75, ease: EASE_PREMIUM, delay: 0.65 }}
+      >
+        <motion.div
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+          className="rounded-xl overflow-hidden"
+          style={{
+            background: "rgba(8,10,16,0.95)",
+            border: "1px solid rgba(74,222,128,0.24)",
+            backdropFilter: "blur(20px)",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.5), 0 0 18px rgba(74,222,128,0.05)",
+          }}
+        >
+          <div className="px-3.5 py-3">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+              </span>
+              <span className="text-[9px] font-bold tracking-[0.14em] uppercase" style={{ color: "#4ADE80" }}>New Lead</span>
+              <span className="text-[8.5px] text-co-text-muted ml-auto">2m ago</span>
+            </div>
+            <p className="text-[11px] font-semibold text-co-text leading-snug mb-0.5">{data.abbreviation} Cleaning Co.</p>
+            <p className="text-[9.5px] text-co-text-muted leading-snug">Submitted form · Website Design</p>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* === Search Rankings (bottom-left, floating) === */}
+      <motion.div
+        className="absolute bottom-1 left-0 z-10 w-[204px]"
+        initial={{ opacity: 0, y: 14, x: -8 }}
+        animate={inView ? { opacity: 1, y: 0, x: 0 } : {}}
+        transition={{ duration: 0.75, ease: EASE_PREMIUM, delay: 0.82 }}
+      >
+        <motion.div
+          animate={{ y: [0, 5, 0] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+          className="rounded-xl overflow-hidden"
+          style={{
+            background: "rgba(8,10,16,0.95)",
+            border: "1px solid rgba(79,127,255,0.22)",
+            backdropFilter: "blur(20px)",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.5), 0 0 18px rgba(79,127,255,0.06)",
+          }}
+        >
+          <div className="px-3.5 py-3">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-co-text-muted">Search Rankings</span>
+              <div className="flex items-center gap-1 px-1.5 py-0.5 rounded-lg" style={{ background: "rgba(79,127,255,0.1)", border: "1px solid rgba(79,127,255,0.2)" }}>
+                <TrendingUp size={8} style={{ color: "#7BA3FF" }} />
+                <span className="text-[8px] font-bold" style={{ color: "#7BA3FF" }}>Rising</span>
+              </div>
+            </div>
+            <div className="flex items-end gap-[3px] h-7 mb-2">
+              {[22, 32, 28, 44, 52, 62, 73, 88].map((h, i) => (
+                <div
+                  key={i}
+                  className="flex-1 rounded-[2px]"
+                  style={{
+                    height: `${h}%`,
+                    background: i === 7 ? "linear-gradient(180deg, #4F7FFF, #9B72FF)" : `rgba(79,127,255,${0.12 + i * 0.035})`,
+                  }}
+                />
+              ))}
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-[8.5px] text-co-text-muted">8-week trend</span>
+              <span className="text-[11.5px] font-black tracking-tighter" style={{ color: "#7BA3FF" }}>Rank #3</span>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* === Cities Covered Badge (mid-right, floating) === */}
+      <motion.div
+        className="absolute z-10 right-1"
+        style={{ top: "51%" }}
+        initial={{ opacity: 0, scale: 0.8, x: 10 }}
+        animate={inView ? { opacity: 1, scale: 1, x: 0 } : {}}
+        transition={{ duration: 0.65, ease: EASE_PREMIUM, delay: 0.95 }}
+      >
+        <motion.div
+          animate={{ y: [0, -4, 0] }}
+          transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
+          className="rounded-xl px-3 py-2"
+          style={{
+            background: "rgba(155,114,255,0.1)",
+            border: "1px solid rgba(155,114,255,0.28)",
+            backdropFilter: "blur(16px)",
+            boxShadow: "0 4px 20px rgba(155,114,255,0.12)",
+          }}
+        >
+          <div className="flex items-center gap-1.5">
+            <Zap size={10} style={{ color: "#B87FFF" }} />
+            <span className="text-[10.5px] font-bold whitespace-nowrap" style={{ color: "#B87FFF" }}>{citiesCount} Cities Covered</span>
+          </div>
+        </motion.div>
+      </motion.div>
+    </div>
+  )
+}
 
 interface StatePageLayoutProps {
   data: StateData
@@ -84,7 +291,8 @@ export function StatePageLayout({ data, cities }: StatePageLayoutProps) {
             <BreadcrumbNav items={breadcrumbs} className="mb-10" />
           </motion.div>
 
-          <div className="max-w-3xl">
+          <div className="grid lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_440px] gap-12 xl:gap-16 items-center">
+            <div>
             {/* Eyebrow pill */}
             <motion.div
               className="inline-flex items-center gap-2.5 rounded-full px-4 py-2 mb-8"
@@ -175,7 +383,7 @@ export function StatePageLayout({ data, cities }: StatePageLayoutProps) {
             >
               {[
                 { value: String(cities.length), label: "Markets" },
-                { value: "$999", label: "One-time build" },
+                { value: "From $999", label: "One-time build" },
                 { value: "14d", label: "Avg. launch" },
               ].map((stat) => (
                 <div
@@ -191,12 +399,14 @@ export function StatePageLayout({ data, cities }: StatePageLayoutProps) {
                 </div>
               ))}
             </motion.div>
+            </div>
+            <StateHeroDashboard inView={heroInView} data={data} citiesCount={cities.length} />
           </div>
         </div>
       </section>
 
       {/* ── Cities grid ───────────────────────────────────────────────────── */}
-      <section ref={citiesRef} className="relative py-24 md:py-32 overflow-hidden bg-co-surface">
+      <section ref={citiesRef} className="relative py-16 md:py-24 overflow-hidden bg-co-surface">
         <div className="absolute inset-0 bg-grid-sm opacity-[0.18]" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
@@ -206,7 +416,7 @@ export function StatePageLayout({ data, cities }: StatePageLayoutProps) {
             variants={headerBlock}
             initial="hidden"
             animate={citiesInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-14 md:mb-18"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-10 md:mb-14"
           >
             <div>
               <motion.div variants={headerLabel} className="mb-4">
@@ -254,7 +464,7 @@ export function StatePageLayout({ data, cities }: StatePageLayoutProps) {
       </section>
 
       {/* ── Industries section ────────────────────────────────────────────── */}
-      <section ref={industriesRef} className="relative py-24 md:py-32 overflow-hidden bg-co-bg">
+      <section ref={industriesRef} className="relative py-16 md:py-24 overflow-hidden bg-co-bg">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
         <div
@@ -312,8 +522,124 @@ export function StatePageLayout({ data, cities }: StatePageLayoutProps) {
         </div>
       </section>
 
+      {/* ── State Local SEO section ───────────────────────────────────────── */}
+      <section className="relative py-16 md:py-24 overflow-hidden bg-co-bg">
+        <div className="absolute inset-0 bg-dot opacity-[0.06]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
+        <div
+          className="orb w-[600px] h-[400px] top-1/2 right-[-5%] -translate-y-1/2"
+          style={{ background: "radial-gradient(ellipse, rgba(79,127,255,0.05) 0%, transparent 70%)" }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.7, ease: EASE_PREMIUM }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-14"
+          >
+            <div>
+              <motion.div
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-5 text-[11px] font-semibold tracking-widest uppercase"
+                style={{ background: "rgba(79,127,255,0.07)", border: "1px solid rgba(79,127,255,0.18)", color: "#7BA3FF" }}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: EASE_PREMIUM }}
+              >
+                Local SEO Strategy
+              </motion.div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-co-text">
+                How we rank {data.name}{" "}
+                <span className="text-gradient-accent">service businesses</span>
+              </h2>
+            </div>
+            <p className="text-co-text-muted text-base md:text-lg leading-relaxed">
+              Every site we build is structured for local search visibility from day one — not bolted on after. {data.name}&apos;s top markets are competitive. We build the infrastructure to capture that demand.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {([
+              { Icon: Globe,       title: "City Landing Pages",    body: `Dedicated pages for every major ${data.name} market, built to rank for high-intent local searches specific to your city and niche.` },
+              { Icon: Search,      title: "Service-Area Keywords", body: "Every page targets specific service + city combinations your customers actually search — not generic terms that bring in unqualified traffic." },
+              { Icon: ShieldCheck, title: "GBP Alignment",         body: "Your website and Google Business Profile reinforce each other across all your service areas — stronger map pack rankings, more calls." },
+              { Icon: Star,        title: "Review Trust Signals",  body: "Reviews and social proof are built into the site structure so new visitors see your credibility before they decide whether to contact you." },
+              { Icon: Smartphone,  title: "Mobile-First Speed",    body: "Built for Core Web Vitals and sub-2s mobile load across all devices — the performance factors that determine who ranks and who doesn't." },
+              { Icon: MapPin,      title: "Multi-City Coverage",   body: `Strategic internal linking across ${data.name} city pages builds topical authority and expands search visibility across the full state.` },
+            ] as const).map((item, i) => (
+              <motion.div
+                key={item.title}
+                className="rounded-2xl p-6 flex flex-col gap-3"
+                style={{ background: "rgba(255,255,255,0.022)", border: "1px solid rgba(255,255,255,0.075)" }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{ duration: 0.55, ease: EASE_PREMIUM, delay: i * 0.09 }}
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                  style={{ background: "rgba(79,127,255,0.08)", border: "1px solid rgba(79,127,255,0.18)" }}
+                >
+                  <item.Icon size={16} style={{ color: "#7BA3FF" }} />
+                </div>
+                <p className="font-semibold text-co-text text-sm leading-snug">{item.title}</p>
+                <p className="text-[12.5px] text-co-text-muted leading-relaxed">{item.body}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Local Search Funnel section ───────────────────────────────────── */}
+      <LocalSearchFunnelSection state={data.name} topIndustries={data.topIndustries} />
+
+      {/* ── State FAQ section ─────────────────────────────────────────────── */}
+      <section className="relative py-16 md:py-24 overflow-hidden bg-co-surface">
+        <div className="absolute inset-0 bg-grid-sm opacity-[0.15]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
+
+        <div className="relative z-10 max-w-3xl mx-auto px-6 md:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.7, ease: EASE_PREMIUM }}
+          >
+            <LocalFAQ
+              title={`Common questions about service business websites in ${data.name}`}
+              items={[
+                {
+                  question: `How much does a website cost for a ${data.name} service business?`,
+                  answer: `ClevOps websites typically range from $999–$1,999 depending on the number of pages, integrations, automation, and SEO structure required. Most ${data.name} service businesses also choose our $300/month care plan or $600/month growth system for ongoing optimization and lead generation. For businesses generating consistent revenue, the build cost is typically recovered within one or two new clients.`,
+                },
+                {
+                  question: `How long does it take to launch a website in ${data.name}?`,
+                  answer: `14-day average from kickoff to live site. We run design, SEO setup, and copy in parallel so nothing waits on anything else. ${data.name} clients are often surprised at how fast the process moves.`,
+                },
+                {
+                  question: `Do you build websites for all cities in ${data.name}?`,
+                  answer: `We have dedicated pages and local market expertise for ${cities.slice(0, 3).map((c) => c.city).join(", ")} and more. If your city isn't listed, contact us — we serve businesses across the full state of ${data.name}.`,
+                },
+                {
+                  question: `Can ClevOps help ${data.name} service businesses rank on Google?`,
+                  answer: `Yes. Every site we build includes local SEO foundations: city-specific landing pages, service-area keyword structure, GBP alignment, and technical SEO. ${data.name}'s top markets are competitive — we build for rankings, not just looks.`,
+                },
+                {
+                  question: `What types of service businesses do you work with in ${data.name}?`,
+                  answer: `We build websites for ${data.topIndustries.slice(0, 3).join(", ")}, and other local service businesses across ${data.name}. If you run a local service business and your current site isn't generating consistent leads, we're the right fit.`,
+                },
+              ] satisfies FAQItem[]}
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── Internal links ────────────────────────────────────────────────── */}
-      <section className="relative py-10 overflow-hidden">
+      <section className="relative py-7 overflow-hidden">
         <div className="absolute inset-0 bg-co-surface" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
@@ -323,7 +649,7 @@ export function StatePageLayout({ data, cities }: StatePageLayoutProps) {
       </section>
 
       {/* ── CTA section ───────────────────────────────────────────────────── */}
-      <section ref={ctaRef} className="relative py-24 md:py-36 overflow-hidden">
+      <section ref={ctaRef} className="relative pt-16 pb-24 md:pt-24 md:pb-36 overflow-hidden">
         <div className="absolute inset-0 bg-co-surface" />
         <div className="absolute inset-0 bg-grid-sm opacity-30" />
         <div
@@ -385,20 +711,36 @@ export function StatePageLayout({ data, cities }: StatePageLayoutProps) {
           </motion.div>
 
           <motion.div
-            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
+            className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-6 border-t border-white/[0.06]"
             initial={{ opacity: 0 }}
             animate={ctaInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             {["No upfront payment", "Response within 24 hours", `${cities.length} ${cities.length === 1 ? "city" : "cities"} in ${data.abbreviation}`].map((item) => (
               <div key={item} className="flex items-center gap-1.5">
-                <div className="w-1 h-1 rounded-full bg-co-accent/50" />
-                <span className="text-xs font-medium text-co-text-muted">{item}</span>
+                <div className="w-1 h-1 rounded-full bg-co-accent/40" />
+                <span className="text-[11px] font-medium text-co-text-muted">{item}</span>
               </div>
             ))}
           </motion.div>
         </div>
       </section>
+
+      {/* ── JSON-LD Schema ─────────────────────────────────────────────────── */}
+      <SchemaMarkup
+        type="Service"
+        name={`Website Design for Service Businesses in ${data.name}`}
+        description={data.marketAngle}
+        serviceType="Website Design for Local Service Businesses"
+      />
+      <SchemaMarkup
+        type="BreadcrumbList"
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Locations", href: "/locations" },
+          { name: data.name },
+        ]}
+      />
     </main>
   )
 }

@@ -16,9 +16,9 @@ const featuredCities = [
 ]
 
 export const metadata: Metadata = {
-  title: "Website Design for Service Businesses — All US Locations",
+  title: "Website Design for Service Businesses — All US Locations | ClevOps",
   description:
-    "ClevOps builds high-converting websites for local service businesses across the USA. Browse by state to see local market context, city pages, and pricing.",
+    "ClevOps builds conversion-focused websites for local service businesses across the USA. Browse by state and city — local SEO, lead capture, mobile-first. From $999.",
 }
 
 export default function LocationsHubPage() {
@@ -201,7 +201,7 @@ export default function LocationsHubPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28">
+      <section className="pt-20 pb-32 md:pt-28 md:pb-44">
         <div className="relative max-w-7xl mx-auto px-6 md:px-8">
           <div className="pointer-events-none absolute inset-0 bg-grid-sm opacity-30" />
           <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-co-accent/8 blur-[100px]" />

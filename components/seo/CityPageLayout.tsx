@@ -1,21 +1,31 @@
 "use client"
 
 import { useRef } from "react"
+import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import {
   CheckCircle2,
   ArrowUpRight,
+  ArrowRight,
   Globe,
   Zap,
   ShieldCheck,
   TrendingUp,
+  Search,
+  Smartphone,
+  MapPin,
+  Star,
 } from "lucide-react"
+import { SchemaMarkup } from "@/components/seo/SchemaMarkup"
 import { SectionLabel } from "@/components/ui/SectionLabel"
 import { Button } from "@/components/ui/Button"
 import { SpotlightCard } from "@/components/ui/SpotlightCard"
 import { BreadcrumbNav } from "@/components/seo/BreadcrumbNav"
 import { LocalFAQ, type FAQItem } from "@/components/seo/LocalFAQ"
 import { InternalLinks, type InternalLink } from "@/components/seo/InternalLinks"
+import { LocalInsightsSection } from "@/components/seo/LocalInsightsSection"
+import { LocalSearchFunnelSection } from "@/components/seo/LocalSearchFunnelSection"
+import { LocalProofSection } from "@/components/seo/LocalProofSection"
 import {
   EASE_PREMIUM,
   headerBlock,
@@ -155,6 +165,17 @@ const industryDescriptions: Record<string, string> = {
   "electricians": "Licensing trust matters most — customers are choosing reliability over price.",
 }
 
+const industryToNicheSlug: Record<string, string> = {
+  "cleaning companies": "cleaning-business",
+  "auto detailers": "auto-detailing",
+  "HVAC companies": "hvac",
+  "landscapers": "landscaping",
+  "roofing contractors": "roofing",
+  "contractors": "contractors",
+  "plumbers": "plumbing",
+  "barbershops": "barbershop",
+}
+
 const industryAccents = [
   { accentColor: "rgba(79,127,255,0.15)", borderAccent: "rgba(79,127,255,0.3)", spotlightColor: "rgba(79,127,255,0.12)" },
   { accentColor: "rgba(155,114,255,0.15)", borderAccent: "rgba(155,114,255,0.3)", spotlightColor: "rgba(155,114,255,0.12)" },
@@ -254,6 +275,259 @@ const deliverables = [
   "14-day build timeline — nothing drags out for months",
 ]
 
+// ── Local SEO strategy items ──────────────────────────────────────────────────
+
+const localSeoItems = [
+  { Icon: Globe,       title: "City Landing Pages",      body: "Dedicated pages for your city built to rank for high-intent local searches — not generic service descriptions that nobody searches for." },
+  { Icon: Search,      title: "Service-Area Keywords",   body: "Every page targets specific service + city combinations your customers actually type. Built in from day one, not bolted on later." },
+  { Icon: ShieldCheck, title: "GBP Alignment",           body: "Your website and Google Business Profile reinforce each other — consistent signals that strengthen map pack rankings across your full service area." },
+  { Icon: Star,        title: "Review Trust Signals",    body: "Reviews and social proof are structurally embedded in your layout, visible before a visitor ever decides whether to contact you." },
+  { Icon: Smartphone,  title: "Mobile-First Speed",      body: "Built for Core Web Vitals and sub-2s mobile load — the performance factors that separate page-one rankings from invisible competitors." },
+  { Icon: MapPin,      title: "Nearby City Links",       body: "Strategic internal links across your city and service-area pages build topical authority and expand search visibility across the full metro." },
+]
+
+// ── City metrics helpers ──────────────────────────────────────────────────────
+
+function parsePop(pop: string): number {
+  const lower = pop.toLowerCase().replace(/,/g, "")
+  const m = lower.match(/([\d.]+)\s*(million)?/)
+  if (!m) return 500_000
+  const n = parseFloat(m[1])
+  return m[2] === "million" ? n * 1_000_000 : n
+}
+
+function getCityMetrics(data: CityData) {
+  const pop = parsePop(data.population)
+  if (pop >= 5_000_000) return { competition: "Extreme",     searches: "18,000+/mo", mobilePct: "77%", missedLeads: "$9,200/mo", responseWindow: "< 90 sec" }
+  if (pop >= 2_000_000) return { competition: "Very High",   searches: "12,000+/mo", mobilePct: "75%", missedLeads: "$6,400/mo", responseWindow: "< 2 min"  }
+  if (pop >= 1_000_000) return { competition: "High",        searches: "8,500+/mo",  mobilePct: "74%", missedLeads: "$4,200/mo", responseWindow: "< 3 min"  }
+  if (pop >= 600_000)   return { competition: "High",        searches: "5,800+/mo",  mobilePct: "73%", missedLeads: "$2,900/mo", responseWindow: "< 4 min"  }
+  if (pop >= 400_000)   return { competition: "Medium-High", searches: "3,800+/mo",  mobilePct: "72%", missedLeads: "$1,800/mo", responseWindow: "< 5 min"  }
+  return                       { competition: "Medium",      searches: "2,400+/mo",  mobilePct: "71%", missedLeads: "$1,100/mo", responseWindow: "< 7 min"  }
+}
+
+// ── Hero Dashboard visual ─────────────────────────────────────────────────────
+
+function HeroDashboard({ inView, metrics, city }: { inView: boolean; metrics: ReturnType<typeof getCityMetrics>; city: string }) {
+  return (
+    <div className="relative hidden lg:block h-[500px] xl:h-[520px]">
+      {/* Ambient glow behind the cluster */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px]"
+          style={{ background: "radial-gradient(ellipse, rgba(79,127,255,0.07) 0%, transparent 70%)" }}
+        />
+      </div>
+
+      {/* === Main Analytics Card === */}
+      <motion.div
+        className="absolute left-6 right-6 top-14 bottom-12 rounded-2xl flex flex-col overflow-hidden"
+        style={{
+          background: "rgba(9,9,14,0.88)",
+          border: "1px solid rgba(79,127,255,0.18)",
+          backdropFilter: "blur(20px)",
+          boxShadow: "0 24px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(79,127,255,0.06), inset 0 1px 0 rgba(255,255,255,0.04)",
+        }}
+        initial={{ opacity: 0, y: 28, scale: 0.97 }}
+        animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+        transition={{ duration: 0.9, ease: EASE_PREMIUM, delay: 0.35 }}
+      >
+        {/* Accent top bar */}
+        <div className="h-[2px] flex-shrink-0" style={{ background: "linear-gradient(90deg, #4F7FFF, #9B72FF)" }} />
+
+        {/* Card header */}
+        <div className="flex items-start justify-between px-5 pt-4 pb-3 border-b border-white/[0.05]">
+          <div>
+            <div className="text-[10px] font-semibold tracking-[0.14em] uppercase text-co-text-muted mb-1">
+              Local Search Traffic · {city}
+            </div>
+            <div className="flex items-baseline gap-2">
+              <span
+                className="font-black tracking-tighter text-co-text"
+                style={{ fontSize: metrics.searches.length > 9 ? "1.25rem" : "1.55rem" }}
+              >
+                {metrics.searches}
+              </span>
+              <div className="flex items-center gap-1 px-2 py-0.5 rounded-lg" style={{ background: "rgba(74,222,128,0.1)", border: "1px solid rgba(74,222,128,0.2)" }}>
+                <TrendingUp size={9} style={{ color: "#4ADE80" }} />
+                <span className="text-[10px] font-bold" style={{ color: "#4ADE80" }}>+34%</span>
+              </div>
+            </div>
+          </div>
+          <div className="flex gap-1.5 mt-1.5">
+            <div className="w-2 h-2 rounded-full bg-red-500/35" />
+            <div className="w-2 h-2 rounded-full bg-yellow-500/35" />
+            <div className="w-2 h-2 rounded-full bg-green-500/35" />
+          </div>
+        </div>
+
+        {/* Traffic trend line chart */}
+        <div className="px-5 pt-3 pb-0 flex-1 min-h-0">
+          <svg viewBox="0 0 260 75" className="w-full h-full" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="cityHeroFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#4F7FFF" stopOpacity="0.28" />
+                <stop offset="100%" stopColor="#4F7FFF" stopOpacity="0.01" />
+              </linearGradient>
+              <linearGradient id="cityHeroLine" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#4F7FFF" />
+                <stop offset="100%" stopColor="#9B72FF" />
+              </linearGradient>
+            </defs>
+            <line x1="0" y1="25" x2="260" y2="25" stroke="rgba(255,255,255,0.035)" strokeWidth="1" />
+            <line x1="0" y1="50" x2="260" y2="50" stroke="rgba(255,255,255,0.035)" strokeWidth="1" />
+            <motion.path
+              d="M 0,68 C 32,64 32,55 65,49 C 98,43 105,36 130,31 C 158,26 178,17 210,11 C 232,7 248,5 260,3 L 260,75 L 0,75 Z"
+              fill="url(#cityHeroFill)"
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 1.4, ease: EASE_PREMIUM, delay: 1.0 }}
+            />
+            <motion.path
+              d="M 0,68 C 32,64 32,55 65,49 C 98,43 105,36 130,31 C 158,26 178,17 210,11 C 232,7 248,5 260,3"
+              fill="none"
+              stroke="url(#cityHeroLine)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+              transition={{ duration: 2.0, ease: "easeInOut", delay: 0.8 }}
+            />
+            <circle cx="260" cy="3" r="5" fill="rgba(155,114,255,0.25)" />
+            <circle cx="260" cy="3" r="2.5" fill="#9B72FF" />
+          </svg>
+        </div>
+
+        {/* Bottom metric row */}
+        <div className="grid grid-cols-3 gap-2 px-5 py-3.5 border-t border-white/[0.05]">
+          {[
+            { label: "Mobile Traffic", value: metrics.mobilePct, color: "#B87FFF" },
+            { label: "Decision Window", value: metrics.responseWindow, color: "#4FC8FF" },
+            { label: "Competition", value: metrics.competition, color: "#FB923C" },
+          ].map((m) => (
+            <div key={m.label} className="flex flex-col gap-0.5">
+              <div
+                className="font-black tracking-tighter leading-none"
+                style={{ color: m.color, fontSize: m.value.length > 8 ? "0.72rem" : m.value.length > 5 ? "0.88rem" : "1.05rem" }}
+              >
+                {m.value}
+              </div>
+              <div className="text-[8px] uppercase tracking-[0.1em] font-medium text-co-text-muted leading-tight">{m.label}</div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* === Lead Notification (top-right, floating) === */}
+      <motion.div
+        className="absolute top-1 right-0 z-10 w-[186px]"
+        initial={{ opacity: 0, y: -14, x: 8 }}
+        animate={inView ? { opacity: 1, y: 0, x: 0 } : {}}
+        transition={{ duration: 0.75, ease: EASE_PREMIUM, delay: 0.65 }}
+      >
+        <motion.div
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+          className="rounded-xl overflow-hidden"
+          style={{
+            background: "rgba(8,10,16,0.95)",
+            border: "1px solid rgba(74,222,128,0.24)",
+            backdropFilter: "blur(20px)",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.5), 0 0 18px rgba(74,222,128,0.05)",
+          }}
+        >
+          <div className="px-3.5 py-3">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+              </span>
+              <span className="text-[9px] font-bold tracking-[0.14em] uppercase" style={{ color: "#4ADE80" }}>New Lead</span>
+              <span className="text-[8.5px] text-co-text-muted ml-auto">2m ago</span>
+            </div>
+            <p className="text-[11px] font-semibold text-co-text leading-snug mb-0.5">{city} Cleaning Co.</p>
+            <p className="text-[9.5px] text-co-text-muted leading-snug">Submitted form · Website Design</p>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* === Search Rankings (bottom-left, floating) === */}
+      <motion.div
+        className="absolute bottom-1 left-0 z-10 w-[204px]"
+        initial={{ opacity: 0, y: 14, x: -8 }}
+        animate={inView ? { opacity: 1, y: 0, x: 0 } : {}}
+        transition={{ duration: 0.75, ease: EASE_PREMIUM, delay: 0.82 }}
+      >
+        <motion.div
+          animate={{ y: [0, 5, 0] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+          className="rounded-xl overflow-hidden"
+          style={{
+            background: "rgba(8,10,16,0.95)",
+            border: "1px solid rgba(79,127,255,0.22)",
+            backdropFilter: "blur(20px)",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.5), 0 0 18px rgba(79,127,255,0.06)",
+          }}
+        >
+          <div className="px-3.5 py-3">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-co-text-muted">Search Visibility</span>
+              <div className="flex items-center gap-1 px-1.5 py-0.5 rounded-lg" style={{ background: "rgba(79,127,255,0.1)", border: "1px solid rgba(79,127,255,0.2)" }}>
+                <TrendingUp size={8} style={{ color: "#7BA3FF" }} />
+                <span className="text-[8px] font-bold" style={{ color: "#7BA3FF" }}>Rising</span>
+              </div>
+            </div>
+            <div className="flex items-end gap-[3px] h-7 mb-2">
+              {[22, 32, 28, 44, 52, 62, 73, 88].map((h, i) => (
+                <motion.div
+                  key={i}
+                  className="flex-1 rounded-[2px]"
+                  style={{
+                    background: i === 7 ? "linear-gradient(180deg, #4F7FFF, #9B72FF)" : `rgba(79,127,255,${0.12 + i * 0.035})`,
+                  }}
+                  initial={{ height: 0 }}
+                  animate={inView ? { height: `${h}%` } : {}}
+                  transition={{ duration: 0.7, ease: EASE_PREMIUM, delay: 1.0 + i * 0.06 }}
+                />
+              ))}
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-[8.5px] text-co-text-muted">8-week trend</span>
+              <span className="text-[11.5px] font-black tracking-tighter" style={{ color: "#7BA3FF" }}>Rank #3</span>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* === Conversion Rate Badge (mid-right, floating) === */}
+      <motion.div
+        className="absolute z-10 right-1"
+        style={{ top: "51%" }}
+        initial={{ opacity: 0, scale: 0.8, x: 10 }}
+        animate={inView ? { opacity: 1, scale: 1, x: 0 } : {}}
+        transition={{ duration: 0.65, ease: EASE_PREMIUM, delay: 0.95 }}
+      >
+        <motion.div
+          animate={{ y: [0, -4, 0] }}
+          transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
+          className="rounded-xl px-3 py-2"
+          style={{
+            background: "rgba(155,114,255,0.1)",
+            border: "1px solid rgba(155,114,255,0.28)",
+            backdropFilter: "blur(16px)",
+            boxShadow: "0 4px 20px rgba(155,114,255,0.12)",
+          }}
+        >
+          <div className="flex items-center gap-1.5">
+            <Zap size={10} style={{ color: "#B87FFF" }} />
+            <span className="text-[10.5px] font-bold whitespace-nowrap" style={{ color: "#B87FFF" }}>3.2x Conversion</span>
+          </div>
+        </motion.div>
+      </motion.div>
+    </div>
+  )
+}
+
 // ── Types ────────────────────────────────────────────────────────────────────
 
 export interface NearbyLocation {
@@ -282,30 +556,47 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
   const deliverablesInView = useInView(deliverablesRef, { once: true, amount: 0.05 })
   const ctaInView = useInView(ctaRef, { once: true, amount: 0.25 })
 
+  const metrics = getCityMetrics(data)
+
+  const ind0 = data.topIndustries[0] ?? "service businesses"
+  const ind1 = data.topIndustries[1] ?? data.topIndustries[0] ?? "service businesses"
+  const ind2 = data.topIndustries[2] ?? ind0
+
   const faqItems: FAQItem[] = [
     {
-      question: `How long does it take to build a website for my ${data.city} service business?`,
+      question: `How quickly can ClevOps launch a website for a ${ind0} in ${data.city}?`,
       answer: data.faqAnswers.howLong,
     },
     {
-      question: `How much does a service business website cost in ${data.city}?`,
+      question: `How much should a ${data.city} ${ind0} invest in a professional website?`,
       answer: data.faqAnswers.howMuch,
     },
     {
-      question: `Why do I need a local website specialist for my ${data.city} business?`,
+      question: `Why do ${data.city} ${ind1} lose clients to competitors with better websites?`,
       answer: data.faqAnswers.whyLocal,
+    },
+    {
+      question: `Can ClevOps help ${data.city} ${ind0} rank higher on Google Maps?`,
+      answer: `Yes. Every website we build includes local SEO foundations: city-specific landing pages, service-area keyword structure, semantic heading hierarchy, Google Business Profile alignment, and internal linking to nearby ${data.state} cities. We don't just design — we build the ranking infrastructure ${data.city} ${ind0} need to capture local search traffic and convert it.`,
+    },
+    {
+      question: `Does ClevOps build websites for ${ind2} and other service trades in ${data.city}?`,
+      answer: `Yes — we build websites for ${data.topIndustries.slice(0, 3).join(", ")}, and other local service businesses across ${data.city}. Each build is structured around how customers in ${data.city} specifically search, compare, and book — not a generic template applied to any city.`,
     },
   ]
 
-  const nearbyLinks: InternalLink[] = nearbyLocations.slice(0, 3).map((loc) => ({
+  const nearbyLinks: InternalLink[] = nearbyLocations.map((loc) => ({
     label: loc.city,
     href: `/locations/${loc.stateSlug}/${loc.slug}`,
   }))
 
+  const topNicheSlug = industryToNicheSlug[ind0]
   const exploreLinks: InternalLink[] = [
     { label: `All ${data.state} cities`, href: `/locations/${data.stateSlug}` },
     ...nearbyLinks,
+    ...(topNicheSlug ? [{ label: `${ind0.charAt(0).toUpperCase() + ind0.slice(1)} websites`, href: `/website-design/${topNicheSlug}` }] : []),
     { label: "Website design services", href: "/website-design" },
+    { label: "Start your project", href: "/contact" },
   ]
 
   const breadcrumbs = [
@@ -346,7 +637,8 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
             <BreadcrumbNav items={breadcrumbs} className="mb-10" />
           </motion.div>
 
-          <div className="max-w-3xl">
+          <div className="grid lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_440px] gap-12 xl:gap-16 items-center">
+            <div>
             {/* Eyebrow */}
             <motion.div
               className="inline-flex items-center gap-2.5 rounded-full px-4 py-2 mb-8"
@@ -437,7 +729,7 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
             >
               {[
                 { value: "14d", label: "Avg. launch" },
-                { value: "$999", label: "One-time build" },
+                { value: "From $999", label: "One-time build" },
                 { value: data.population, label: "Market size" },
               ].map((stat) => (
                 <div
@@ -453,12 +745,14 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
                 </div>
               ))}
             </motion.div>
+            </div>
+            <HeroDashboard inView={heroInView} metrics={metrics} city={data.city} />
           </div>
         </div>
       </section>
 
       {/* ── Problem section ───────────────────────────────────────────────── */}
-      <section ref={problemRef} className="relative py-24 md:py-32 overflow-hidden">
+      <section ref={problemRef} className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[#060608]" />
         <div className="absolute inset-0 bg-dot opacity-[0.10]" />
         <div
@@ -474,7 +768,7 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
             variants={headerBlock}
             initial="hidden"
             animate={problemInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-end mb-14 md:mb-18"
+            className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-end mb-10 md:mb-14"
           >
             <div>
               <motion.div variants={headerLabel} className="mb-5">
@@ -586,8 +880,73 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
         </div>
       </section>
 
+      {/* ── City Opportunity Snapshot ─────────────────────────────────────── */}
+      <section className="relative py-14 md:py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-co-bg" />
+        <div className="absolute inset-0 bg-grid opacity-[0.10]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.7, ease: EASE_PREMIUM }}
+            className="max-w-2xl mb-12"
+          >
+            <SectionLabel className="mb-5">Market Intelligence</SectionLabel>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-co-text mb-4">
+              The {data.city}{" "}
+              <span className="text-gradient-accent">opportunity snapshot</span>
+            </h2>
+            <p className="text-co-text-muted text-base md:text-lg leading-relaxed">
+              Service businesses in {data.city} face a specific competitive environment. Here&apos;s what the local market data shows.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+            {([
+              { label: "Local Competition",  value: metrics.competition,    sub: "in your niche",                accent: "#F87171", bg: "rgba(239,68,68,0.08)",   border: "rgba(239,68,68,0.16)"   },
+              { label: "Monthly Searches",   value: metrics.searches,       sub: "local service searches",       accent: "#7BA3FF", bg: "rgba(79,127,255,0.08)",  border: "rgba(79,127,255,0.16)"  },
+              { label: "Mobile Traffic",     value: metrics.mobilePct,      sub: "of local searches",            accent: "#B87FFF", bg: "rgba(155,114,255,0.08)", border: "rgba(155,114,255,0.16)" },
+              { label: "Missed Lead Risk",   value: metrics.missedLeads,    sub: "est. monthly w/o proper site", accent: "#FB923C", bg: "rgba(249,115,22,0.08)",  border: "rgba(249,115,22,0.16)"  },
+              { label: "Decision Window",    value: metrics.responseWindow, sub: "before visitor bounces",       accent: "#4FC8FF", bg: "rgba(79,200,255,0.08)",  border: "rgba(79,200,255,0.16)"  },
+            ] as const).map((metric, i) => (
+              <motion.div
+                key={metric.label}
+                className="rounded-2xl p-5 flex flex-col gap-2"
+                style={{ background: "#0D0D11", border: `1px solid ${metric.border}` }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{ duration: 0.55, ease: EASE_PREMIUM, delay: i * 0.09 }}
+              >
+                <div
+                  className="w-9 h-9 rounded-xl mb-1 flex items-center justify-center shrink-0"
+                  style={{ background: metric.bg }}
+                >
+                  <div className="w-2 h-2 rounded-full" style={{ background: metric.accent }} />
+                </div>
+                <div
+                  className="font-black leading-none tracking-tighter"
+                  style={{
+                    color: metric.accent,
+                    fontSize: metric.value.length > 8 ? "1.15rem" : metric.value.length > 5 ? "1.5rem" : "1.9rem",
+                  }}
+                >
+                  {metric.value}
+                </div>
+                <div className="text-[11.5px] font-semibold text-co-text leading-tight">{metric.label}</div>
+                <div className="text-[10px] text-co-text-muted leading-snug">{metric.sub}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Industries section ────────────────────────────────────────────── */}
-      <section ref={industriesRef} className="relative py-24 md:py-32 overflow-hidden bg-co-bg">
+      <section ref={industriesRef} className="relative py-16 md:py-24 overflow-hidden bg-co-bg">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
         <div
           className="orb w-[500px] h-[500px] top-1/2 right-[-8%] -translate-y-1/2"
@@ -599,7 +958,7 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
             variants={headerBlock}
             initial="hidden"
             animate={industriesInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-14 md:mb-18"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-10 md:mb-14"
           >
             <div>
               <motion.div variants={headerLabel} className="mb-4">
@@ -645,6 +1004,16 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
                       <p className="text-sm text-co-text-muted leading-relaxed flex-1">
                         {industryDescriptions[industry] ?? "High-intent local search market with strong demand for professional digital presence."}
                       </p>
+                      {industryToNicheSlug[industry] && (
+                        <Link
+                          href={`/website-design/${industryToNicheSlug[industry]}`}
+                          className="mt-4 inline-flex items-center gap-1.5 text-[11px] font-semibold transition-colors duration-200 hover:opacity-100"
+                          style={{ color: accent.borderAccent, opacity: 0.75 }}
+                        >
+                          View {industry} websites
+                          <ArrowRight size={11} />
+                        </Link>
+                      )}
                     </div>
                   </SpotlightCard>
                 </motion.div>
@@ -665,8 +1034,11 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
         </div>
       </section>
 
+      {/* ── Local Proof section ──────────────────────────────────────────── */}
+      <LocalProofSection data={data} nearbyLocations={nearbyLocations} />
+
       {/* ── Deliverables section ──────────────────────────────────────────── */}
-      <section ref={deliverablesRef} className="relative py-24 md:py-32 overflow-hidden">
+      <section ref={deliverablesRef} className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-co-surface" />
         <div className="absolute inset-0 bg-grid-sm opacity-[0.25]" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
@@ -713,8 +1085,82 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
         </div>
       </section>
 
+      {/* ── Local SEO section ────────────────────────────────────────────── */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-co-bg" />
+        <div className="absolute inset-0 bg-dot opacity-[0.06]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
+        <div
+          className="orb w-[500px] h-[400px] top-1/2 left-[-6%] -translate-y-1/2"
+          style={{ background: "radial-gradient(ellipse, rgba(155,114,255,0.05) 0%, transparent 70%)" }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 0.7, ease: EASE_PREMIUM }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-10"
+          >
+            <div>
+              <SectionLabel className="mb-5">Local SEO Strategy</SectionLabel>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-co-text">
+                Built to rank in{" "}
+                <span className="text-gradient-accent">{data.city}</span>
+              </h2>
+            </div>
+            <p className="text-co-text-muted text-base md:text-lg leading-relaxed">
+              Every site we build is structured for local search visibility — not just a design handoff. {data.city} customers are searching for your service right now. We build the infrastructure to capture them.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {localSeoItems.map((item, i) => (
+              <motion.div
+                key={item.title}
+                className="rounded-2xl p-6 flex flex-col gap-3"
+                style={{ background: "rgba(255,255,255,0.022)", border: "1px solid rgba(255,255,255,0.075)" }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{ duration: 0.55, ease: EASE_PREMIUM, delay: i * 0.09 }}
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                  style={{ background: "rgba(79,127,255,0.08)", border: "1px solid rgba(79,127,255,0.18)" }}
+                >
+                  <item.Icon size={16} style={{ color: "#7BA3FF" }} />
+                </div>
+                <p className="font-semibold text-co-text text-sm leading-snug">{item.title}</p>
+                <p className="text-[12.5px] text-co-text-muted leading-relaxed">{item.body}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6, ease: EASE_PREMIUM, delay: 0.4 }}
+            className="mt-10"
+          >
+            <Button href="/contact" variant="primary" size="md" icon={<ArrowUpRight size={15} />}>
+              Get Your Free Local SEO Audit
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Local Insights section ───────────────────────────────────────── */}
+      <LocalInsightsSection city={data.city} />
+
+      {/* ── Local Search Funnel section ───────────────────────────────────── */}
+      <LocalSearchFunnelSection city={data.city} state={data.state} topIndustries={data.topIndustries} />
+
       {/* ── FAQ section ───────────────────────────────────────────────────── */}
-      <section className="relative py-24 md:py-32 overflow-hidden bg-co-bg">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-co-bg">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 md:px-8">
           <motion.div
@@ -732,17 +1178,17 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
       </section>
 
       {/* ── Internal links ────────────────────────────────────────────────── */}
-      <section className="relative py-10 overflow-hidden">
+      <section className="relative py-7 overflow-hidden">
         <div className="absolute inset-0 bg-co-surface" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-co-border-hover to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
-          <InternalLinks title="More cities & services" links={exploreLinks} />
+          <InternalLinks title={`More ${data.state} cities & services`} links={exploreLinks} />
         </div>
       </section>
 
       {/* ── CTA section ───────────────────────────────────────────────────── */}
-      <section ref={ctaRef} className="relative py-24 md:py-36 overflow-hidden">
+      <section ref={ctaRef} className="relative pt-16 pb-24 md:pt-24 md:pb-36 overflow-hidden">
         <div className="absolute inset-0 bg-co-surface" />
         <div className="absolute inset-0 bg-grid-sm opacity-30" />
         <div
@@ -805,20 +1251,25 @@ export function CityPageLayout({ data, nearbyLocations = [] }: CityPageLayoutPro
           </motion.div>
 
           <motion.div
-            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
+            className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-6 border-t border-white/[0.06]"
             initial={{ opacity: 0 }}
             animate={ctaInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             {["No upfront payment", "Response within 24 hours", `Built for ${data.city} businesses`].map((item) => (
               <div key={item} className="flex items-center gap-1.5">
-                <div className="w-1 h-1 rounded-full bg-co-accent/50" />
-                <span className="text-xs font-medium text-co-text-muted">{item}</span>
+                <div className="w-1 h-1 rounded-full bg-co-accent/40" />
+                <span className="text-[11px] font-medium text-co-text-muted">{item}</span>
               </div>
             ))}
           </motion.div>
         </div>
       </section>
+
+      {/* ── JSON-LD Schema ─────────────────────────────────────────────────── */}
+      <SchemaMarkup type="LocalBusiness" city={data.city} state={data.state} stateSlug={data.stateSlug} slug={data.slug} description={data.businessAngle} />
+      <SchemaMarkup type="FAQPage" items={faqItems} />
+      <SchemaMarkup type="BreadcrumbList" items={breadcrumbs.map((b) => ({ name: b.label, href: b.href }))} />
     </main>
   )
 }

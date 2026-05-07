@@ -17,13 +17,14 @@ export async function generateMetadata({
   const stateData = states.find((s) => s.slug === stateSlug)
   if (!stateData) return {}
 
+  const title = `Website Design for Service Businesses in ${stateData.name} | ClevOps`
+  const description = `Conversion-focused website design for ${stateData.name} service businesses. City-level local SEO, lead capture, and mobile-first performance. 14-day delivery from $999.`
+
   return {
-    title: `Website Design for Service Businesses in ${stateData.name}`,
-    description: `ClevOps builds high-converting websites for local service businesses across ${stateData.name}. ${stateData.marketAngle.slice(0, 100)}`,
-    openGraph: {
-      title: `Website Design for Service Businesses in ${stateData.name} | ClevOps`,
-      description: `High-converting websites for ${stateData.name} service businesses — cleaning, HVAC, landscaping, contractors, and more.`,
-    },
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary_large_image", title, description },
   }
 }
 
