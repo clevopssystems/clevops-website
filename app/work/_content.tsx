@@ -64,7 +64,7 @@ function NewSiteVisual() {
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
         </div>
         <div className="flex-1 h-4 rounded bg-co-bg/60 flex items-center px-2 mx-2">
-          <span className="text-[8px] text-co-text-muted">cleaningfromtheheart.com</span>
+          <span className="text-[8px] text-co-text-muted">cleaningfromtheheartllc.com</span>
           <div className="ml-auto flex items-center gap-1">
             <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
             <span className="text-[7px] text-green-400">1.4s</span>
@@ -267,7 +267,7 @@ function CaseStudyBlock() {
             <div className="w-3 h-3 rounded-full bg-green-500/60" />
           </div>
           <div className="flex-1 text-center">
-            <span className="text-xs text-co-text-muted">cleaningfromtheheart.com</span>
+            <span className="text-xs text-co-text-muted">cleaningfromtheheartllc.com</span>
           </div>
           <div className="flex gap-2">
             <span className="px-2.5 py-1 rounded text-[10px] font-semibold bg-green-500/10 text-green-400 border border-green-500/15">
@@ -282,7 +282,7 @@ function CaseStudyBlock() {
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-co-border">
           <div className="p-6 md:p-8">
             <div className="text-[10px] font-semibold tracking-widest uppercase text-co-text-muted mb-3">Client</div>
-            <h2 className="text-xl font-bold text-co-text mb-1">Cleaning From The Heart</h2>
+            <h2 className="text-xl font-bold text-co-text mb-1">Cleaning From The Heart LLC</h2>
             <p className="text-sm text-co-text-secondary">Residential cleaning service with strong customer satisfaction but weak digital presence.</p>
           </div>
           <div className="p-6 md:p-8">

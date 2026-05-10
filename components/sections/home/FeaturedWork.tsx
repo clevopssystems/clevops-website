@@ -175,7 +175,7 @@ export function FeaturedWork() {
           {/* Before/After toggle row — floats above the content */}
           <div className="flex items-center justify-between mb-8 pb-5 border-b border-co-border/50">
             <div className="flex items-center gap-3">
-              <span className="text-xs text-co-text-muted font-medium">cleaningfromtheheart.com</span>
+              <span className="text-xs text-co-text-muted font-medium">cleaningfromtheheartllc.com</span>
               <span className="hidden sm:inline-flex px-2.5 py-1 rounded text-[10px] font-semibold bg-green-500/10 text-green-400 border border-green-500/15">
                 Residential Cleaning
               </span>
@@ -207,7 +207,7 @@ export function FeaturedWork() {
                   Client
                 </span>
                 <h3 className="text-2xl font-bold text-co-text mb-3">
-                  Cleaning From The Heart
+                  Cleaning From The Heart LLC
                 </h3>
                 <p className="text-sm text-co-text-secondary leading-relaxed">
                   A quality cleaning business with strong word-of-mouth and
