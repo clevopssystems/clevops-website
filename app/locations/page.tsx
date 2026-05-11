@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "Website Design for Service Businesses | All US Locations | ClevOps",
   description:
     "ClevOps builds conversion-focused websites for local service businesses across the USA. Browse by state and city: local SEO, lead capture, mobile-first. From $999.",
+  alternates: {
+    canonical: "https://clevops.co/locations",
+  },
 }
 
 export default function LocationsHubPage() {

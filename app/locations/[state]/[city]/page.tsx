@@ -3,6 +3,8 @@ import { notFound } from "next/navigation"
 import { CityPageLayout, type NearbyLocation } from "@/components/seo/CityPageLayout"
 import { locations } from "@/data/locations"
 
+const BASE_URL = "https://clevops.co"
+
 export function generateStaticParams() {
   return locations.map((loc) => ({
     state: loc.stateSlug,
@@ -34,6 +36,9 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: {
+      canonical: `${BASE_URL}/locations/${cityData.stateSlug}/${cityData.slug}`,
+    },
     openGraph: {
       title,
       description,

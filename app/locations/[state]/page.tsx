@@ -4,6 +4,8 @@ import { StatePageLayout } from "@/components/seo/StatePageLayout"
 import { states } from "@/data/states"
 import { locations } from "@/data/locations"
 
+const BASE_URL = "https://clevops.co"
+
 export function generateStaticParams() {
   return states.map((s) => ({ state: s.slug }))
 }
@@ -23,6 +25,9 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: {
+      canonical: `${BASE_URL}/locations/${stateData.slug}`,
+    },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
   }

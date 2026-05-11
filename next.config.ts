@@ -53,6 +53,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/locations/texas/fortworth",
+        destination: "/locations/texas/fort-worth",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
