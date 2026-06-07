@@ -5,7 +5,6 @@ import { motion, useInView } from "framer-motion"
 import { SectionLabel } from "@/components/ui/SectionLabel"
 import { SpotlightCard } from "@/components/ui/SpotlightCard"
 import {
-  EASE_PREMIUM,
   headerBlock,
   headerH2,
   headerLabel,

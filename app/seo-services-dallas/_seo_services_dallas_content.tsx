@@ -18,7 +18,6 @@ import {
   Target,
   Globe,
   BarChart3,
-  Star,
   Activity,
   Link2,
   FileText,

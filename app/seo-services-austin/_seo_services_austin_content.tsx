@@ -10,7 +10,6 @@ import {
   Zap,
   ShieldCheck,
   TrendingUp,
-  Search,
   Smartphone,
   MapPin,
   Brain,

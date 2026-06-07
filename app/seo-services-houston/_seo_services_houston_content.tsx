@@ -23,8 +23,6 @@ import {
   FileText,
   Gauge,
   Building2,
-  Truck,
-  Heart,
 } from "lucide-react"
 import { SchemaMarkup } from "@/components/seo/SchemaMarkup"
 import { SectionLabel } from "@/components/ui/SectionLabel"

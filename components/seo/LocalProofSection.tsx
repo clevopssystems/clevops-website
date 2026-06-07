@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
-import { MapPin, TrendingUp, AlertCircle } from "lucide-react"
+import { MapPin, AlertCircle } from "lucide-react"
 import { SectionLabel } from "@/components/ui/SectionLabel"
 import { EASE_PREMIUM } from "@/lib/animations"
 import type { CityData } from "@/data/locations"

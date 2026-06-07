@@ -2,7 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { ArrowUpRight, TrendingUp } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { EASE_PREMIUM } from "@/lib/animations"
 
