@@ -1,0 +1,215 @@
+/* ==========================================================================
+   /privacy and /terms, prefixed lg-. Loaded by those two routes only, on top
+   of the site-ui kit. One light scene of long-form reading: the title block,
+   then a numbered contents list beside the text. No footage, no reveals, no
+   motion. Headings are scoped `.ui-page .lg-*` so the kit's display-size h2
+   cannot reach them.
+   ========================================================================== */
+
+.lg-scene {
+  padding-block: clamp(64px, 8vw, 112px) clamp(88px, 10vw, 136px);
+  background: var(--color-background);
+}
+
+/* ---- Title block ---------------------------------------------------------- */
+
+.lg-head {
+  max-width: 760px;
+  padding-bottom: clamp(40px, 5vw, 64px);
+}
+.lg-head h1 {
+  font-size: clamp(40px, 4.6vw, 64px);
+  font-weight: 580;
+  line-height: 1.03;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+.lg-lead {
+  max-width: 620px;
+  margin-top: 24px;
+  color: var(--color-body);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.lg-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  margin: 32px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--ui-line-strong);
+}
+.lg-meta dt {
+  color: var(--ui-label);
+  font-family: var(--ui-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.lg-meta dd { margin: 6px 0 0; font-size: 15px; }
+
+/* ---- Contents + text ------------------------------------------------------ */
+
+.lg-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(40px, 6vw, 96px);
+  padding-top: clamp(40px, 5vw, 64px);
+  border-top: 1px solid var(--ui-line);
+}
+
+.lg-toc {
+  position: sticky;
+  top: 112px;
+  max-height: calc(100vh - 136px);
+  overflow-y: auto;
+}
+.ui-page .lg-toc-title {
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ui-line-strong);
+  color: var(--ui-label);
+  font-family: var(--ui-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.lg-toc ol { margin: 0; padding: 0; list-style: none; }
+.lg-toc a {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  padding-block: 9px;
+  border-bottom: 1px solid var(--ui-line);
+  color: var(--color-body);
+  font-size: 14px;
+  line-height: 1.45;
+  transition: color var(--motion-hover) var(--motion-ease);
+}
+.lg-toc a:hover { color: var(--color-text); }
+.lg-toc a:focus-visible { outline-offset: 2px; }
+.lg-toc-num,
+.lg-num {
+  color: var(--color-accent-hover);
+  font-family: var(--ui-mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.lg-toc-num { padding-top: 2px; }
+
+.lg-body { min-width: 0; max-width: 720px; }
+
+.lg-section + .lg-section {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--ui-line);
+}
+.ui-page .lg-section h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: clamp(24px, 2.4vw, 30px);
+  font-weight: 560;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+.lg-num { flex: none; font-size: 13px; letter-spacing: 0; }
+
+/* ---- Prose ---------------------------------------------------------------- */
+
+.lg-prose { margin-top: 20px; color: var(--color-body); font-size: 16.5px; line-height: 1.75; }
+.lg-prose > * + * { margin-top: 16px; }
+.lg-prose h3 {
+  margin: 28px 0 0;
+  color: var(--color-text);
+  font-size: 17px;
+  font-weight: 580;
+  letter-spacing: -0.01em;
+}
+.lg-prose h3 + * { margin-top: 8px; }
+.lg-prose strong { color: var(--color-text); font-weight: 580; }
+.lg-prose ul { padding: 0; list-style: none; }
+.lg-prose li { position: relative; padding-left: 22px; }
+.lg-prose li + li { margin-top: 8px; }
+.lg-prose li::before {
+  content: "";
+  position: absolute;
+  top: 0.8em;
+  left: 2px;
+  width: 6px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.lg-prose a,
+.lg-related a,
+.lg-contact a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: rgb(49 92 255 / 45%);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--motion-hover) var(--motion-ease);
+}
+.lg-prose a:hover,
+.lg-related a:hover,
+.lg-contact a:hover { text-decoration-color: var(--color-accent); }
+.lg-prose a:focus-visible,
+.lg-related a:focus-visible,
+.lg-contact a:focus-visible { outline-offset: 3px; }
+
+/* Stated caveats and the no-guarantee statement: the start page's rule. */
+.lg-callout {
+  padding: 2px 0 2px 18px;
+  border-left: 2px solid var(--color-accent);
+}
+
+.lg-contact {
+  margin: 20px 0 0;
+  border-top: 1px solid var(--ui-line-strong);
+}
+.lg-contact > div {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 4px 20px;
+  padding-block: 14px;
+  border-bottom: 1px solid var(--ui-line);
+}
+.lg-contact dt {
+  padding-top: 4px;
+  color: var(--ui-label);
+  font-family: var(--ui-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.lg-contact dd { margin: 0; color: var(--color-text); font-size: 16px; line-height: 1.6; overflow-wrap: anywhere; }
+
+.lg-related {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--ui-line-strong);
+  color: var(--color-body);
+  font-size: 15px;
+}
+
+/* ---- Responsive ----------------------------------------------------------- */
+
+@media (max-width: 1120px) {
+  .lg-layout { grid-template-columns: minmax(0, 1fr); }
+  .lg-toc { position: static; max-width: 720px; max-height: none; overflow: visible; }
+  .lg-toc ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+}
+
+@media (max-width: 640px) {
+  .lg-toc ol { grid-template-columns: minmax(0, 1fr); }
+  .lg-contact > div { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .lg-head h1 { font-size: clamp(34px, 10vw, 44px); }
+  .lg-lead { font-size: 16.5px; }
+  .lg-prose { font-size: 16px; }
+}

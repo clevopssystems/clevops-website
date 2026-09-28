@@ -1,0 +1,102 @@
+/* Phase 7: the site footer, loaded by every route. The closing scene it was
+   first paired with now lives in each page's own stylesheet. */
+
+/* Footer: one shade lighter than the closing scene, and deliberately small. */
+.site-footer {
+  --footer-surface: #111110;
+  --footer-line: #242420;
+  --footer-link: #a9ada6;
+  --footer-meta: #8f938c;
+  --footer-quiet: #7c8078;
+  border-top: 1px solid rgb(247 247 244 / 7%);
+  background: var(--footer-surface);
+  color: #f7f7f4;
+  color-scheme: dark;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: clamp(32px, 4vw, 72px);
+  padding-block: clamp(56px, 5.5vw, 80px) clamp(48px, 5vw, 68px);
+}
+
+.footer-wordmark { font-size: 24px; }
+.footer-descriptor {
+  max-width: 30ch;
+  margin: 16px 0 0;
+  color: var(--footer-meta);
+  font-size: 14px;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+.footer-column-heading {
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 550;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.footer-column ul { margin: 0; padding: 0; list-style: none; }
+.footer-column a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  font-size: 14px;
+  color: var(--footer-link);
+  transition: color var(--motion-hover) var(--motion-ease);
+}
+.footer-column a:hover { color: var(--color-accent-soft); }
+
+.footer-action { display: grid; gap: 16px; justify-items: start; align-content: start; }
+.footer-action-copy { margin: 0; color: var(--footer-meta); font-size: 14px; }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 22px;
+  border-top: 1px solid var(--footer-line);
+  color: var(--footer-meta);
+  font-size: 13px;
+}
+.footer-bottom p { margin: 0; }
+.footer-legal { display: flex; gap: 24px; color: var(--footer-quiet); }
+.footer-legal a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--footer-link);
+  transition: color var(--motion-hover) var(--motion-ease);
+}
+.footer-legal a:hover { color: var(--color-accent-soft); }
+
+@media (max-width: 1120px) {
+  .footer-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 760px) {
+  .footer-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px 28px; }
+  .footer-action {
+    grid-column: 1 / -1;
+    padding-top: 30px;
+    border-top: 1px solid var(--footer-line);
+  }
+  .footer-column a { min-height: 40px; }
+}
+
+@media (max-width: 560px) {
+  .footer-top { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .footer-brand { grid-column: auto; }
+  .footer-descriptor { max-width: 34ch; }
+  .footer-action { grid-column: auto; }
+  .footer-action .button { width: 100%; }
+  .footer-bottom { align-items: flex-start; flex-direction: column; gap: 10px; padding-block: 20px 26px; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-action .button:not(:disabled):hover { transform: translateY(-2px); }
+}
